@@ -74,11 +74,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-11T10:05:31.758Z",
-  "id": "pZOUzAoRv0daKneG",
-  "meta": {
-    "templateId": "1206"
-  },
+  "createdAt": "2024-09-26T07:44:20.692Z",
+  "id": "imx5ZsRZv1m8eslz",
+  "meta": null,
   "name": "Process Shopify new orders with Zoho CRM and Harvest",
   "nodes": [
     {
@@ -302,20 +300,13 @@
       "id": "a1e429e4-4d52-4028-9ceb-1730f96d334f"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-11T09:05:52.167Z",
-      "updatedAt": "2024-08-11T09:14:06.583Z",
-      "id": "zlJZt3Fo1ZYAvCNp",
-      "name": "sales & marketing"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-11T10:05:31.758Z",
-  "versionId": "142d747e-875a-4271-ac68-67297311475d"
+  "updatedAt": "2024-09-26T07:44:20.692Z",
+  "versionId": "8c32af8c-6eb3-46ca-bb29-4b8e1c1976b0"
 }
