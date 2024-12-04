@@ -141,11 +141,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-23T07:35:18.026Z",
-  "id": "gwz2HOaHmEJY9HIA",
-  "meta": {
-    "templateId": "2198"
-  },
+  "createdAt": "2024-09-26T07:44:17.768Z",
+  "id": "zxagUAP5hHWrErcc",
+  "meta": null,
   "name": "Compose reply draft in Gmail with OpenAI Assistant",
   "nodes": [
     {
@@ -557,20 +555,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T15:23:48.276Z",
-      "updatedAt": "2024-08-22T15:23:48.276Z",
-      "id": "bxsFpsA4Wm06ilfw",
-      "name": "operations"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-23T07:36:03.000Z",
-  "versionId": "d76552cc-c955-482f-a448-2a56f415a771"
+  "updatedAt": "2024-09-26T07:44:17.768Z",
+  "versionId": "6c8e7315-c288-4277-a016-95f86563a9c7"
 }
