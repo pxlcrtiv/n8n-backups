@@ -151,12 +151,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-09T18:08:25.942Z",
-  "id": "6QjDmTJRKTVsSk7Y",
-  "meta": {
-    "templateId": "2289",
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:23.525Z",
+  "id": "zdKZ9DyX640BUTzI",
+  "meta": null,
   "name": "WF101: Restore backed up workflows from GitHub to n8n 2",
   "nodes": [
     {
@@ -328,7 +325,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -411,7 +408,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -583,13 +580,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-09T18:59:08.000Z",
-  "versionId": "dfa6a05a-b37e-4cd0-97e8-9634a4a247f3"
+  "updatedAt": "2024-09-26T07:44:23.525Z",
+  "versionId": "2c94b4f0-3b65-4251-a619-16cd5f927c13"
 }
