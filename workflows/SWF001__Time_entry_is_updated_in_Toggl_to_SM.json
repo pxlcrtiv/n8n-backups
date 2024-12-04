@@ -268,8 +268,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:47.168Z",
-  "id": "3uaSOICREPdkghaR",
+  "createdAt": "2024-09-26T07:44:21.497Z",
+  "id": "egyJ8qHaDOD6bIS4",
   "meta": null,
   "name": "SWF001__Time_entry_is_updated_in_Toggl_to_SM",
   "nodes": [
@@ -1017,6 +1017,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:47.168Z",
-  "versionId": "6053ee8c-3f25-401c-b053-c7fc871313ff"
+  "updatedAt": "2024-09-26T07:44:21.497Z",
+  "versionId": "c99e5093-53e0-455b-a389-0df774d98aaa"
 }
