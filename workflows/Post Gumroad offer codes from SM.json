@@ -1,12 +1,9 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-08-22T18:20:52.604Z",
-  "id": "sEP6dSk6c1wPoWoH",
-  "meta": {
-    "templateId": "650",
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:20.655Z",
+  "id": "oMeohrNBOy7a3rlO",
+  "meta": null,
   "name": "Post Gumroad offer codes from SM",
   "nodes": [
     {
@@ -34,13 +31,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T20:09:59.000Z",
-  "versionId": "c7bad02b-b758-4858-960c-07ec4b618738"
+  "updatedAt": "2024-09-26T07:44:20.655Z",
+  "versionId": "a01dbbc7-afbc-445e-baf6-0d04354fcf62"
 }
