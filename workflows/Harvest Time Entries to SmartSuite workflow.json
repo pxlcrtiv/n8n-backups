@@ -1,0 +1,411 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Harvest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Harvest": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "12 Hours from now",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMTimeEntry": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "SetData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SetData": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format - MMMM DD YY": {
+      "main": [
+        [
+          {
+            "node": "SMTimeEntry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "12 Hours from now": {
+      "main": [
+        [
+          {
+            "node": "Format - MMMM DD YY",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "CreatetimeEntryinSM",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "UpdateTimeEntryinSM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-09-30T18:52:26.981Z",
+  "id": "qjOKN8UnidkUHQfN",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Harvest Time Entries to SmartSuite workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "683c710b-1d6f-44c6-86ef-16cc24cbb4ea",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        900,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "timeEntry",
+        "accountId": 1710034,
+        "limit": 10,
+        "filters": {
+          "from": "2024-08-01T00:00:00",
+          "is_running": false
+        }
+      },
+      "id": "b3ae3179-c9a3-429e-9ac0-1880b55a08d1",
+      "name": "Harvest",
+      "type": "n8n-nodes-base.harvest",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        520
+      ],
+      "credentials": {
+        "harvestApi": {
+          "id": "NMg3L0p2BRTgsibv",
+          "name": "Harvest account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/66faf457b0fec55e81532d98/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.spent_date }} - {{ $json.id }}\",\n  \"status\": {\n    \"value\": \"ready_for_review\"\n            },\n  \"sd1f99378c\": \"{{ $json.id }}\",\n  \"s80da65694\": \"{{ $json.spent_date }}\",\n  \"s36181850c\": \"{{ $json.hours }}\",\n  \"sac94990b3\": \"{{ $json.hours_without_timer }}\",\n  \"st250hip\": \"{{ $json.rounded_hours }}\",\n  \"stn6d0z5\": \"{{ $json.notes }}\",\n  \"s8195da526\": \"{{ $json.is_locked }}\",\n  \"s1fe9e63d3\": \"{{ $json.locked_reason }}\",\n  \"s7d788ae6a\": \"{{ $json.is_closed }}\",\n  \"sc2a684c38\": \"{{ $json.is_billed }}\",\n  \"s2f8f23b0a\": \"{{ $json.timer_started_at }}\",\n  \"s1c0fc2b15\": \"{{ $json.started_time }}\",\n  \"sbf2b83c3d\": \"{{ $json.ended_time }}\",\n  \"sf232ba875\": \"{{ $json.is_running }}\",\n  \"s2c26a8af5\": \"{{ $json.billable }}\",\n  \"sd9a8d703c\": \"{{ $json.budgeted }}\",\n  \"s28c369522\": \"{{ $json.billable_rate }}\",\n  \"scp3r8hj\": \"{{ $json.cost_rate }}\",\n  \"safc16591f\": \"{{ $json.created_at }}\",\n  \"s525c70645\": \"{{ $json.updated_at }}\",\n  \"sfabf97f22\": \"{{ $json.user.id }}\",\n  \"sjgyurpi\": \"{{ $json.user.name }}\",\n  \"s8ca248abb\": \"{{ $json.client.id }}\",\n  \"stme5kuj\": \"{{ $json.client.name }}\",\n  \"s9ebcc2362\": \"{{ $json.client.currency }}\",\n  \"sbe575549f\": \"{{ $json.project.id }}\",\n  \"scfc9ce169\": \"{{ $json.project.name }}\",\n  \"sb9fb01a90\": \"{{ $json.project.code }}\",\n  \"s1277505d0\": \"{{ $json.task.id }}\",\n  \"s7b306542d\": \"{{ $json.task.name }}\",\n  \"s108708bc2\": \"{{ $json.user_assignment.id }}\",\n  \"sa5516696f\": \"{{ $json.user_assignment.is_project_manager }}\",\n  \"s65i0yrg\": \"{{ $json.user_assignment.is_active }}\",\n  \"s099m97d\": \"{{ $json.user_assignment.use_default_rates }}\",\n  \"s3552eb869\": \"{{ $json.user_assignment.budget }}\",\n  \"sc1608ed0f\": \"{{ $json.user_assignment.created_at }}\",\n  \"s1fd7c58\": \"{{ $json.user_assignment.updated_at }}\",\n  \"s719f01a7f\": \"{{ $json.user_assignment.hourly_rate }}\",\n  \"s31965ae10\": \"{{ $json.task_assignment.id }}\",\n  \"sef289af4c\": \"{{ $json.task_assignment.billable }}\",\n  \"s35c57aae9\": \"{{ $json.task_assignment.is_active }}\",\n  \"sc7ea335e0\": \"{{ $json.task_assignment.created_at }}\",\n  \"s36c2b03e9\": \"{{ $json.task_assignment.updated_at }}\",\n  \"sb0584bb0d\": \"{{ $json.task_assignment.hourly_rate }}\",\n  \"s052d17c81\": \"{{ $json.task_assignment.budget }}\",\n  \"s0524f448a\": \"{{ $json.invoice }}\",\n  \"sefc891657\": \"{{ $json.external_reference }}\"\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "3e308444-4a8a-4ddf-a5d3-dfb4a6f63948",
+      "name": "CreatetimeEntryinSM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2680,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/66faf457b0fec55e81532d98/records/list/",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "offet",
+              "value": "0"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"operator\": \"and\",\n    \"fields\": [\n      {        \n        \"field\": \"s80da65694\",\n        \"comparison\": \"is\",\n        \"value\": {\n          \"date_mode\": \"past_number_of_days\",\n          \"date_mode_value\": \"15\"\n        }\n      }        \n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "b8c8a4fe-53dc-44fc-9550-6a2d75531653",
+      "name": "SMTimeEntry",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "items",
+        "options": {}
+      },
+      "id": "6402f7af-06ee-446f-b856-7bfbb031eb37",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "https://app.smartsuite.com/api/v1/applications/66faf457b0fec55e81532d98/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.spent_date }} - {{ $json.id }}\",\n  \"status\": {\n    \"value\": \"ready_for_review\"\n            },\n  \"sd1f99378c\": \"{{ $json.id }}\",\n  \"s80da65694\": \"{{ $json.spent_date }}\",\n  \"s36181850c\": \"{{ $json.hours }}\",\n  \"sac94990b3\": \"{{ $json.hours_without_timer }}\",\n  \"st250hip\": \"{{ $json.rounded_hours }}\",\n  \"stn6d0z5\": \"{{ $json.notes }}\",\n  \"s8195da526\": \"{{ $json.is_locked }}\",\n  \"s1fe9e63d3\": \"{{ $json.locked_reason }}\",\n  \"s7d788ae6a\": \"{{ $json.is_closed }}\",\n  \"sc2a684c38\": \"{{ $json.is_billed }}\",\n  \"s2f8f23b0a\": \"{{ $json.timer_started_at }}\",\n  \"s1c0fc2b15\": \"{{ $json.started_time }}\",\n  \"sbf2b83c3d\": \"{{ $json.ended_time }}\",\n  \"sf232ba875\": \"{{ $json.is_running }}\",\n  \"s2c26a8af5\": \"{{ $json.billable }}\",\n  \"sd9a8d703c\": \"{{ $json.budgeted }}\",\n  \"s28c369522\": \"{{ $json.billable_rate }}\",\n  \"scp3r8hj\": \"{{ $json.cost_rate }}\",\n  \"safc16591f\": \"{{ $json.created_at }}\",\n  \"s525c70645\": \"{{ $json.updated_at }}\",\n  \"sfabf97f22\": \"{{ $json.user.id }}\",\n  \"sjgyurpi\": \"{{ $json.user.name }}\",\n  \"s8ca248abb\": \"{{ $json.client.id }}\",\n  \"stme5kuj\": \"{{ $json.client.name }}\",\n  \"s9ebcc2362\": \"{{ $json.client.currency }}\",\n  \"sbe575549f\": \"{{ $json.project.id }}\",\n  \"scfc9ce169\": \"{{ $json.project.name }}\",\n  \"sb9fb01a90\": \"{{ $json.project.code }}\",\n  \"s1277505d0\": \"{{ $json.task.id }}\",\n  \"s7b306542d\": \"{{ $json.task.name }}\",\n  \"s108708bc2\": \"{{ $json.user_assignment.id }}\",\n  \"sa5516696f\": \"{{ $json.user_assignment.is_project_manager }}\",\n  \"s65i0yrg\": \"{{ $json.user_assignment.is_active }}\",\n  \"s099m97d\": \"{{ $json.user_assignment.use_default_rates }}\",\n  \"s3552eb869\": \"{{ $json.user_assignment.budget }}\",\n  \"sc1608ed0f\": \"{{ $json.user_assignment.created_at }}\",\n  \"s1fd7c58\": \"{{ $json.user_assignment.updated_at }}\",\n  \"s719f01a7f\": \"{{ $json.user_assignment.hourly_rate }}\",\n  \"s31965ae10\": \"{{ $json.task_assignment.id }}\",\n  \"sef289af4c\": \"{{ $json.task_assignment.billable }}\",\n  \"s35c57aae9\": \"{{ $json.task_assignment.is_active }}\",\n  \"sc7ea335e0\": \"{{ $json.task_assignment.created_at }}\",\n  \"s36c2b03e9\": \"{{ $json.task_assignment.updated_at }}\",\n  \"sb0584bb0d\": \"{{ $json.task_assignment.hourly_rate }}\",\n  \"s052d17c81\": \"{{ $json.task_assignment.budget }}\",\n  \"s0524f448a\": \"{{ $json.invoice }}\",\n  \"sefc891657\": \"{{ $json.external_reference }}\"\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "d397b1d1-94c3-4fd9-b24d-7785d9e30dbe",
+      "name": "UpdateTimeEntryinSM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2680,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "25f5c0ee-106f-49b3-8894-f96f5ed82a8a",
+              "name": "items[0].sd1f99378c",
+              "value": "={{ $node[\"SMTimeEntry\"].items[0].sd1f99378c }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "e58c38ba-78fb-4ba1-808e-34fd12639d5c",
+      "name": "SetData",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2220,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "value": "={{ $json.new_date }}",
+        "toFormat": "YYYY/MM/DD",
+        "options": {}
+      },
+      "name": "Format - MMMM DD YY",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        1560,
+        360
+      ],
+      "typeVersion": 1,
+      "id": "906dfb60-f0cf-48dc-937b-49b9e0628f09"
+    },
+    {
+      "parameters": {
+        "action": "calculate",
+        "value": "={{$now}}",
+        "operation": "subtract",
+        "duration": 7,
+        "dataPropertyName": "new_date",
+        "options": {}
+      },
+      "name": "12 Hours from now",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        1340,
+        360
+      ],
+      "typeVersion": 1,
+      "id": "d411410e-b954-4a03-8c26-d63c1fd49345"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "={{ $node[\"SetData\"].json.items[0].sd1f99378c }}",
+                    "operator": {
+                      "type": "number",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "new"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c770a947-ce94-45d6-8305-8d42a709a342",
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "={{ $node[\"SMTimeEntry\"].json.items[0].sd1f99378c }}",
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "same"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a5f9e366-ad34-4f8a-aa2b-29c3db0d8e74",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2460,
+        520
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-02T08:02:36.000Z",
+  "versionId": "9821ff85-5a0d-408d-868f-faafd6ba2b34"
+}
