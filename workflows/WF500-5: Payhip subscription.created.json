@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-08-21T12:42:48.933Z",
-  "id": "fLcXXXtdqaR3dKjc",
+  "createdAt": "2024-09-26T07:44:24.080Z",
+  "id": "b2RSWDiUwtClHcFm",
   "meta": null,
   "name": "WF500-5: Payhip subscription.created",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:48.933Z",
-  "versionId": "7fb62ee0-6aae-4f25-996a-2a1e1d94ae81"
+  "updatedAt": "2024-09-26T07:44:24.080Z",
+  "versionId": "1fe32648-6ad7-42bd-b83b-37fa8cbb2380"
 }
