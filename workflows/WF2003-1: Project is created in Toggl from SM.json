@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-08-21T12:50:19.502Z",
-  "id": "SLjMxmbrc256xsCP",
+  "createdAt": "2024-09-26T07:44:23.561Z",
+  "id": "xUzmlZG4dvmFi72V",
   "meta": null,
   "name": "WF2003-1: Project is created in Toggl from SM",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:19.502Z",
-  "versionId": "55857439-fc45-4836-bca2-7b42db2fc210"
+  "updatedAt": "2024-09-26T07:44:23.561Z",
+  "versionId": "dbc0e6d2-2425-4994-b5cd-fde5043e4e49"
 }
