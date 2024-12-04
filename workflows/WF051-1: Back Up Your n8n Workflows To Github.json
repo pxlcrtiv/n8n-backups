@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "n8n": {
       "main": [
@@ -175,11 +175,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:19.454Z",
-  "id": "SyhPyBZ2ntZxSZAf",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:23.552Z",
+  "id": "7qZFgTH5jZLGHICZ",
+  "meta": null,
   "name": "WF051-1: Back Up Your n8n Workflows To Github",
   "nodes": [
     {
@@ -455,7 +453,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -485,20 +483,13 @@
       "typeVersion": 2
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T07:17:26.137Z",
-      "updatedAt": "2024-08-22T07:17:26.137Z",
-      "id": "qrwz7JNGZaL6dEmV",
-      "name": "backup-&-recovery"
-    }
-  ],
-  "triggerCount": 1,
-  "updatedAt": "2024-09-09T08:40:02.000Z",
-  "versionId": "c394a8c4-31e3-4282-84b4-840cc222103d"
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-26T07:44:23.552Z",
+  "versionId": "28908209-3cb4-4eb1-aceb-d2d3521f743d"
 }
