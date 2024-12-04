@@ -36,11 +36,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-22T16:39:50.651Z",
-  "id": "Nu2uoY3QFlSlGfXe",
-  "meta": {
-    "templateId": "4"
-  },
+  "createdAt": "2024-09-26T07:44:21.822Z",
+  "id": "RB53OUnQ9IHQVR55",
+  "meta": null,
   "name": "Send selected GitHub events to Slack",
   "nodes": [
     {
@@ -164,7 +162,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -203,13 +201,13 @@
       }
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T18:00:43.000Z",
-  "versionId": "8e96be37-f4a2-47a2-83ab-f038a9e26f8b"
+  "updatedAt": "2024-09-26T07:44:21.822Z",
+  "versionId": "9f71dfe2-1f0f-4ea6-9274-4361e4839567"
 }
