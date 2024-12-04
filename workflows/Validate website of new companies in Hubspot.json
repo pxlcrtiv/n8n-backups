@@ -47,8 +47,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:19.093Z",
-  "id": "0DFg1rI9XDipZikZ",
+  "createdAt": "2024-09-26T07:44:22.942Z",
+  "id": "XmlHwPJGZBhnFRVN",
   "meta": null,
   "name": "Validate website of new companies in Hubspot",
   "nodes": [
@@ -157,6 +157,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:19.093Z",
-  "versionId": "20c60db8-bd46-4970-8778-97147912ea74"
+  "updatedAt": "2024-09-26T07:44:22.942Z",
+  "versionId": "5e8cdecc-2ec0-4fc9-a251-0662768cd51c"
 }
