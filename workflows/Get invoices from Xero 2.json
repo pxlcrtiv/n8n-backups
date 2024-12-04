@@ -13,11 +13,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-10T19:30:25.988Z",
-  "id": "IWgE6HX42auuiuYu",
-  "meta": {
-    "templateId": "543"
-  },
+  "createdAt": "2024-09-26T07:44:19.162Z",
+  "id": "Ctd72x8A4O0Wakaj",
+  "meta": null,
   "name": "Get invoices from Xero 2",
   "nodes": [
     {
@@ -47,13 +45,13 @@
       "id": "9037dcdb-8aaa-415c-9765-5ddcb23524fe"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-10T19:30:25.988Z",
-  "versionId": "abde694a-e4a4-4d93-aa25-a7e6323897c2"
+  "updatedAt": "2024-09-26T07:44:19.162Z",
+  "versionId": "b09bd347-7fd9-4464-abe1-63a7d47dba4c"
 }
