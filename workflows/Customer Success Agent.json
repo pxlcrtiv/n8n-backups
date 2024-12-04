@@ -1,11 +1,9 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-11T17:31:37.371Z",
-  "id": "StCOh9hic1qtfqXr",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:18.411Z",
+  "id": "5OQRhillbkoEt16w",
+  "meta": null,
   "name": "Customer Success Agent",
   "nodes": [
     {
@@ -20,13 +18,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-11T17:31:37.371Z",
-  "versionId": "7b4fbaa4-1b9f-4425-9030-c9a3154bcfae"
+  "updatedAt": "2024-09-26T07:44:18.411Z",
+  "versionId": "379fba97-4419-4f2a-8d57-476a1f2be2eb"
 }
