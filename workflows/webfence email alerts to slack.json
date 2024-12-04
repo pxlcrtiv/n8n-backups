@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-08-21T12:50:20.226Z",
-  "id": "O0r9g7StzOzS3IBB",
+  "createdAt": "2024-09-26T07:44:24.690Z",
+  "id": "dvYlhrqxV2TF2mg1",
   "meta": null,
   "name": "webfence email alerts to slack",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:20.226Z",
-  "versionId": "8e0b960f-8833-4a25-bff0-0e73319d1da7"
+  "updatedAt": "2024-09-26T07:44:24.690Z",
+  "versionId": "a80eb1bf-7f8b-4ccf-a2f4-82ffae85ba89"
 }
