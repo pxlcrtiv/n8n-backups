@@ -53,8 +53,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:19.612Z",
-  "id": "6KbxOMqdvotSFvKH",
+  "createdAt": "2024-09-26T07:44:23.951Z",
+  "id": "KUhg81dAsEDOqRCY",
   "meta": null,
   "name": "WF2003-5: Update time-tracking projects based on Syncro status changes",
   "nodes": [
@@ -205,6 +205,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:19.612Z",
-  "versionId": "7831ffe3-f5d8-46ca-bbb0-772de7e36e04"
+  "updatedAt": "2024-09-26T07:44:23.951Z",
+  "versionId": "23000749-d1bd-48f8-81c7-dc10488b2e05"
 }
