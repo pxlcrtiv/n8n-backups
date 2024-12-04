@@ -42,8 +42,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:41.563Z",
-  "id": "ISbhlFH5xi3E78Km",
+  "createdAt": "2024-09-26T07:44:17.630Z",
+  "id": "r2qD7u8SRBOyAQY3",
   "meta": null,
   "name": "Check for preview for a link",
   "nodes": [
@@ -125,6 +125,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:41.563Z",
-  "versionId": "d6d2685b-0cfa-4cbd-839f-57fac3528ee4"
+  "updatedAt": "2024-09-26T07:44:17.630Z",
+  "versionId": "40315ef6-bf69-4751-854b-f6876bb14f7e"
 }
