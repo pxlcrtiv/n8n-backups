@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:47.195Z",
-  "id": "RnJV5lDFrLARuAhA",
+  "createdAt": "2024-09-26T07:44:21.508Z",
+  "id": "X6rqiyuk7c2N0uMA",
   "meta": null,
   "name": "Sample error workflow",
   "nodes": [
@@ -77,6 +77,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:47.195Z",
-  "versionId": "61845a34-a06d-42b8-8abc-ff226d260af5"
+  "updatedAt": "2024-09-26T07:44:21.508Z",
+  "versionId": "c8118efa-122f-465b-ae50-ed36c2159323"
 }
