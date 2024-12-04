@@ -129,11 +129,9 @@
       ]
     }
   },
-  "createdAt": "2024-07-24T16:21:36.081Z",
-  "id": "AT4Fc5Jpu5QsTYJ8",
-  "meta": {
-    "templateId": "2289"
-  },
+  "createdAt": "2024-09-26T07:44:21.441Z",
+  "id": "rNl9ewfIxqXfJPXC",
+  "meta": null,
   "name": "Restore backed up workflows from GitHub to n8n",
   "nodes": [
     {
@@ -474,13 +472,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-07-24T16:21:36.081Z",
-  "versionId": "a52fa96a-44cc-4961-a3ef-5a67e4e37791"
+  "updatedAt": "2024-09-26T07:44:21.441Z",
+  "versionId": "b8aaf845-bb0d-46d3-a17e-b1d3f0785349"
 }
