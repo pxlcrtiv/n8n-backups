@@ -215,12 +215,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-23T13:46:06.327Z",
-  "id": "k3yyNXzhxmJJAh8f",
-  "meta": {
-    "templateId": "2089",
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:20.728Z",
+  "id": "czvrFuoiI7qsrEVp",
+  "meta": null,
   "name": "Product Sync Automation with  e-Shops and SM  - enable Gumroad products",
   "nodes": [
     {
@@ -762,13 +759,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-23T13:46:06.327Z",
-  "versionId": "0949ed9a-8dcc-4564-8aa3-5e1e51d53fde"
+  "updatedAt": "2024-09-26T07:44:20.728Z",
+  "versionId": "e8fa0954-d562-416f-a120-97a84a5f69ab"
 }
