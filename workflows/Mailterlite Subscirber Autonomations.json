@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-08-21T12:50:18.094Z",
-  "id": "2nzOMWb0xSJNWeQl",
+  "createdAt": "2024-09-26T07:44:20.205Z",
+  "id": "3VeFjhlzgRydWNTu",
   "meta": null,
   "name": "Mailterlite Subscirber Autonomations",
   "nodes": [
@@ -54,6 +54,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:18.094Z",
-  "versionId": "86a85d5c-bf76-400a-ad37-c20d00b9bbeb"
+  "updatedAt": "2024-09-26T07:44:20.205Z",
+  "versionId": "5462fe6e-48ea-4b7b-9c7c-874cc90ec8e1"
 }
