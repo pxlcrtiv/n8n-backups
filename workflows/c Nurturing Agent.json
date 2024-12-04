@@ -13,11 +13,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-11T17:29:10.828Z",
-  "id": "5doxadtElwGgtdPE",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:24.266Z",
+  "id": "0nekpwn50o6cDZDi",
+  "meta": null,
   "name": "c Nurturing Agent",
   "nodes": [
     {
@@ -48,13 +46,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-11T17:48:36.000Z",
-  "versionId": "eca125d1-b2dd-423b-9cb1-059c032d9ff6"
+  "updatedAt": "2024-09-26T07:44:24.266Z",
+  "versionId": "4b9143f7-f01c-489f-aa49-6cbd671eea77"
 }
