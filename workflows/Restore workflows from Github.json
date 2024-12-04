@@ -151,11 +151,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-09T10:56:51.008Z",
-  "id": "FDqGUhfokTwC1qSQ",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:21.606Z",
+  "id": "H5nNWls5hRGLj3Yy",
+  "meta": null,
   "name": "Restore workflows from Github",
   "nodes": [
     {
@@ -327,7 +325,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -416,7 +414,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -564,20 +562,13 @@
       "disabled": true
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-11T07:45:31.937Z",
-      "updatedAt": "2024-08-11T07:45:31.937Z",
-      "id": "Rk6FaRhDhV3biszZ",
-      "name": "IT Ops"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-12T12:40:11.000Z",
-  "versionId": "166426e7-0028-4410-b85d-83484470f700"
+  "updatedAt": "2024-09-26T07:44:21.606Z",
+  "versionId": "bc6d9e02-d904-48f0-9509-8a9e24cac4af"
 }
