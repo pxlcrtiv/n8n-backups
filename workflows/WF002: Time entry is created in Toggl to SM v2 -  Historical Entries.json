@@ -65,18 +65,7 @@
       "main": [
         [
           {
-            "node": "Aggregate",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Aggregate": {
-      "main": [
-        [
-          {
-            "node": "Message Formatting",
+            "node": "OneAtATime1",
             "type": "main",
             "index": 0
           }
@@ -88,22 +77,6 @@
         [
           {
             "node": "Remove Duplicates",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Message Formatting": {
-      "main": [
-        [
-          {
-            "node": "Slack",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Mattermost",
             "type": "main",
             "index": 0
           }
@@ -178,40 +151,11 @@
         ]
       ]
     },
-    "Loop Over Items": {
-      "main": [
-        [
-          {
-            "node": "CreatetimeEntryinSM",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Replace Me",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Replace Me": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "GET TimeEntries - Current1": {
       "main": [
         [
           {
-            "node": "Split Out1",
+            "node": "OneAtATime1",
             "type": "main",
             "index": 0
           }
@@ -244,7 +188,18 @@
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "CreatetimeEntryinSM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OneAtATime1": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
             "type": "main",
             "index": 0
           }
@@ -252,9 +207,11 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:19.450Z",
-  "id": "Lr009Ur076acsCVr",
-  "meta": null,
+  "createdAt": "2024-09-26T07:44:23.424Z",
+  "id": "mlCEOH01p9s4ZViv",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "WF002: Time entry is created in Toggl to SM v2 -  Historical Entries",
   "nodes": [
     {
@@ -270,62 +227,8 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
-        "select": "channel",
-        "channelId": {
-          "__rl": true,
-          "value": "C07BLFDL917",
-          "mode": "list",
-          "cachedResultName": "toggl-time-captured"
-        },
-        "text": "={{ $json[\"message\"] }}",
-        "otherOptions": {}
-      },
-      "id": "72e17625-d92c-4535-b725-0c05cb4f5d9c",
-      "name": "Slack",
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.2,
-      "position": [
-        3440,
-        540
-      ],
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "x77Xb6YhugsdNMWc",
-          "name": "Slack account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "channelId": "jpqr5pw497dxf8kirt96t4ar5r",
-        "message": "={{ $json[\"message\"] }}",
-        "attachments": [
-          {}
-        ],
-        "otherOptions": {
-          "root_id": ""
-        }
-      },
-      "id": "59dfea31-e842-4f34-89aa-9202c77db52e",
-      "name": "Mattermost",
-      "type": "n8n-nodes-base.mattermost",
-      "typeVersion": 1,
-      "position": [
-        3440,
-        740
-      ],
-      "credentials": {
-        "mattermostApi": {
-          "id": "VGOFEEFurY7VTUJP",
-          "name": "Mattermost account"
-        }
-      }
-    },
-    {
-      "parameters": {
         "content": "## Reference Toggl",
-        "height": 541.0123448220287,
+        "height": 348.3012844471192,
         "width": 1774.5794222560603
       },
       "id": "74ab370f-5e48-40d8-878a-bcbb2969025f",
@@ -333,14 +236,14 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        460,
-        460
+        444,
+        575
       ]
     },
     {
       "parameters": {
         "content": "## SmartSuite",
-        "height": 329.3037901061815,
+        "height": 264.6602065626991,
         "width": 228.1849366795202
       },
       "id": "7ffb52a4-f1ca-4df0-9bd1-b6462d36845f",
@@ -348,8 +251,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2680,
-        580
+        2280,
+        640
       ]
     },
     {
@@ -387,13 +290,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1100,
-        780
+        1144,
+        720
       ],
       "credentials": {
         "httpBasicAuth": {
-          "id": "bVbx51fQToa3mOMj",
-          "name": "Toggle credentials"
+          "id": "77RAmzKqNF8JByWt",
+          "name": "Jacko Toggl Details"
         }
       }
     },
@@ -404,8 +307,8 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 1.1,
       "position": [
-        900,
-        780
+        944,
+        720
       ]
     },
     {
@@ -448,8 +351,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1340,
-        780
+        1384,
+        720
       ]
     },
     {
@@ -501,8 +404,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1560,
-        780
+        1604,
+        720
       ]
     },
     {
@@ -532,49 +435,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2740,
-        640
-      ]
-    },
-    {
-      "parameters": {
-        "fieldsToAggregate": {
-          "fieldToAggregate": [
-            {
-              "fieldToAggregate": "title"
-            },
-            {
-              "fieldToAggregate": "sf7335e6da"
-            },
-            {
-              "fieldToAggregate": "status"
-            },
-            {
-              "fieldToAggregate": "s2e7d2b64e"
-            },
-            {
-              "fieldToAggregate": "se6d1375cc"
-            },
-            {
-              "fieldToAggregate": "s6e80240de"
-            },
-            {
-              "fieldToAggregate": "s388b58221"
-            },
-            {
-              "fieldToAggregate": "description.data.content[0].content[0].text"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "cd131e8d-a69e-495e-83bc-a5ae9392df1b",
-      "name": "Aggregate",
-      "type": "n8n-nodes-base.aggregate",
-      "typeVersion": 1,
-      "position": [
-        2960,
-        640
+        2340,
+        740
       ]
     },
     {
@@ -602,21 +464,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        740,
-        780
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Assuming 'AggregatedData' is the name of the node with the aggregated data\nconst aggregatedData = $node[\"Aggregate\"].json;\n\n// Prepare the message\nlet message = 'Hi Team,\\n\\nNew time entries are ready for review. Here are the details:\\n\\n';\n\nconst dates = [...new Set(aggregatedData.s2e7d2b64e)];\n\ndates.forEach(date => {\n  message += `*Date:* ${date}\\n`;\n  message += `*Client:* ${aggregatedData.s388b58221[0]}\\n`;\n   message += '\\n\\n';\n  message += '```\\n';  // Start block quote for grey frame\n  message += 'Title                      | Status               | Worked Hours  | Description\\n';\n  message += '---------------------------|----------------------|---------------|----------------------------------------------\\n';\n  \n  aggregatedData.s2e7d2b64e.forEach((entryDate, index) => {\n    if (entryDate === date) {\n      const title = aggregatedData.title[index].padEnd(27, ' ');\n      const status = aggregatedData.status[index].value.padEnd(20, ' ');\n      const hours = aggregatedData.se6d1375cc[index].toString().padEnd(13, ' ');\n      const description = aggregatedData.text[index];\n      message += `${title}| ${status} | ${hours} | ${description}\\n`;\n    }\n  });\n  message += '```\\n\\n';  // End block quote for grey frame\n});\n\nmessage += '\\nPlease review these entries at your earliest convenience.\\nThank you!\\n';\n\nreturn [\n  {\n    json: {\n      message: message\n    }\n  }\n];"
-      },
-      "id": "7918906c-057c-454b-ba6c-b091718c9bb2",
-      "name": "Message Formatting",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3180,
-        640
+        784,
+        720
       ]
     },
     {
@@ -746,8 +595,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        496,
-        660
+        480,
+        640
       ]
     },
     {
@@ -851,30 +700,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "id": "11faf1fa-03ad-436e-88c0-822362a310e8",
-      "name": "Loop Over Items",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        2260,
-        660
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "0357ce04-58d2-42c3-8b63-81f1d80123f4",
-      "name": "Replace Me",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        2480,
-        680
-      ]
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "https://api.track.toggl.com/reports/api/v3/workspace/8524979/search/time_entries",
         "authentication": "genericCredentialType",
@@ -890,7 +715,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"start_date\": \"2024-02-01\",\n  \"end_date\": \"2024-02-28\"\n}",
+        "jsonBody": "{\n  \"start_date\": \"2024-11-01\",\n  \"end_date\": \"2024-12-01\"\n}",
         "options": {}
       },
       "id": "d1c7af5b-37a0-47df-836c-c9ed96e80313",
@@ -903,8 +728,8 @@
       ],
       "credentials": {
         "httpBasicAuth": {
-          "id": "bVbx51fQToa3mOMj",
-          "name": "Toggle credentials"
+          "id": "77RAmzKqNF8JByWt",
+          "name": "Jacko Toggl Details"
         }
       }
     },
@@ -918,7 +743,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -320,
+        -220,
         740
       ]
     },
@@ -1007,7 +832,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -100,
+        0,
         740
       ]
     },
@@ -1022,18 +847,32 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2036,
-        660
+        2020,
+        640
       ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "9139a329-a3c8-42f7-82fc-66edcf1d6878",
+      "name": "OneAtATime1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        -420,
+        740
+      ],
+      "typeVersion": 1
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:19.450Z",
-  "versionId": "5077a44e-fb5f-4fcc-9599-284f42debfac"
+  "updatedAt": "2024-12-04T08:53:47.000Z",
+  "versionId": "b7c64eac-cdd3-4750-90f7-2b4528309c17"
 }
