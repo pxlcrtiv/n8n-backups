@@ -151,11 +151,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:19.671Z",
-  "id": "3IJ2AfubrTYIz4r3",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:23.664Z",
+  "id": "Xrpmlrt9nc55SUtA",
+  "meta": null,
   "name": "WF051-3: Restore backed up workflows from GitHub to n8n v0.01",
   "nodes": [
     {
@@ -327,7 +325,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -410,7 +408,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -582,20 +580,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T07:17:26.137Z",
-      "updatedAt": "2024-08-22T07:17:26.137Z",
-      "id": "qrwz7JNGZaL6dEmV",
-      "name": "backup-&-recovery"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T07:22:11.000Z",
-  "versionId": "0a7ee01a-8f6f-48d5-8548-bf1404212244"
+  "updatedAt": "2024-09-26T07:44:23.664Z",
+  "versionId": "e86a95aa-4e5d-4025-9015-a39e53c9ac51"
 }
