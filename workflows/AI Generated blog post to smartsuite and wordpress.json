@@ -134,8 +134,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T11:03:01.764Z",
-  "id": "8C4oYsxadmge1x6L",
+  "createdAt": "2024-09-26T07:44:12.599Z",
+  "id": "58cxBTkRHyuJsfIK",
   "meta": null,
   "name": "AI Generated blog post to smartsuite and wordpress",
   "nodes": [
@@ -349,6 +349,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T11:03:01.764Z",
-  "versionId": "33b6b872-a3f4-4257-b7fa-da1ab340a224"
+  "updatedAt": "2024-09-26T07:44:12.599Z",
+  "versionId": "23b8bc01-4aea-4509-9b9b-f5d529f05e13"
 }
