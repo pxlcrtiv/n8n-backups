@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "n8n": {
       "main": [
@@ -175,11 +175,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-09T18:35:51.811Z",
-  "id": "4nJ1mxvvobMQQHLN",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-09-26T07:44:23.494Z",
+  "id": "qOLhAuDqK6F010aW",
+  "meta": null,
   "name": "WF100: Back Up Your n8n Workflows To Github",
   "nodes": [
     {
@@ -436,7 +434,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -485,20 +483,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-11T07:45:31.937Z",
-      "updatedAt": "2024-08-11T07:45:31.937Z",
-      "id": "Rk6FaRhDhV3biszZ",
-      "name": "IT Ops"
-    }
-  ],
-  "triggerCount": 1,
-  "updatedAt": "2024-08-11T07:46:43.000Z",
-  "versionId": "f4894a6c-1176-4753-a0e5-2b92a2bfe1ac"
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-09-26T07:44:23.494Z",
+  "versionId": "f71eea24-090d-435d-9397-4cea7c152c4e"
 }
