@@ -170,17 +170,6 @@
         ]
       ]
     },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Execute Workflow Trigger": {
       "main": [
         [
@@ -191,10 +180,21 @@
           }
         ]
       ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "createdAt": "2024-09-11T19:50:17.222Z",
-  "id": "ASwKOCR8S8F1Txgk",
+  "createdAt": "2024-09-26T07:44:20.147Z",
+  "id": "1NAagpQhPsFanzss",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -203,7 +203,7 @@
     {
       "parameters": {
         "content": "## Lookup Reference Toggl",
-        "height": 737.4059175040908,
+        "height": 573.5356668183211,
         "width": 2196.55782485209
       },
       "id": "0e26d78b-b5fe-43e4-a9a0-b49ebffe0b42",
@@ -212,7 +212,7 @@
       "typeVersion": 1,
       "position": [
         1240,
-        240
+        361.12148963730806
       ]
     },
     {
@@ -222,7 +222,7 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 1.1,
       "position": [
-        1673,
+        1680,
         660
       ]
     },
@@ -443,7 +443,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1413,
+        1480,
         660
       ]
     },
@@ -574,7 +574,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1240,
+        1280,
         540
       ]
     },
@@ -595,8 +595,8 @@
       ],
       "credentials": {
         "httpBasicAuth": {
-          "id": "6WJNY0bjxn7UPeUf",
-          "name": "Toggl"
+          "id": "77RAmzKqNF8JByWt",
+          "name": "Jacko Toggl Details"
         }
       }
     },
@@ -612,13 +612,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1638,
+        1640,
         420
       ],
       "credentials": {
         "httpBasicAuth": {
-          "id": "6WJNY0bjxn7UPeUf",
-          "name": "Toggl"
+          "id": "77RAmzKqNF8JByWt",
+          "name": "Jacko Toggl Details"
         }
       }
     },
@@ -697,6 +697,28 @@
       ]
     },
     {
+      "parameters": {},
+      "id": "81b688af-43ae-4ebe-9e65-8a06b333bc2b",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3460,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0ce4267e-0700-4253-9449-96234c9dfee3",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        540
+      ]
+    },
+    {
       "parameters": {
         "mode": "combineBySql",
         "numberInputs": 3,
@@ -710,28 +732,6 @@
         3258,
         540
       ]
-    },
-    {
-      "parameters": {},
-      "id": "81b688af-43ae-4ebe-9e65-8a06b333bc2b",
-      "name": "No Operation, do nothing1",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        3520,
-        540
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "57ab7613-0efb-4150-a3fc-741f2cb88992",
-      "name": "Execute Workflow Trigger",
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "typeVersion": 1,
-      "position": [
-        960,
-        540
-      ]
     }
   ],
   "pinData": {},
@@ -741,6 +741,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-11T19:51:29.000Z",
-  "versionId": "596bb8b4-082a-4203-88b3-4230d7dec596"
+  "updatedAt": "2024-09-28T19:50:01.000Z",
+  "versionId": "e5f2e0ff-460e-4e3e-92cb-34c828f65928"
 }
