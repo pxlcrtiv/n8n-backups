@@ -117,11 +117,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-22T17:33:36.586Z",
-  "id": "CKw7zkT7XEweH8o9",
-  "meta": {
-    "templateId": "1776"
-  },
+  "createdAt": "2024-09-26T07:44:22.211Z",
+  "id": "Rf1QZkkYnOdriB1I",
+  "meta": null,
   "name": "Sync payment and customer data between Stripe and Pipedrive 2",
   "nodes": [
     {
@@ -313,13 +311,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T17:33:36.586Z",
-  "versionId": "6b5a7833-da72-48ed-8baf-06190de980e3"
+  "updatedAt": "2024-09-26T07:44:22.211Z",
+  "versionId": "052945b7-7153-4b4d-bd1c-a1b01d606320"
 }
