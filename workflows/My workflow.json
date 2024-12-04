@@ -1,0 +1,109 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Sentiment Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sentiment Analysis": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-11-25T18:56:12.550Z",
+  "id": "3cbVVTVPGTFyGoT9",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "27ff06ee-281f-428f-933e-604b0ea2db87",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        980,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7f415fca-2cd8-48f0-939a-d32569aa7f89",
+      "name": "Sentiment Analysis",
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.timelyapp.com/1.1/425/events",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "HTTP/1.0"
+            },
+            {
+              "name": "Host",
+              "value": "api.timelyapp.com"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer pJpw7K7IZFjIpJbLu-tefiJ7WDvpbJP4GAykUrtKfCM"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "b5ca9f61-2862-4611-ae17-57473efcfa1f",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1580,
+        540
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-11-25T18:56:12.550Z",
+  "versionId": "180e4464-f7f1-4893-a6b2-e8c1555ccacb"
+}
