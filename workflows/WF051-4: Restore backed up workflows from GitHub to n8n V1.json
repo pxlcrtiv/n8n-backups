@@ -1,33 +1,6 @@
 {
   "active": false,
   "connections": {
-    "Globals": {
-      "main": [
-        [
-          {
-            "node": "GitHub - get all files",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Merge globals and files",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Set name and content": {
-      "main": [
-        [
-          {
-            "node": "Filter",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "On clicking 'execute'": {
       "main": [
         [
@@ -44,46 +17,18 @@
         ]
       ]
     },
-    "GitHub - get all files": {
+    "Globals": {
       "main": [
         [
+          {
+            "node": "GitHub - get all files",
+            "type": "main",
+            "index": 0
+          },
           {
             "node": "Merge globals and files",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "GitHub - get each file": {
-      "main": [
-        [
-          {
-            "node": "Split Out",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge globals and files": {
-      "main": [
-        [
-          {
-            "node": "GitHub - get each file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "n8n - get all workflows": {
-      "main": [
-        [
-          {
-            "node": "Set n8n existing workflows names",
-            "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -113,6 +58,61 @@
             "node": "Merge Github and n8n workflows - Keep only non existing workflows based on the name",
             "type": "main",
             "index": 1
+          }
+        ]
+      ]
+    },
+    "GitHub - get all files": {
+      "main": [
+        [
+          {
+            "node": "Merge globals and files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n - get all workflows": {
+      "main": [
+        [
+          {
+            "node": "Set n8n existing workflows names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub - get each file": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set name and content": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge globals and files": {
+      "main": [
+        [
+          {
+            "node": "GitHub - get each file",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -162,22 +162,21 @@
       ]
     }
   },
-  "createdAt": "2024-08-20T20:50:36.764Z",
-  "id": "hmHBTuSSAf4rubfx",
+  "createdAt": "2024-09-26T07:18:35.950Z",
+  "id": "P78gbJ4YX6pWvypx",
   "meta": {
-    "templateId": "2289",
     "templateCredsSetupCompleted": true
   },
   "name": "WF051-4: Restore backed up workflows from GitHub to n8n V1",
   "nodes": [
     {
       "parameters": {},
-      "id": "540d147a-8185-4f3e-b2f4-522a19eb6b10",
+      "id": "ea34ce6a-47cc-454a-965a-f22e7c1c3498",
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
-        820,
-        420
+        80,
+        900
       ],
       "typeVersion": 1
     },
@@ -201,12 +200,12 @@
         },
         "options": {}
       },
-      "id": "7040674c-57b4-453d-acd4-69cbeff64180",
+      "id": "7b7d0416-7d33-4078-a18f-2620a931a719",
       "name": "Globals",
       "type": "n8n-nodes-base.set",
       "position": [
-        1020,
-        320
+        280,
+        800
       ],
       "typeVersion": 1
     },
@@ -217,23 +216,23 @@
         "width": 389.78906250000017,
         "color": 2
       },
-      "id": "2b3a2856-4024-4fb0-b068-6bace0e6592c",
+      "id": "02533cb3-18d7-4376-8c68-76e045d95090",
       "name": "Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        380,
-        240
+        -360,
+        720
       ],
       "typeVersion": 1
     },
     {
       "parameters": {},
-      "id": "ba2d3355-df53-43e2-a4b2-2e031b71d687",
+      "id": "0d350c84-eb67-447c-aed7-4600fe805984",
       "name": "Workflow name already exists",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        3220,
-        600
+        2480,
+        1080
       ],
       "typeVersion": 1
     },
@@ -261,12 +260,12 @@
         },
         "options": {}
       },
-      "id": "f012be7a-fb56-4a92-b2e5-e5ec316624e8",
+      "id": "7a071ef9-2279-4122-a3ba-6c4b6626115d",
       "name": "If workflow already exists",
       "type": "n8n-nodes-base.if",
       "position": [
-        2960,
-        500
+        2220,
+        980
       ],
       "typeVersion": 2
     },
@@ -284,12 +283,12 @@
         },
         "options": {}
       },
-      "id": "d1d698f2-0ccf-4865-9ecd-9e10e725d12d",
+      "id": "4b3d3c28-ccdd-4602-8455-89c66480d603",
       "name": "Set n8n existing workflows names",
       "type": "n8n-nodes-base.set",
       "position": [
-        1840,
-        520
+        1100,
+        1000
       ],
       "typeVersion": 3.3
     },
@@ -309,18 +308,18 @@
         },
         "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}"
       },
-      "id": "d9c58650-ca2d-47c8-a887-59407fa70e1d",
+      "id": "a3a06947-2fe4-4242-8baf-722b8b25dd32",
       "name": "GitHub - get all files",
       "type": "n8n-nodes-base.github",
       "position": [
-        1240,
-        180
+        500,
+        660
       ],
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "0eYR0UUza2XDwZgT",
-          "name": "GitHub account 2"
+          "id": "9Y1iN99yEpzyPk9h",
+          "name": "GitHub account"
         }
       }
     },
@@ -329,17 +328,17 @@
         "filters": {},
         "requestOptions": {}
       },
-      "id": "7bff36b1-d526-402b-bff8-7ce2af050e2d",
+      "id": "9d21ff59-8eee-4cf7-9a4e-bac2ae04d6c8",
       "name": "n8n - get all workflows",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        1020,
-        520
+        280,
+        1000
       ],
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -362,18 +361,18 @@
         "asBinaryProperty": false,
         "additionalParameters": {}
       },
-      "id": "277f6400-409a-4ba0-8ad7-1241768b669a",
+      "id": "ae8884be-8f91-4863-9774-9fbc9f295cac",
       "name": "GitHub - get each file",
       "type": "n8n-nodes-base.github",
       "position": [
-        1660,
-        300
+        920,
+        780
       ],
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "0eYR0UUza2XDwZgT",
-          "name": "GitHub account 2"
+          "id": "9Y1iN99yEpzyPk9h",
+          "name": "GitHub account"
         }
       }
     },
@@ -397,12 +396,12 @@
         },
         "options": {}
       },
-      "id": "b59f5e23-729a-41fb-be4b-1aebc573393b",
+      "id": "657e66a7-1959-41da-b59b-54bbd773804b",
       "name": "Set name and content",
       "type": "n8n-nodes-base.set",
       "position": [
-        2240,
-        300
+        1500,
+        780
       ],
       "typeVersion": 3.3
     },
@@ -412,17 +411,17 @@
         "workflowObject": "={{ $('Set name and content').item.json.content }}",
         "requestOptions": {}
       },
-      "id": "6f642a8c-9997-42b2-b9d7-3c1f02e0e26a",
+      "id": "f24d0f6f-c2a5-4c63-88c0-f03b81721e1d",
       "name": "n8n - create workflow",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        3220,
-        380
+        2480,
+        860
       ],
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "9ALFxkY91WQ8hhIe",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -434,12 +433,12 @@
         "width": 1409.0580697977275,
         "color": 2
       },
-      "id": "b4ce8bdb-8c76-4c10-bf48-3664ec2f924b",
+      "id": "a3405cda-1075-4674-8219-74bd67f34cb1",
       "name": "Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1200,
-        -20
+        460,
+        460
       ],
       "typeVersion": 1
     },
@@ -449,12 +448,12 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "5ff560b9-8c43-401c-869f-2b4a2e13cacc",
+      "id": "61070249-901d-4194-a2eb-d7b585d029dc",
       "name": "Merge globals and files",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1460,
-        300
+        720,
+        780
       ],
       "typeVersion": 2.1
     },
@@ -473,12 +472,12 @@
         "outputDataFrom": "input1",
         "options": {}
       },
-      "id": "008d21d9-007b-44da-8d1a-bd334ba54d61",
+      "id": "17617664-87d2-4b28-9725-2ed0d4798581",
       "name": "Merge Github and n8n workflows - Keep only non existing workflows based on the name",
       "type": "n8n-nodes-base.merge",
       "position": [
-        2740,
-        500
+        2000,
+        980
       ],
       "typeVersion": 2.1,
       "alwaysOutputData": true
@@ -490,12 +489,12 @@
         "width": 260.44696745223945,
         "color": 2
       },
-      "id": "c7ffe214-1d7b-4f4f-87c1-36d9cb8e43a9",
+      "id": "9f378032-fa92-4796-9a81-67ce444d37f2",
       "name": "Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2660,
-        720
+        1920,
+        1200
       ],
       "typeVersion": 1
     },
@@ -506,12 +505,12 @@
         "width": 344.0461264465236,
         "color": 2
       },
-      "id": "3d84fd1c-c49b-4db0-951a-e38d50dae47b",
+      "id": "04dbff94-e3a1-45ad-87c5-eaaba8900c99",
       "name": "Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3420,
-        420
+        2680,
+        900
       ],
       "typeVersion": 1
     },
@@ -522,12 +521,12 @@
         "width": 378.7476641422645,
         "color": 2
       },
-      "id": "144a0b2e-d7b2-443d-91a5-96c09ef16b8e",
+      "id": "634a58f4-2c28-4697-9c4a-a5cfe7a36ac9",
       "name": "Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1240,
-        620
+        500,
+        1100
       ],
       "typeVersion": 1
     },
@@ -535,13 +534,13 @@
       "parameters": {
         "jsCode": "// Input data should be passed into this function\nconst items = $input.all(); // Get all input items\nconst results = [];\n\nfor (let item of items) {\n  const input1 = item.json[\"content\"]; // Replace with the actual key\n  const input2 = item.json[\"name\"]; // Replace with the actual key\n  const updatedName = input2.replace('.json', '');\n  \n\n  if (input1 && typeof input1 === 'string') {\n    // Decoding the Base64 content\n    const decodedContent = Buffer.from(input1, 'base64').toString('utf-8');\n\n    // Add the decoded content to the results array\n    results.push({\n      input1: input1,\n      updatedName: updatedName,\n      decodedContent: decodedContent,\n    });\n  } else {\n    // Handle the case where input1 is undefined or not a valid type\n    results.push({\n      input1: input1,\n      updatedName: updatedName,\n      decodedContent: \"Invalid or undefined input1\",\n    });\n  }\n}\n\n// Set the results as the output\nreturn results;\n"
       },
-      "id": "f80acbb3-f17e-48ab-aa02-10461ca1de3a",
+      "id": "48c17b69-9b6c-432b-bc9f-25266d84b990",
       "name": "Code",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2020,
-        300
+        1280,
+        780
       ]
     },
     {
@@ -549,13 +548,13 @@
         "fieldToSplitOut": "name, content",
         "options": {}
       },
-      "id": "6fb33f34-b4c4-472f-b185-dc1b0ec23272",
+      "id": "1dc8dd31-836d-4a67-a8d0-ddac8f830987",
       "name": "Split Out",
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1840,
-        300
+        1100,
+        780
       ]
     },
     {
@@ -581,33 +580,23 @@
         },
         "options": {}
       },
-      "id": "fc0b1633-d07f-4f33-ba92-7bfb8170d095",
+      "id": "dc6544e4-a81f-43b8-b9fa-d530cef01d5b",
       "name": "Filter",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
       "position": [
-        2460,
-        300
+        1720,
+        780
       ]
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1",
-    "timezone": "Africa/Johannesburg",
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner"
+    "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T07:17:26.137Z",
-      "updatedAt": "2024-08-22T07:17:26.137Z",
-      "id": "qrwz7JNGZaL6dEmV",
-      "name": "backup-&-recovery"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T17:29:05.000Z",
-  "versionId": "3bbe62e8-85dc-4d57-a77e-39048f91440f"
+  "updatedAt": "2024-09-26T07:41:52.000Z",
+  "versionId": "b5448ed0-9b81-4e8b-b0b9-f759b6b7571d"
 }
