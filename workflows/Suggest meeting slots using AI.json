@@ -161,8 +161,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:47.415Z",
-  "id": "zblZkMAxBPgeN8wJ",
+  "createdAt": "2024-09-26T07:44:21.784Z",
+  "id": "h92CPoDBaMSXrEky",
   "meta": null,
   "name": "Suggest meeting slots using AI",
   "nodes": [
@@ -563,6 +563,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:47.415Z",
-  "versionId": "ac67263b-6df4-4c0c-a3ee-1a06f4d0e441"
+  "updatedAt": "2024-09-26T07:44:21.784Z",
+  "versionId": "c354a0be-9965-4cdd-a379-c2e4178de76e"
 }
