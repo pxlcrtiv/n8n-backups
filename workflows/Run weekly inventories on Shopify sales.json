@@ -80,11 +80,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-22T14:51:38.519Z",
-  "id": "YYH0LHodksyYG6H8",
-  "meta": {
-    "templateId": "1207"
-  },
+  "createdAt": "2024-09-26T07:44:21.473Z",
+  "id": "GcGFsignww7Q6N2p",
+  "meta": null,
   "name": "Run weekly inventories on Shopify sales",
   "nodes": [
     {
@@ -235,20 +233,13 @@
       "id": "d2d7f5b4-1bf5-47be-a227-da3d0175f40c"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T15:23:48.276Z",
-      "updatedAt": "2024-08-22T15:23:48.276Z",
-      "id": "bxsFpsA4Wm06ilfw",
-      "name": "operations"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-22T15:24:00.000Z",
-  "versionId": "5b9bf5d6-6ba4-44dd-8cda-30cb7b1cf127"
+  "updatedAt": "2024-09-26T07:44:21.473Z",
+  "versionId": "1e36a70e-a4ca-4458-b51f-9b6cf096a16a"
 }
