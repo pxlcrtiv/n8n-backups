@@ -336,8 +336,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T11:03:01.769Z",
-  "id": "KccAAHC5iJ1UFSNJ",
+  "createdAt": "2024-09-26T07:44:12.624Z",
+  "id": "Dba3vfqAngIhXLiy",
   "meta": null,
   "name": "AI News for Social Media Post (FB, X, Linkedin)",
   "nodes": [
@@ -1175,6 +1175,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T11:03:01.769Z",
-  "versionId": "948fae33-9368-4de6-994c-c363f29b2519"
+  "updatedAt": "2024-09-26T07:44:12.624Z",
+  "versionId": "6f0417e1-6e7e-4663-90ef-e5877ff640e6"
 }
