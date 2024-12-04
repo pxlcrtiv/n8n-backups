@@ -258,11 +258,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-23T07:33:43.546Z",
-  "id": "LlNSZjGJhibxBVHK",
-  "meta": {
-    "templateId": "2377"
-  },
+  "createdAt": "2024-09-26T07:44:22.382Z",
+  "id": "8ObCYQ2Is5AVlAcl",
+  "meta": null,
   "name": "Turn Emails into AI-Enhanced Tasks in Notion (Multi-User Support) with Gmail, Airtable and Softr",
   "nodes": [
     {
@@ -1107,20 +1105,13 @@
       "typeVersion": 1.6
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-08-22T15:23:48.276Z",
-      "updatedAt": "2024-08-22T15:23:48.276Z",
-      "id": "bxsFpsA4Wm06ilfw",
-      "name": "operations"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-23T07:35:51.000Z",
-  "versionId": "37d4ba1a-1926-4587-9419-9c109467f28d"
+  "updatedAt": "2024-09-26T07:44:22.382Z",
+  "versionId": "6e4da86e-8ea3-4b1b-9c83-235137210b16"
 }
