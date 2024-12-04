@@ -175,8 +175,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-09T18:35:51.721Z",
-  "id": "3nnZFB4vBTEzZAzJ",
+  "createdAt": "2024-09-26T07:44:24.000Z",
+  "id": "EYd5kk77g5EQMwrx",
   "meta": null,
   "name": "WF051: Back Up Your n8n Workflows To Github",
   "nodes": [
@@ -212,7 +212,7 @@
       "alwaysOutputData": true,
       "credentials": {
         "githubApi": {
-          "id": "7txefx36DPZl9bxI",
+          "id": "9Y1iN99yEpzyPk9h",
           "name": "GitHub account"
         }
       },
@@ -300,7 +300,7 @@
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "7txefx36DPZl9bxI",
+          "id": "9Y1iN99yEpzyPk9h",
           "name": "GitHub account"
         }
       }
@@ -324,7 +324,7 @@
       "typeVersion": 1,
       "credentials": {
         "githubApi": {
-          "id": "7txefx36DPZl9bxI",
+          "id": "9Y1iN99yEpzyPk9h",
           "name": "GitHub account"
         }
       }
@@ -454,7 +454,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "rfE3jH4GYHa5JHIJ",
+          "id": "7viRgi5Z76wierYJ",
           "name": "n8n account"
         }
       }
@@ -491,6 +491,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-09T18:35:51.721Z",
-  "versionId": "9788d860-09f9-453a-837a-73674638687f"
+  "updatedAt": "2024-09-26T07:44:24.000Z",
+  "versionId": "14d5fd33-b7ed-4c06-bdee-51a0efe589a6"
 }
