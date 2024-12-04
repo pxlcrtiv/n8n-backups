@@ -57,11 +57,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-10T19:29:42.098Z",
-  "id": "OPtM9asXB9j4J17n",
-  "meta": {
-    "templateId": "1466"
-  },
+  "createdAt": "2024-09-26T07:44:18.755Z",
+  "id": "cFDKT5WioRrw7VfH",
+  "meta": null,
   "name": "Extract expenses from emails and add to Google Sheets 2",
   "nodes": [
     {
@@ -192,13 +190,13 @@
       "id": "ce905118-67c5-4c0e-a67b-8e9507ad86a2"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-10T19:29:42.098Z",
-  "versionId": "2c5b50be-d4b7-4f3e-a1e2-fd1701922208"
+  "updatedAt": "2024-09-26T07:44:18.755Z",
+  "versionId": "c60e6d0d-e929-49a8-9b9b-d2ac9848048b"
 }
