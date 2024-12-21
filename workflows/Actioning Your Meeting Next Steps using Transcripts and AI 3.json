@@ -185,8 +185,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.004Z",
-  "id": "EfNuqwR047a0wBlj",
+  "createdAt": "2024-12-20T16:06:17.150Z",
+  "id": "x9pR6BiHvByBHX5S",
   "meta": null,
   "name": "Actioning Your Meeting Next Steps using Transcripts and AI 3",
   "nodes": [
@@ -725,6 +725,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.004Z",
-  "versionId": "cf4cd6ba-ac3d-4b3b-9aeb-d3a45e73c9bd"
+  "updatedAt": "2024-12-20T16:06:17.150Z",
+  "versionId": "42a252a1-986c-43d9-98b3-2294b9d7c1b1"
 }
