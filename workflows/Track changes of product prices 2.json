@@ -287,8 +287,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:22.326Z",
-  "id": "jiLmzn6g3MV5EAFv",
+  "createdAt": "2024-12-20T16:06:18.186Z",
+  "id": "RDwGIjMHCh4XGSAF",
   "meta": null,
   "name": "Track changes of product prices 2",
   "nodes": [
@@ -704,6 +704,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:22.326Z",
-  "versionId": "f71c45c7-a74b-4166-8cef-aae4ba494837"
+  "updatedAt": "2024-12-20T16:06:18.186Z",
+  "versionId": "aeb0dba5-1268-4c10-a903-6387af2ad8a8"
 }
