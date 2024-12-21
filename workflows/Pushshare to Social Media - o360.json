@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:20.900Z",
-  "id": "ilFFZT9KM7BXnL7K",
+  "createdAt": "2024-12-20T16:06:14.036Z",
+  "id": "EHv2VU5taBUSTPEd",
   "meta": null,
   "name": "Pushshare to Social Media - o360",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.900Z",
-  "versionId": "21ee5085-bf10-4d21-bd07-8e8106505508"
+  "updatedAt": "2024-12-20T16:06:14.036Z",
+  "versionId": "90e8cab5-f2eb-47b2-b888-a4b61e7040f2"
 }
