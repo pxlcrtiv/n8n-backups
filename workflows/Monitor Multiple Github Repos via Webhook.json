@@ -101,11 +101,9 @@
       ]
     }
   },
-  "createdAt": "2024-10-06T17:17:43.332Z",
-  "id": "X4nNMOAXCw3mW2Rk",
-  "meta": {
-    "templateId": "2435"
-  },
+  "createdAt": "2024-12-20T16:06:13.435Z",
+  "id": "78dbmg8MipB8FroQ",
+  "meta": null,
   "name": "Monitor Multiple Github Repos via Webhook",
   "nodes": [
     {
@@ -502,13 +500,13 @@
       "typeVersion": 3.4
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-10-12T16:58:32.000Z",
-  "versionId": "9241da64-0a69-4161-b4f0-f2c2c292244c"
+  "updatedAt": "2024-12-20T16:06:13.435Z",
+  "versionId": "e112cbe6-8ca8-4823-973a-a5dfc7ef02c2"
 }
