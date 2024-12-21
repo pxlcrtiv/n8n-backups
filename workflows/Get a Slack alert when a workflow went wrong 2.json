@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:19.147Z",
-  "id": "DQBdcXXtxA3SCnqO",
+  "createdAt": "2024-12-20T16:06:11.961Z",
+  "id": "P15UuEdI3iM1Yqg8",
   "meta": null,
   "name": "Get a Slack alert when a workflow went wrong 2",
   "nodes": [
@@ -92,6 +92,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:19.147Z",
-  "versionId": "57b9a539-e151-4da2-a3a9-50d542ba681f"
+  "updatedAt": "2024-12-20T16:06:11.961Z",
+  "versionId": "7e3ea1e8-7d10-495d-836f-3fd1b5232098"
 }
