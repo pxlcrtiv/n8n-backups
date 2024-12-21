@@ -128,11 +128,9 @@
       ]
     }
   },
-  "createdAt": "2024-11-30T15:47:16.020Z",
-  "id": "gH9u2hSJCsnHLu4k",
-  "meta": {
-    "templateId": "1277"
-  },
+  "createdAt": "2024-12-20T16:06:14.623Z",
+  "id": "6W2jbIpxTWBbYVOX",
+  "meta": null,
   "name": "Send a daily summary of your Google Calendar events to Slack 2",
   "nodes": [
     {
@@ -379,13 +377,13 @@
       "id": "ed480adb-0201-4838-951e-0df69424896f"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-11-30T15:47:16.020Z",
-  "versionId": "eebd2a11-234f-4caf-b74d-9ec79bd418a0"
+  "updatedAt": "2024-12-20T16:06:14.623Z",
+  "versionId": "8a6a0510-f828-48e6-8c5a-aea0a827b8e5"
 }
