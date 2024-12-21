@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:20.068Z",
-  "id": "4yEQq4z94BxQTxuy",
+  "createdAt": "2024-12-20T16:06:13.228Z",
+  "id": "iZjQrNB111enQma8",
   "meta": null,
   "name": "List Gumroad products  and save to SM",
   "nodes": [
@@ -38,6 +38,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.068Z",
-  "versionId": "be9a450f-286a-4504-ae65-eca3215f8572"
+  "updatedAt": "2024-12-20T16:06:13.228Z",
+  "versionId": "ae0f3324-0540-460a-93df-6b7e44d46ea7"
 }
