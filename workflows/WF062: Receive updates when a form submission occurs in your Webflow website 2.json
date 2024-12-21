@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:23.513Z",
-  "id": "iEQww78f3dHxQEUU",
+  "createdAt": "2024-12-20T16:06:16.290Z",
+  "id": "TyaUFVdOk6DBjSCf",
   "meta": null,
   "name": "WF062: Receive updates when a form submission occurs in your Webflow website 2",
   "nodes": [
@@ -29,6 +29,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:23.513Z",
-  "versionId": "a0d01f58-29bd-46dc-9ac5-effa5de4e91a"
+  "updatedAt": "2024-12-20T16:06:16.290Z",
+  "versionId": "2b78cf75-4766-4f39-a6df-0b4c16a0feae"
 }
