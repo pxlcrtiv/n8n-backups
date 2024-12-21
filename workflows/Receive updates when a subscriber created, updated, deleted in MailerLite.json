@@ -69,12 +69,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-27T12:10:12.767Z",
-  "id": "E9GrRTjxnEMHOwRq",
-  "meta": {
-    "templateId": "759",
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:14.264Z",
+  "id": "QdjJJdVJAMKFHA1b",
+  "meta": null,
   "name": "Receive updates when a subscriber created, updated, deleted in MailerLite",
   "nodes": [
     {
@@ -384,13 +381,13 @@
       }
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-29T12:49:51.000Z",
-  "versionId": "9929d824-62bb-4f38-8f5e-29ec334075d4"
+  "updatedAt": "2024-12-20T16:06:14.264Z",
+  "versionId": "41b7321d-93d2-4772-b1be-a1176a9d8873"
 }
