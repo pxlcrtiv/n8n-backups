@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.000Z",
-  "id": "iBnSBpp8yiSGH8zH",
+  "createdAt": "2024-12-20T16:06:13.170Z",
+  "id": "MUm4pBSlYu7LXjtd",
   "meta": null,
   "name": "Lead Enrichment Agent",
   "nodes": [
@@ -53,6 +53,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.000Z",
-  "versionId": "8809d131-34a6-48d8-8747-baf8ebfd5092"
+  "updatedAt": "2024-12-20T16:06:13.170Z",
+  "versionId": "f2ed3f13-dd26-4f83-8024-b717c8fe5278"
 }
