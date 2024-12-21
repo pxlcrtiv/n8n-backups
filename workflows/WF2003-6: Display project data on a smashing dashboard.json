@@ -162,8 +162,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:24.029Z",
-  "id": "oeRJd4HzpPkoIptX",
+  "createdAt": "2024-12-20T16:16:52.235Z",
+  "id": "3rSdp9FXmFti1p30",
   "meta": null,
   "name": "WF2003-6: Display project data on a smashing dashboard",
   "nodes": [
@@ -693,7 +693,7 @@
       "id": "a37cf9d9-cff8-4220-91b5-3c31eb344199",
       "credentials": {
         "githubApi": {
-          "id": "9Y1iN99yEpzyPk9h",
+          "id": "9YzB9pdSS49M1s7B",
           "name": "GitHub account"
         }
       }
@@ -796,6 +796,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.029Z",
-  "versionId": "8d5b0938-9c29-496c-831f-04c805ac597c"
+  "updatedAt": "2024-12-20T16:16:52.235Z",
+  "versionId": "a68c2907-c034-4277-9d99-08c6459a60b7"
 }
