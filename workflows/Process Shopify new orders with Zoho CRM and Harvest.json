@@ -74,8 +74,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.692Z",
-  "id": "imx5ZsRZv1m8eslz",
+  "createdAt": "2024-12-20T16:06:13.857Z",
+  "id": "SerQhO5qXWiKBlzj",
   "meta": null,
   "name": "Process Shopify new orders with Zoho CRM and Harvest",
   "nodes": [
@@ -307,6 +307,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.692Z",
-  "versionId": "8c32af8c-6eb3-46ca-bb29-4b8e1c1976b0"
+  "updatedAt": "2024-12-20T16:06:13.857Z",
+  "versionId": "13741027-7f69-411c-8e66-b721cbe49f33"
 }
