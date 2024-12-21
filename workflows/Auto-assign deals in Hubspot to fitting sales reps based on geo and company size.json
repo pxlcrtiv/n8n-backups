@@ -143,8 +143,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:12.723Z",
-  "id": "r3r86nCM41Bl0T2y",
+  "createdAt": "2024-12-20T16:06:01.584Z",
+  "id": "Mc463jjuHD3hrOW5",
   "meta": null,
   "name": "Auto-assign deals in Hubspot to fitting sales reps based on geo and company size",
   "nodes": [
@@ -801,6 +801,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:12.723Z",
-  "versionId": "9087d62c-7e75-4c37-9fa1-23de9cc20059"
+  "updatedAt": "2024-12-20T16:06:01.584Z",
+  "versionId": "8631d87c-7775-433e-ac46-e0477ded330d"
 }
