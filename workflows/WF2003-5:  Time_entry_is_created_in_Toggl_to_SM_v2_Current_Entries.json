@@ -595,8 +595,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:24.063Z",
-  "id": "WAcg0eFwaKK5dZfS",
+  "createdAt": "2024-12-20T16:21:11.841Z",
+  "id": "OHTxjKRsdBzkc1um",
   "meta": null,
   "name": "WF2003-5:  Time_entry_is_created_in_Toggl_to_SM_v2_Current_Entries",
   "nodes": [
@@ -2415,6 +2415,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.063Z",
-  "versionId": "0cd7aeed-9f87-4512-848f-a5cc4e13c0d6"
+  "updatedAt": "2024-12-20T16:21:11.841Z",
+  "versionId": "04e1ca87-a62b-4cb4-bcb8-3a7aa1be1360"
 }
