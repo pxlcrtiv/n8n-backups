@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.330Z",
-  "id": "PnyrHi6Gq7EUPtCU",
+  "createdAt": "2024-12-20T16:06:16.715Z",
+  "id": "VKgUuy1F3X6lzRC4",
   "meta": null,
   "name": "customer has started a payhip subscription",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.330Z",
-  "versionId": "3bf7627f-1fd7-4a6e-b262-e655ab60a347"
+  "updatedAt": "2024-12-20T16:06:16.715Z",
+  "versionId": "078f7488-c3b2-4a86-b2bd-15b489a5e101"
 }
