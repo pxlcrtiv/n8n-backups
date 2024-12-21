@@ -13,11 +13,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T09:09:11.988Z",
-  "id": "ukNYF3F0oBV7ipUm",
-  "meta": {
-    "templateId": "1828"
-  },
+  "createdAt": "2024-12-20T16:06:09.554Z",
+  "id": "Y6v3esYtmw8xQ4SD",
+  "meta": null,
   "name": "Create or update Mautic contact on a new Calendly event",
   "nodes": [
     {
@@ -68,13 +66,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T09:09:11.988Z",
-  "versionId": "9b4ad2f5-0ea4-4764-8aff-8004ebf841eb"
+  "updatedAt": "2024-12-20T16:06:09.554Z",
+  "versionId": "afbd4053-39e6-4b26-980c-87333da7cb4b"
 }
