@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:17.941Z",
-  "id": "Td3Ce45OsznhtpE6",
+  "createdAt": "2024-12-20T16:06:09.452Z",
+  "id": "REmMTIpHLbX1xqvB",
   "meta": null,
   "name": "Create a channel, add a member, and post a message to the channel on Mattermost",
   "nodes": [
@@ -107,6 +107,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:17.941Z",
-  "versionId": "a2288078-dced-4d8e-b728-88ff72b8b15a"
+  "updatedAt": "2024-12-20T16:06:09.452Z",
+  "versionId": "5544ff03-31de-449c-a785-b9a888cb616f"
 }
