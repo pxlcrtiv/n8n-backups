@@ -87,8 +87,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.288Z",
-  "id": "DS5ahGHo5dzgjoLA",
+  "createdAt": "2024-12-20T16:06:13.509Z",
+  "id": "ldTlIqQIsYdrfYRx",
   "meta": null,
   "name": "Notify User in Slack of Quarantined Email and Create Jira Ticket if Opened",
   "nodes": [
@@ -325,6 +325,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.288Z",
-  "versionId": "aa4445bf-913f-41e6-aa68-001e65c719a7"
+  "updatedAt": "2024-12-20T16:06:13.509Z",
+  "versionId": "55e25f7a-a511-4231-97f0-baa658be9b29"
 }
