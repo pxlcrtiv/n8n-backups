@@ -23,8 +23,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:43.931Z",
-  "id": "GsSmeJf0lIxU9sor",
+  "createdAt": "2024-12-20T16:06:09.931Z",
+  "id": "itPK6HFkJkgkjCvD",
   "meta": null,
   "name": "Create, update and get a subscriber using the MailerLite node",
   "nodes": [
@@ -107,6 +107,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:43.931Z",
-  "versionId": "20587188-c8d4-4e2d-b098-b4ac3af52598"
+  "updatedAt": "2024-12-20T16:06:09.931Z",
+  "versionId": "0c3fab8e-46f0-4b5f-a70b-fdf44a3bc5b2"
 }
