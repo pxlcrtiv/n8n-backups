@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:22.527Z",
-  "id": "yzRWdQG2YpOMdwmA",
+  "createdAt": "2024-12-20T16:06:15.568Z",
+  "id": "LlcBQp4pCasb7uN1",
   "meta": null,
   "name": "Validate email of new contacts in Hubspot 2",
   "nodes": [
@@ -161,6 +161,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:22.527Z",
-  "versionId": "dd390344-d899-41e3-99bd-d02409bf09d5"
+  "updatedAt": "2024-12-20T16:06:15.568Z",
+  "versionId": "f8a81c6b-2785-41e1-942e-7b938eba1000"
 }
