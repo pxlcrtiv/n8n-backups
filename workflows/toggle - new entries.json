@@ -194,11 +194,9 @@
       ]
     }
   },
-  "createdAt": "2024-10-14T17:46:06.122Z",
-  "id": "8RiGomeriudCdFZ2",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:17.149Z",
+  "id": "ZXQqCnnIHJ257hIQ",
+  "meta": null,
   "name": "toggle - new entries",
   "nodes": [
     {
@@ -746,13 +744,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-10-14T17:46:06.122Z",
-  "versionId": "ef41f202-84a1-4afb-8f04-0eb3aed2ade6"
+  "updatedAt": "2024-12-20T16:06:17.149Z",
+  "versionId": "a4dd0f8d-8847-4894-b2ec-81ec0d7f765a"
 }
