@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:22.241Z",
-  "id": "JGry7oqrkx8ZuUaK",
+  "createdAt": "2024-12-20T16:06:18.090Z",
+  "id": "pzEFe1JE6dIEChIz",
   "meta": null,
   "name": "Sync tasks automatically from Todoist to Notion",
   "nodes": [
@@ -135,6 +135,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:22.241Z",
-  "versionId": "120593d7-7ca7-41cb-8fbc-ff59dd31b24f"
+  "updatedAt": "2024-12-20T16:06:18.090Z",
+  "versionId": "4908b06c-2235-43e2-bb91-50db39a82ced"
 }
