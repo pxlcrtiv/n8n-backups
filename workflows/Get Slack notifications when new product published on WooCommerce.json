@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:18.884Z",
-  "id": "dMdrqAdRiMdEYTSe",
+  "createdAt": "2024-12-20T16:06:11.848Z",
+  "id": "jQ6qr8Nj50So9GbT",
   "meta": null,
   "name": "Get Slack notifications when new product published on WooCommerce",
   "nodes": [
@@ -120,6 +120,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:18.884Z",
-  "versionId": "e9917b96-2630-4cf1-956f-55a3861dc72b"
+  "updatedAt": "2024-12-20T16:06:11.848Z",
+  "versionId": "6c365642-763b-47aa-ab21-7cc1f2830241"
 }
