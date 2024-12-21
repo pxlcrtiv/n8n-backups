@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:23.608Z",
-  "id": "DhaHxKuSPRb6nrcq",
+  "createdAt": "2024-12-20T16:17:57.819Z",
+  "id": "DnbtXCbQAYfh0nUx",
   "meta": null,
   "name": "WF2003-3: Creates a time tracking project from Syncro to Clockify",
   "nodes": [
@@ -59,6 +59,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:23.608Z",
-  "versionId": "98bac1d4-6853-4523-a20c-16172d1f0364"
+  "updatedAt": "2024-12-20T16:17:57.819Z",
+  "versionId": "58b6e07d-6b81-4567-b8b3-b67eaf2549b8"
 }
