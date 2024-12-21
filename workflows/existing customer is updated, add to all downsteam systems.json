@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.369Z",
-  "id": "phv014i6rz5vWJoT",
+  "createdAt": "2024-12-20T16:06:16.748Z",
+  "id": "H7tPH8WfmEdHTNEL",
   "meta": null,
   "name": "existing customer is updated, add to all downsteam systems",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.369Z",
-  "versionId": "c935e79a-3007-4b64-8c76-46d645bb609e"
+  "updatedAt": "2024-12-20T16:06:16.748Z",
+  "versionId": "406a0e3c-6811-409c-8842-b904fdd70558"
 }
