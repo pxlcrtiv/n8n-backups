@@ -118,11 +118,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-28T18:52:17.152Z",
-  "id": "8XoZ8hMbjObfhAoq",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:17.101Z",
+  "id": "ONbRii5IRnUOXJXj",
+  "meta": null,
   "name": "sync udpated mailerlite subscribers to SM",
   "nodes": [
     {
@@ -368,13 +366,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-28T19:07:16.000Z",
-  "versionId": "bb2ecec1-2387-4f00-8fa5-3f9915da84db"
+  "updatedAt": "2024-12-20T16:06:17.101Z",
+  "versionId": "9913ae8c-8b8a-4027-af61-469285725b12"
 }
