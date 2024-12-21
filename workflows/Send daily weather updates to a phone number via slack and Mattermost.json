@@ -29,8 +29,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.756Z",
-  "id": "8ocm1tVv5LEfEvZf",
+  "createdAt": "2024-12-20T16:06:15.517Z",
+  "id": "m25tkQzLzgh9mxND",
   "meta": null,
   "name": "Send daily weather updates to a phone number via slack and Mattermost",
   "nodes": [
@@ -128,6 +128,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.756Z",
-  "versionId": "1e890bfe-39ca-428a-b09f-b01430fd43f8"
+  "updatedAt": "2024-12-20T16:06:15.517Z",
+  "versionId": "92339dae-172d-4af8-bbc7-8f7b5677f494"
 }
