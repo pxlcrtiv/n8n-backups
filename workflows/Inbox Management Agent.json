@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:19.802Z",
-  "id": "XdQggGHSmuYNqE6y",
+  "createdAt": "2024-12-20T16:06:13.120Z",
+  "id": "bIywB5vACPCPDhD0",
   "meta": null,
   "name": "Inbox Management Agent",
   "nodes": [
@@ -75,6 +75,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:19.802Z",
-  "versionId": "08a64282-128b-4121-b053-9feb33405e73"
+  "updatedAt": "2024-12-20T16:06:13.120Z",
+  "versionId": "4458b276-56bd-4731-977d-05564b766cb7"
 }
