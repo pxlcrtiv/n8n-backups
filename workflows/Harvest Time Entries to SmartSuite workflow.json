@@ -102,11 +102,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-30T18:52:26.981Z",
-  "id": "qjOKN8UnidkUHQfN",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:13.105Z",
+  "id": "O2sXCWsrIei4zk8x",
+  "meta": null,
   "name": "Harvest Time Entries to SmartSuite workflow",
   "nodes": [
     {
@@ -399,13 +397,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-10-02T08:02:36.000Z",
-  "versionId": "9821ff85-5a0d-408d-868f-faafd6ba2b34"
+  "updatedAt": "2024-12-20T16:06:13.105Z",
+  "versionId": "e358953b-cae0-46d6-aa5e-2f2183d24cb6"
 }
