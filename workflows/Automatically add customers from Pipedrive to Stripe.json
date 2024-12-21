@@ -73,8 +73,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:16.306Z",
-  "id": "3cizBZPpRbLXTt8H",
+  "createdAt": "2024-12-20T16:06:01.619Z",
+  "id": "iaIF08GTQPzGq5vd",
   "meta": null,
   "name": "Automatically add customers from Pipedrive to Stripe",
   "nodes": [
@@ -222,6 +222,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:16.306Z",
-  "versionId": "496dad69-f883-412c-9881-013887cb8141"
+  "updatedAt": "2024-12-20T16:06:01.619Z",
+  "versionId": "9eafaa45-c592-49f0-a4c4-869d1547e17b"
 }
