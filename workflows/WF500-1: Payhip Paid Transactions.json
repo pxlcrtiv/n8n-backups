@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:15:31.563Z",
-  "id": "FvSz3kqs3fTz1mP9",
+  "createdAt": "2024-12-20T16:16:23.329Z",
+  "id": "PQkOoDGgifWG1ETz",
   "meta": null,
   "name": "WF500-1: Payhip Paid Transactions",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:15:31.563Z",
-  "versionId": "e94c3d88-16ec-4057-90c9-3b9351beebb6"
+  "updatedAt": "2024-12-20T16:16:23.329Z",
+  "versionId": "ce2193f4-79e5-4a99-85ca-dcb7dd9f9ebd"
 }
