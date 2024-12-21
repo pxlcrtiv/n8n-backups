@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.721Z",
-  "id": "gFC9O3HaXeZCFU7v",
+  "createdAt": "2024-12-20T16:06:14.174Z",
+  "id": "FKbDQVobaSfVUtLz",
   "meta": null,
   "name": "Receive updates for Stripe events",
   "nodes": [
@@ -30,6 +30,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.721Z",
-  "versionId": "c289d31c-9399-40c0-b0d7-9f27e4eea8f2"
+  "updatedAt": "2024-12-20T16:06:14.174Z",
+  "versionId": "b0d68370-b4fe-481c-9656-fc9a07efc021"
 }
