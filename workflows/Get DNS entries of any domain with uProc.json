@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:18.820Z",
-  "id": "hKJL37T1WRvsrgXc",
+  "createdAt": "2024-12-20T16:06:11.795Z",
+  "id": "vy7Q2KxFT5yhWeTM",
   "meta": null,
   "name": "Get DNS entries of any domain with uProc",
   "nodes": [
@@ -77,6 +77,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:18.820Z",
-  "versionId": "7b469a45-cc66-4516-8e3a-30ec6890e587"
+  "updatedAt": "2024-12-20T16:06:11.795Z",
+  "versionId": "439e0070-603f-4dda-bf62-b35b420c4293"
 }
