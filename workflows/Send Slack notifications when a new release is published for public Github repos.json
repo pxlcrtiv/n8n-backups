@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.519Z",
-  "id": "42KWOODO1KntE4vq",
+  "createdAt": "2024-12-20T16:06:14.593Z",
+  "id": "BMNRErFX3jNJF8ho",
   "meta": null,
   "name": "Send Slack notifications when a new release is published for public Github repos",
   "nodes": [
@@ -187,6 +187,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.519Z",
-  "versionId": "0aaec0b0-6936-4e93-addd-68bfe28670f3"
+  "updatedAt": "2024-12-20T16:06:14.593Z",
+  "versionId": "b7adea1e-5856-4746-bf11-c279eaffdfed"
 }
