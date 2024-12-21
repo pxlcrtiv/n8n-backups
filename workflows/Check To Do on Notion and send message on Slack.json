@@ -53,8 +53,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:16.986Z",
-  "id": "gFKsZLb150UZvnso",
+  "createdAt": "2024-12-20T16:06:08.065Z",
+  "id": "ni3ZNohFk3NYPRIT",
   "meta": null,
   "name": "Check To Do on Notion and send message on Slack",
   "nodes": [
@@ -181,6 +181,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:16.986Z",
-  "versionId": "3a1d0c0d-5971-4ac5-8ea8-f4c2c346c04a"
+  "updatedAt": "2024-12-20T16:06:08.065Z",
+  "versionId": "371db12a-f1fe-4124-8de9-1826ece2df9a"
 }
