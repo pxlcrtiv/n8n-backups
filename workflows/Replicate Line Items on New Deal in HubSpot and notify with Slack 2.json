@@ -68,8 +68,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.439Z",
-  "id": "t0Kaw1eV4kCVPDwr",
+  "createdAt": "2024-12-20T16:06:14.453Z",
+  "id": "1tfm3TIUiyLkZ0It",
   "meta": null,
   "name": "Replicate Line Items on New Deal in HubSpot and notify with Slack 2",
   "nodes": [
@@ -300,6 +300,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.439Z",
-  "versionId": "f36f392b-9494-4bfe-9695-7564e76662f9"
+  "updatedAt": "2024-12-20T16:06:14.453Z",
+  "versionId": "6367833c-a499-4080-8258-7955fe2713f1"
 }
