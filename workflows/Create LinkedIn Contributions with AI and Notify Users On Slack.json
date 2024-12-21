@@ -144,11 +144,9 @@
       ]
     }
   },
-  "createdAt": "2024-11-26T15:24:09.978Z",
-  "id": "pqGRc8qLvc5VKOq4",
-  "meta": {
-    "templateId": "2491"
-  },
+  "createdAt": "2024-12-20T16:06:09.399Z",
+  "id": "j0B0K6mvYcFUMimh",
+  "meta": null,
   "name": "Create LinkedIn Contributions with AI and Notify Users On Slack",
   "nodes": [
     {
@@ -766,13 +764,13 @@
       "typeVersion": 1
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-11-26T15:24:09.978Z",
-  "versionId": "b2c3c4ff-6b96-48f3-87e4-70fd24816e3b"
+  "updatedAt": "2024-12-20T16:06:09.399Z",
+  "versionId": "9a2688c4-ff68-486b-bb23-9cf41946f92d"
 }
