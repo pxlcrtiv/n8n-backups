@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.379Z",
-  "id": "U3gQ7KIdkKCxY6t0",
+  "createdAt": "2024-12-20T16:06:13.543Z",
+  "id": "LOSgOw2TJjIPy7TO",
   "meta": null,
   "name": "Notify on Slack when refund is registered in WooCommerce",
   "nodes": [
@@ -121,6 +121,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.379Z",
-  "versionId": "5d0596d0-b66b-4533-b3b7-eb971d33fc0f"
+  "updatedAt": "2024-12-20T16:06:13.543Z",
+  "versionId": "9ffb1eaf-b4b9-404f-88ba-e0daa52b84df"
 }
