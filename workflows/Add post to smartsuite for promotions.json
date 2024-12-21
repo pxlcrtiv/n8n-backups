@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:12.655Z",
-  "id": "jTWMxZhXcw7nB8aX",
+  "createdAt": "2024-12-20T16:06:01.524Z",
+  "id": "HwSznX31HEGaoXTi",
   "meta": null,
   "name": "Add post to smartsuite for promotions",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:12.655Z",
-  "versionId": "eaff0cb3-7035-477a-8e8b-691a988e82c9"
+  "updatedAt": "2024-12-20T16:06:01.524Z",
+  "versionId": "ccf4020a-7872-4369-94f6-91c332d2c6cc"
 }
