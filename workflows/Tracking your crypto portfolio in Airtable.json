@@ -79,11 +79,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T10:59:00.959Z",
-  "id": "LZmAxLsUWpFXxKUg",
-  "meta": {
-    "templateId": "859"
-  },
+  "createdAt": "2024-12-20T16:06:18.258Z",
+  "id": "RkxLna5yjvNFPUBR",
+  "meta": null,
   "name": "Tracking your crypto portfolio in Airtable",
   "nodes": [
     {
@@ -244,13 +242,13 @@
       "id": "48ca9ed1-f891-4db4-86a6-bbc53a82f4c4"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T10:59:00.959Z",
-  "versionId": "3e4f4e29-9298-4334-b783-4206e3fd2c5d"
+  "updatedAt": "2024-12-20T16:06:18.258Z",
+  "versionId": "1cc7fb10-388a-42aa-9b15-37788398c463"
 }
