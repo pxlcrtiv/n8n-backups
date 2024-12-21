@@ -157,8 +157,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:24.246Z",
-  "id": "KQ164daTFMNCyvZf",
+  "createdAt": "2024-12-20T16:06:16.621Z",
+  "id": "Z8dUFlFnunGRyZJO",
   "meta": null,
   "name": "Write a WordPress post with AI (starting from a few keywords)",
   "nodes": [
@@ -973,6 +973,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.246Z",
-  "versionId": "c8b76d7d-2639-4c94-82b3-530f3e956885"
+  "updatedAt": "2024-12-20T16:06:16.621Z",
+  "versionId": "544d0b53-9b14-4cf7-9733-8ff4d198d951"
 }
