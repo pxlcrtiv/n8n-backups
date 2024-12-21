@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.990Z",
-  "id": "fLF3RLtsvnooBLEx",
+  "createdAt": "2024-12-20T16:06:14.135Z",
+  "id": "qOLywB6L6WK7VAUw",
   "meta": null,
   "name": "Receive a Mattermost message when new data gets added to Airtable",
   "nodes": [
@@ -64,6 +64,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.990Z",
-  "versionId": "6741d052-7ad7-4763-a376-e9019079e2fa"
+  "updatedAt": "2024-12-20T16:06:14.135Z",
+  "versionId": "9f044aa9-6246-4049-9b94-3470ba681a8a"
 }
