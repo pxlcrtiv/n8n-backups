@@ -42,11 +42,9 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T09:05:08.596Z",
-  "id": "BHvwJHlk0wqu1qez",
-  "meta": {
-    "templateId": "1456"
-  },
+  "createdAt": "2024-12-20T16:06:01.494Z",
+  "id": "rnZKtAzSlAZ6lmoV",
+  "meta": null,
   "name": "Add new customers from LemonSqueezy to Mautic",
   "nodes": [
     {
@@ -141,13 +139,13 @@
       "id": "8173590a-5ada-4f60-adae-4949d28e51e1"
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T19:13:54.000Z",
-  "versionId": "e16e14f7-0bcf-454e-89dd-df6e7a86c4a0"
+  "updatedAt": "2024-12-20T16:06:01.494Z",
+  "versionId": "56b311d2-ee11-466c-bd8d-6125caaec17f"
 }
