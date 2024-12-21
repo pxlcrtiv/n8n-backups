@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:42:46.870Z",
-  "id": "fWW3bKfsGhq6JyAD",
+  "createdAt": "2024-12-20T16:06:14.236Z",
+  "id": "gLmeGaq2SLMwpP89",
   "meta": null,
   "name": "Receive updates when a subscriber is added to a group in MailerLite",
   "nodes": [
@@ -105,6 +105,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:42:46.870Z",
-  "versionId": "6991b223-af16-4879-b6af-5edc3809c821"
+  "updatedAt": "2024-12-20T16:06:14.236Z",
+  "versionId": "552ca359-8868-4efb-b769-9baa3f4368a6"
 }
