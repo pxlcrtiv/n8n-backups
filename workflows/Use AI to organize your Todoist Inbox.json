@@ -68,8 +68,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:23.009Z",
-  "id": "0EaDEeCdrbtVAcnP",
+  "createdAt": "2024-12-20T16:06:18.459Z",
+  "id": "nNXyIVcTojsg1VTQ",
   "meta": null,
   "name": "Use AI to organize your Todoist Inbox",
   "nodes": [
@@ -351,6 +351,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:23.009Z",
-  "versionId": "ceebfe16-284a-4502-b865-47ed459db676"
+  "updatedAt": "2024-12-20T16:06:18.459Z",
+  "versionId": "f496a842-cb66-4f47-be85-801c0cf8f5b3"
 }
