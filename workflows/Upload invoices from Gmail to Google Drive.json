@@ -101,8 +101,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:22.492Z",
-  "id": "e8eKvcOkBalvhEBw",
+  "createdAt": "2024-12-20T16:06:18.372Z",
+  "id": "xuW9QJ9XuHrApPqa",
   "meta": null,
   "name": "Upload invoices from Gmail to Google Drive",
   "nodes": [
@@ -299,6 +299,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:22.492Z",
-  "versionId": "4475f7c0-1b03-4d7b-992a-4b6258129a85"
+  "updatedAt": "2024-12-20T16:06:18.372Z",
+  "versionId": "9a29bde1-5ae6-4cd4-bd61-92f4a3fd27ac"
 }
