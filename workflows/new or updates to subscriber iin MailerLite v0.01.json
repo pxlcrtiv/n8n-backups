@@ -270,8 +270,8 @@
       ]
     }
   },
-  "createdAt": "2024-08-21T12:50:20.224Z",
-  "id": "GFQe4uUKNRJb3ve0",
+  "createdAt": "2024-12-20T16:06:17.089Z",
+  "id": "JvLp7h0dLl03J1pz",
   "meta": null,
   "name": "new or updates to subscriber iin MailerLite v0.01",
   "nodes": [
@@ -835,6 +835,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-21T12:50:20.224Z",
-  "versionId": "f9302993-790b-499a-b5f5-55ff81266914"
+  "updatedAt": "2024-12-20T16:06:17.089Z",
+  "versionId": "07259809-06fb-4e98-b846-25c17e4bdcaa"
 }
