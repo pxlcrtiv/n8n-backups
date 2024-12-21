@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.706Z",
-  "id": "vLlodDYvkUNcA8NE",
+  "createdAt": "2024-12-20T16:06:15.453Z",
+  "id": "5LfsfiENdtSS0hrE",
   "meta": null,
   "name": "Send tweets every minute to Mattermost",
   "nodes": [
@@ -182,6 +182,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.706Z",
-  "versionId": "616e7417-5b1e-4383-b4bf-91dad368cc91"
+  "updatedAt": "2024-12-20T16:06:15.453Z",
+  "versionId": "8b4f235d-422c-49ea-84b1-2438ab8a86e0"
 }
