@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.484Z",
-  "id": "xhLi4cCXPuebsp2N",
+  "createdAt": "2024-12-20T16:06:16.905Z",
+  "id": "P0ja5DhO91UJAgW0",
   "meta": null,
   "name": "lemonsqueezy subscription_cancelled",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.484Z",
-  "versionId": "9bd86850-e420-42f6-bbd5-794cae833599"
+  "updatedAt": "2024-12-20T16:06:16.905Z",
+  "versionId": "2309775b-aa79-4252-a255-81433bdd376b"
 }
