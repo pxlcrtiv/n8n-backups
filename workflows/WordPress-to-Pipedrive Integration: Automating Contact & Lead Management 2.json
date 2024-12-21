@@ -97,8 +97,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:24.172Z",
-  "id": "KGW6MOZgLYfJMkMH",
+  "createdAt": "2024-12-20T16:06:16.557Z",
+  "id": "drpKlPY7C6TOwXIz",
   "meta": null,
   "name": "WordPress-to-Pipedrive Integration: Automating Contact & Lead Management 2",
   "nodes": [
@@ -288,6 +288,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.172Z",
-  "versionId": "f4e37c28-0f20-4786-8d35-e00c4e14da51"
+  "updatedAt": "2024-12-20T16:06:16.557Z",
+  "versionId": "5a72922a-6227-44f9-aa26-dc7b6da16703"
 }
