@@ -73,11 +73,9 @@
       ]
     }
   },
-  "createdAt": "2024-08-27T18:12:11.201Z",
-  "id": "N3qEbcMyB2svb6kU",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:17.076Z",
+  "id": "y0HZfpFXWhrk7VF6",
+  "meta": null,
   "name": "sync new mailerlite new subscribers to SM",
   "nodes": [
     {
@@ -254,13 +252,13 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-08-29T12:49:33.000Z",
-  "versionId": "922e6c6f-a4d1-4ee2-bfd6-b5063f00d498"
+  "updatedAt": "2024-12-20T16:06:17.076Z",
+  "versionId": "d5131e5d-82e4-4b30-a99f-939d2a2f959a"
 }
