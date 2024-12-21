@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.625Z",
-  "id": "I160KZAOoRy0YjLH",
+  "createdAt": "2024-12-20T16:06:17.055Z",
+  "id": "9ulhWnwxdijfA2VG",
   "meta": null,
   "name": "sync captureone folder to synology nas folders",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.625Z",
-  "versionId": "1e23c82c-a9cb-42bf-8929-a4a54bb1a0d7"
+  "updatedAt": "2024-12-20T16:06:17.055Z",
+  "versionId": "3fcb286c-c0d9-4101-b826-5ad438a0553f"
 }
