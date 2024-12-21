@@ -75,8 +75,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.790Z",
-  "id": "844OJJwRYnYDa4lu",
+  "createdAt": "2024-12-20T16:06:13.999Z",
+  "id": "PdyGlhOWabrS4StS",
   "meta": null,
   "name": "Provide latest euro exchange rates from European Central Bank via Webhook",
   "nodes": [
@@ -253,6 +253,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.790Z",
-  "versionId": "d3f45764-8c6e-427c-897e-315adfec081d"
+  "updatedAt": "2024-12-20T16:06:13.999Z",
+  "versionId": "df0b9652-cc2b-45f3-9bb9-06bfbb155394"
 }
