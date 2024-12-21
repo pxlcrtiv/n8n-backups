@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:20.442Z",
-  "id": "Fzw6aUt0xUM3ohX1",
+  "createdAt": "2024-12-20T16:06:13.600Z",
+  "id": "JwaxxsNPWXAujdyR",
   "meta": null,
   "name": "Payhip Paid Transactions",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.442Z",
-  "versionId": "ce23ee0c-3ee4-414d-8e54-e7058b9fcc64"
+  "updatedAt": "2024-12-20T16:06:13.600Z",
+  "versionId": "e28bb08e-4314-44ca-9427-464d9a9f052a"
 }
