@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-09-26T07:44:24.386Z",
-  "id": "6wOq9UVWLft7vuZX",
+  "createdAt": "2024-12-20T16:06:16.780Z",
+  "id": "GUUE1Pc509Nz9ec5",
   "meta": null,
   "name": "lemonsqueezy order_refunded",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.386Z",
-  "versionId": "027c7ff5-5dc5-4115-a4d0-b8069a03e437"
+  "updatedAt": "2024-12-20T16:06:16.780Z",
+  "versionId": "2fa81b67-b567-4168-889d-7394de4e8912"
 }
