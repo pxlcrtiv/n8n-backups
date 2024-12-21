@@ -97,8 +97,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:24.208Z",
-  "id": "Upbbt7aCuPQIwbV0",
+  "createdAt": "2024-12-20T16:06:16.588Z",
+  "id": "PWD6j46UH93D9Xg8",
   "meta": null,
   "name": "WordPress-to-Smartsuite Integration: Automating Contact & Lead Management",
   "nodes": [
@@ -288,6 +288,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:24.208Z",
-  "versionId": "fa47127b-0903-40c3-8db6-1ca2a16c89fb"
+  "updatedAt": "2024-12-20T16:06:16.588Z",
+  "versionId": "de1aaee5-0216-4bd4-ae03-de0548c041db"
 }
