@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:16.890Z",
-  "id": "I2ODML18f0Ox8k1Q",
+  "createdAt": "2024-12-20T16:06:07.988Z",
+  "id": "YI5NpYhtGUsEnNjK",
   "meta": null,
   "name": "CX Agent",
   "nodes": [
@@ -75,6 +75,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:16.890Z",
-  "versionId": "5ee33311-b4bc-4f4e-9ba4-35d1a229447d"
+  "updatedAt": "2024-12-20T16:06:07.988Z",
+  "versionId": "4d57bc28-5095-48c8-918e-10c6365bd8cd"
 }
