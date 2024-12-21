@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:14:47.862Z",
-  "id": "hFmt6Fi0PdjyV3rY",
+  "createdAt": "2024-12-20T16:16:52.238Z",
+  "id": "hvDUiB3iAdgvfzj5",
   "meta": null,
   "name": "WF500-2: customer has cancelled a payhip subscription",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:14:47.862Z",
-  "versionId": "f32dfa40-bb96-49f5-849f-37fa421c445a"
+  "updatedAt": "2024-12-20T16:16:52.238Z",
+  "versionId": "a4a72824-a2fc-482d-b648-cb139ba0106b"
 }
