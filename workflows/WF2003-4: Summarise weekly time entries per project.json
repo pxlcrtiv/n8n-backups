@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:16:52.155Z",
-  "id": "M9STiRF7r1Ht3Av4",
+  "createdAt": "2024-12-20T16:17:57.834Z",
+  "id": "dmXoJgNVbUHHK5HP",
   "meta": null,
   "name": "WF2003-4: Summarise weekly time entries per project",
   "nodes": [
@@ -57,6 +57,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:16:52.155Z",
-  "versionId": "5197b7db-0b88-4d46-a9b4-403c768a6730"
+  "updatedAt": "2024-12-20T16:17:57.834Z",
+  "versionId": "1da24a18-b6a2-4e36-ba37-200243493c16"
 }
