@@ -92,7 +92,7 @@
       "main": [
         [
           {
-            "node": "n8n - create workflow",
+            "node": "Filter",
             "type": "main",
             "index": 0
           }
@@ -127,11 +127,24 @@
           }
         ]
       ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "n8n - create workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.441Z",
-  "id": "rNl9ewfIxqXfJPXC",
-  "meta": null,
+  "createdAt": "2024-12-20T15:54:37.215Z",
+  "id": "Q16SALD3pcmvyzMe",
+  "meta": {
+    "templateId": "2289"
+  },
   "name": "Restore backed up workflows from GitHub to n8n",
   "nodes": [
     {
@@ -151,7 +164,7 @@
           "string": [
             {
               "name": "repo.owner",
-              "value": "n8n-io"
+              "value": "jackovw82"
             },
             {
               "name": "repo.name",
@@ -196,8 +209,8 @@
       "name": "Workflow name already exists",
       "type": "n8n-nodes-base.noOp",
       "position": [
-        2700,
-        520
+        2660,
+        540
       ],
       "typeVersion": 1
     },
@@ -205,11 +218,11 @@
       "parameters": {
         "conditions": {
           "options": {
-            "leftValue": "",
             "caseSensitive": true,
-            "typeValidation": "strict"
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
           },
-          "combinator": "and",
           "conditions": [
             {
               "id": "063d51c7-0b7a-48a4-82b3-76b370fc4265",
@@ -221,7 +234,8 @@
               "leftValue": "={{ $('Merge Github and n8n workflows - Keep only non existing workflows based on the name').item.json.name }}",
               "rightValue": ""
             }
-          ]
+          ],
+          "combinator": "and"
         },
         "options": {}
       },
@@ -280,7 +294,13 @@
         1240,
         180
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "9YzB9pdSS49M1s7B",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -294,7 +314,13 @@
         1020,
         520
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "0i2TfhytHlmFzftl",
+          "name": "n8n account"
+        }
+      }
     },
     {
       "parameters": {
@@ -321,7 +347,13 @@
         1660,
         300
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "9YzB9pdSS49M1s7B",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -331,7 +363,7 @@
               "id": "714b0cfd-9f06-4e2f-b73d-30ef39dc40e3",
               "name": "content",
               "type": "string",
-              "value": "={{ $json.content.base64Decode() }}"
+              "value": "={{ $json.content?.base64Decode() }}"
             },
             {
               "id": "6f48ed58-d55a-4ee4-8cf2-373941aaa341",
@@ -362,10 +394,16 @@
       "name": "n8n - create workflow",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        2700,
+        2920,
         300
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "0i2TfhytHlmFzftl",
+          "name": "n8n account"
+        }
+      }
     },
     {
       "parameters": {
@@ -450,8 +488,8 @@
       "name": "Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2880,
-        360
+        2820,
+        -20
       ],
       "typeVersion": 1
     },
@@ -470,15 +508,47 @@
         620
       ],
       "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "897a0382-611a-48ab-8125-400f3e7e7c42",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2660,
+        300
+      ],
+      "id": "a1c2290d-848a-4698-b53e-258cee9c1bc8",
+      "name": "Filter"
     }
   ],
-  "pinData": null,
-  "settings": {
-    "executionOrder": "v1"
-  },
+  "pinData": {},
+  "settings": {},
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.441Z",
-  "versionId": "b8aaf845-bb0d-46d3-a17e-b1d3f0785349"
+  "updatedAt": "2024-12-21T06:30:20.000Z",
+  "versionId": "c4c50b0c-3e1f-4c22-936c-afd3f2583eca"
 }
