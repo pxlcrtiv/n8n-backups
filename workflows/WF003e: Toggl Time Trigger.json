@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "If": {
       "main": [
@@ -86,11 +86,9 @@
       ]
     }
   },
-  "createdAt": "2024-11-27T17:02:43.632Z",
-  "id": "li09ZWc8eCSmNagf",
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "createdAt": "2024-12-20T16:06:16.198Z",
+  "id": "AnxkfINkQP1vzlFs",
+  "meta": null,
   "name": "WF003e: Toggl Time Trigger",
   "nodes": [
     {
@@ -390,7 +388,7 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": null,
   "settings": {
     "executionOrder": "v1"
   },
@@ -400,7 +398,7 @@
     }
   },
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2024-12-04T06:49:31.000Z",
-  "versionId": "850fea89-12fe-4ad2-ac82-a2a1871581e8"
+  "triggerCount": 0,
+  "updatedAt": "2024-12-20T16:06:16.198Z",
+  "versionId": "bee116c3-0626-4978-98cd-4261901c4bca"
 }
