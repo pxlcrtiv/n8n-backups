@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:20.041Z",
-  "id": "2RYHw2LM2GsxGtND",
+  "createdAt": "2024-12-20T16:06:13.184Z",
+  "id": "kx4nKtswZBPSz7cj",
   "meta": null,
   "name": "Lead Nurturing Agent",
   "nodes": [
@@ -53,6 +53,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:20.041Z",
-  "versionId": "c51a4bae-8ba9-45ce-aab8-25027cbc4114"
+  "updatedAt": "2024-12-20T16:06:13.184Z",
+  "versionId": "7d7d3649-c03b-4de2-b053-4dbaa6467d29"
 }
