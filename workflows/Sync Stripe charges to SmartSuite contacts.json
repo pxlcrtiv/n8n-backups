@@ -165,8 +165,8 @@
       ]
     }
   },
-  "createdAt": "2024-09-26T07:44:21.886Z",
-  "id": "1ZPNz7Ychl3xR7VQ",
+  "createdAt": "2024-12-20T16:06:18.056Z",
+  "id": "lSTjg0OtdFN8EpZ2",
   "meta": null,
   "name": "Sync Stripe charges to SmartSuite contacts",
   "nodes": [
@@ -641,6 +641,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-09-26T07:44:21.886Z",
-  "versionId": "53d810fd-f17a-4b3b-98ab-1959894aebf9"
+  "updatedAt": "2024-12-20T16:06:18.056Z",
+  "versionId": "4b76582f-3775-4c52-bb45-80547b4ee5b4"
 }
