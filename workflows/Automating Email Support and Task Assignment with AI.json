@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:04.511Z",
-  "id": "T5yz91hKXD0SFLHd",
+  "createdAt": "2024-12-23T15:57:33.706Z",
+  "id": "L0Wg0hr41LON9wF8",
   "meta": null,
   "name": "Automating Email Support and Task Assignment with AI",
   "nodes": [
@@ -25,6 +25,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:04.511Z",
-  "versionId": "91c6ac64-d907-4b5e-9794-95e2f8f5bf43"
+  "updatedAt": "2024-12-23T15:57:33.706Z",
+  "versionId": "6ea9c7e0-68e5-47b8-97be-02aeac6fe15e"
 }
