@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:13.789Z",
-  "id": "7mhwftNZa7Tr8nKC",
+  "createdAt": "2024-12-23T15:57:36.857Z",
+  "id": "WS3qQZfYFZfNCuMR",
   "meta": null,
   "name": "Payhip subscription.deleted",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.789Z",
-  "versionId": "38198299-a638-4b97-bd6e-c4bc41279568"
+  "updatedAt": "2024-12-23T15:57:36.857Z",
+  "versionId": "fb67e173-2b6d-4e28-86ba-01b9844c5e91"
 }
