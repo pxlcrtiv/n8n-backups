@@ -58,8 +58,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:15.607Z",
-  "id": "ICWIaj2kAXtzsl7M",
+  "createdAt": "2024-12-23T15:57:38.669Z",
+  "id": "zUfAFtIZO72jAZtp",
   "meta": null,
   "name": "Validate email of new contacts in Mautic",
   "nodes": [
@@ -184,6 +184,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:15.607Z",
-  "versionId": "f9dbd54a-9a86-4ada-9ffb-bd04adc67c92"
+  "updatedAt": "2024-12-23T15:57:38.669Z",
+  "versionId": "4b9478f4-34ff-47dd-9a82-427795c838a3"
 }
