@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:17.043Z",
-  "id": "vianBmRg5XDwgTZV",
+  "createdAt": "2024-12-23T15:57:40.268Z",
+  "id": "7WUywVhhTVMXtjge",
   "meta": null,
   "name": "podcast preparation and guest follow ups...",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:17.043Z",
-  "versionId": "3698a7bd-3704-42e6-93b3-274ee2f00f0b"
+  "updatedAt": "2024-12-23T15:57:40.268Z",
+  "versionId": "f0437f6c-bc3d-4754-96df-81d629899442"
 }
