@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:16.696Z",
-  "id": "Ps10txpXMzewh2dh",
+  "createdAt": "2024-12-23T15:57:39.981Z",
+  "id": "3aBidBhYoCPufEBF",
   "meta": null,
   "name": "customer has cancelled a payhip subscription",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:16.696Z",
-  "versionId": "9d2d3444-5b01-404e-92b9-220008e88fa1"
+  "updatedAt": "2024-12-23T15:57:39.981Z",
+  "versionId": "080ccd25-4943-4865-92cb-54b30f1fb6bb"
 }
