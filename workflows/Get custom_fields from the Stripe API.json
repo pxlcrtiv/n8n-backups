@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.948Z",
-  "id": "u42tpJqEmpM1igWd",
+  "createdAt": "2024-12-23T15:57:35.568Z",
+  "id": "tUlEK8Wivzq41BEi",
   "meta": null,
   "name": "Get custom_fields from the Stripe API",
   "nodes": [
@@ -199,6 +199,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.948Z",
-  "versionId": "8c7f3915-abb2-472b-8140-0d7fecb82567"
+  "updatedAt": "2024-12-23T15:57:35.568Z",
+  "versionId": "b7a741e5-7f22-4f21-98af-e19ca2e90b61"
 }
