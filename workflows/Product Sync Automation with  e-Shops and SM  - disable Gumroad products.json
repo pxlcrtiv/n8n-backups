@@ -215,8 +215,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.884Z",
-  "id": "bvBIibYDEaPAtU37",
+  "createdAt": "2024-12-23T15:57:36.935Z",
+  "id": "IjuBJQXupgdhtC2o",
   "meta": null,
   "name": "Product Sync Automation with  e-Shops and SM  - disable Gumroad products",
   "nodes": [
@@ -766,6 +766,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.884Z",
-  "versionId": "f4184e9a-b3b1-4499-b63b-70be72e50c90"
+  "updatedAt": "2024-12-23T15:57:36.935Z",
+  "versionId": "8f3233e3-8db8-43e1-b639-91f6bb079f93"
 }
