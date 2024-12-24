@@ -97,8 +97,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.924Z",
-  "id": "A6AZh7HVoenfEz1Q",
+  "createdAt": "2024-12-23T15:57:35.549Z",
+  "id": "oC3HdIbjWdJnVQY0",
   "meta": null,
   "name": "Get all posts from Wordpress",
   "nodes": [
@@ -263,6 +263,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.924Z",
-  "versionId": "af4275a5-8d2f-4e2f-82ad-85514992e368"
+  "updatedAt": "2024-12-23T15:57:35.549Z",
+  "versionId": "6fa04633-80b4-4051-b4c4-6093e4879aba"
 }
