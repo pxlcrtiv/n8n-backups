@@ -188,7 +188,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "position": [
         1500,
-        740
+        720
       ],
       "typeVersion": 1
     },
@@ -231,8 +231,8 @@
       "name": "Create New Time Entry",
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
-        1480,
-        820
+        1380,
+        720
       ],
       "typeVersion": 1.1
     },
@@ -269,7 +269,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "position": [
         1140,
-        740
+        680
       ],
       "typeVersion": 1.1
     },
@@ -497,8 +497,8 @@
       "name": "ClockifyBlockia",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "position": [
-        920,
-        500
+        940,
+        400
       ],
       "typeVersion": 1.7
     },
@@ -516,7 +516,7 @@
       "name": "Slack Trigger",
       "type": "n8n-nodes-base.slackTrigger",
       "position": [
-        380,
+        440,
         240
       ],
       "webhookId": "cc2d1f3f-c366-48a5-9285-b424f00504cf",
@@ -563,8 +563,8 @@
       "name": "Add reaction",
       "type": "n8n-nodes-base.slack",
       "position": [
-        1020,
-        80
+        1040,
+        160
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
       "typeVersion": 2.2
@@ -594,8 +594,8 @@
       "name": "Send reply",
       "type": "n8n-nodes-base.slack",
       "position": [
-        1280,
-        240
+        1380,
+        280
       ],
       "webhookId": "81d9777e-2ea1-4938-966a-e2fe491d0bba",
       "typeVersion": 2.2
@@ -608,6 +608,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-24T13:26:48.853Z",
-  "versionId": "3bd77395-61ac-428a-97d8-7df5611851ea"
+  "updatedAt": "2024-12-24T20:25:45.000Z",
+  "versionId": "6b5f2a2e-8a9d-47f7-b2d1-048534879f72"
 }
