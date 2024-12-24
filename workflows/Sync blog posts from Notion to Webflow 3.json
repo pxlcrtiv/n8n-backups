@@ -290,8 +290,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:15.520Z",
-  "id": "oaHuWouLXovFcpOW",
+  "createdAt": "2024-12-23T15:57:38.529Z",
+  "id": "OJuLlz8n6UCmUD6P",
   "meta": null,
   "name": "Sync blog posts from Notion to Webflow 3",
   "nodes": [
@@ -890,6 +890,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:15.520Z",
-  "versionId": "81a0beb1-79b1-42b5-89a7-09bcdcf90c76"
+  "updatedAt": "2024-12-23T15:57:38.529Z",
+  "versionId": "e3301763-a2aa-42ed-ba12-18c906e9cb36"
 }
