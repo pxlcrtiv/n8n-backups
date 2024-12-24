@@ -71,8 +71,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.330Z",
-  "id": "xbijE24OyoorEKpo",
+  "createdAt": "2024-12-23T15:57:38.381Z",
+  "id": "2vzHGWzRCREJQJbu",
   "meta": null,
   "name": "Update HubSpot when a new invoice is registered in Stripe",
   "nodes": [
@@ -353,6 +353,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.330Z",
-  "versionId": "622d799d-706b-4b12-ada0-e60bedda89a7"
+  "updatedAt": "2024-12-23T15:57:38.381Z",
+  "versionId": "6198fe82-2d4c-4d33-af84-bdd56204602e"
 }
