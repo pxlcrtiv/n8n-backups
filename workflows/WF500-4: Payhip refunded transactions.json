@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:16.432Z",
-  "id": "Njn4S6N46GpEhWcj",
+  "createdAt": "2024-12-23T15:57:39.726Z",
+  "id": "ZlkUeDNyXQ93bsaH",
   "meta": null,
   "name": "WF500-4: Payhip refunded transactions",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:16.432Z",
-  "versionId": "cdbae553-0282-42e9-b469-0ee7fb602f36"
+  "updatedAt": "2024-12-23T15:57:39.726Z",
+  "versionId": "94523298-15de-4279-918e-b73413a4390d"
 }
