@@ -62,8 +62,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:01.544Z",
-  "id": "xK6K13Gy0X36iKTs",
+  "createdAt": "2024-12-23T15:57:32.298Z",
+  "id": "udDuyCK0h73Dxmlh",
   "meta": null,
   "name": "Add published Ai blog post from articles to smartsuite and wordpress",
   "nodes": [
@@ -199,6 +199,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:01.544Z",
-  "versionId": "d8228946-d6a5-4787-b56a-bcfd1e6ee81d"
+  "updatedAt": "2024-12-23T15:57:32.298Z",
+  "versionId": "a27659e0-1c35-4339-b5e6-228c52c27144"
 }
