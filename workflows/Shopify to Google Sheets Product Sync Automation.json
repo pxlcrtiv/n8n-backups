@@ -175,8 +175,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:15.485Z",
-  "id": "vZLZvA3v7y95FHGb",
+  "createdAt": "2024-12-23T15:57:37.946Z",
+  "id": "xVcjxddzlNpYAYfv",
   "meta": null,
   "name": "Shopify to Google Sheets Product Sync Automation",
   "nodes": [
@@ -850,6 +850,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:15.485Z",
-  "versionId": "7095fd1c-9ac6-4ae9-a843-2acb63239c56"
+  "updatedAt": "2024-12-23T15:57:37.946Z",
+  "versionId": "5f4d05d5-da7f-40c0-b937-8cffa07f1661"
 }
