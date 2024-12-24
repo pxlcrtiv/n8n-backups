@@ -143,8 +143,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:16:52.224Z",
-  "id": "t4V1MmXrmJaIFvPf",
+  "createdAt": "2024-12-23T15:57:39.672Z",
+  "id": "CXWxWawdP8Hlo8tA",
   "meta": null,
   "name": "WF3001-1: Auto-assign deals in Hubspot to fitting sales reps based on geo and company size",
   "nodes": [
@@ -801,6 +801,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:16:52.224Z",
-  "versionId": "77bc5a0a-6221-45d5-9724-b59d7f4518f5"
+  "updatedAt": "2024-12-23T15:57:39.672Z",
+  "versionId": "fa62e1c6-0a88-4564-a674-6e43936248ed"
 }
