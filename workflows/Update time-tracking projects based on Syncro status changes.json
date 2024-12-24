@@ -53,8 +53,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.365Z",
-  "id": "Exv1vZYGfNnjQsh7",
+  "createdAt": "2024-12-23T15:57:38.414Z",
+  "id": "hcvHQzgkqU9kg0is",
   "meta": null,
   "name": "Update time-tracking projects based on Syncro status changes",
   "nodes": [
@@ -205,6 +205,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.365Z",
-  "versionId": "c6f1e789-d908-401e-8d75-23369c53bff6"
+  "updatedAt": "2024-12-23T15:57:38.414Z",
+  "versionId": "5ae1aebc-4111-4620-83cf-5154807a7f10"
 }
