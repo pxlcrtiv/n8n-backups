@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:16.414Z",
-  "id": "4oBXmZUgInbB8e6C",
+  "createdAt": "2024-12-23T15:57:39.714Z",
+  "id": "cogb9XtXcJMM2SNv",
   "meta": null,
   "name": "WF500-3: customer has started a payhip subscription",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:16.414Z",
-  "versionId": "cc02dc2c-725f-4424-b37d-85a2b10d6daf"
+  "updatedAt": "2024-12-23T15:57:39.714Z",
+  "versionId": "cc5719fa-2927-4f76-9792-2f8a46c4312c"
 }
