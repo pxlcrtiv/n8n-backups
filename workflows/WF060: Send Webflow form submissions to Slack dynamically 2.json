@@ -91,8 +91,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:16.265Z",
-  "id": "uV6fRGcyDw3IMbsG",
+  "createdAt": "2024-12-23T15:57:39.331Z",
+  "id": "Hz8q9Z02t4IEqrQ3",
   "meta": null,
   "name": "WF060: Send Webflow form submissions to Slack dynamically 2",
   "nodes": [
@@ -349,6 +349,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:16.265Z",
-  "versionId": "7bed4e3f-9970-4050-9fcd-9afe0a3f7b15"
+  "updatedAt": "2024-12-23T15:57:39.331Z",
+  "versionId": "6c3f31b1-d6b4-4b5c-92d3-89a09838500a"
 }
