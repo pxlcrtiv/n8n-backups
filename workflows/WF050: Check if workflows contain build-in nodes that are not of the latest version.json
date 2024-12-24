@@ -145,8 +145,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:16.350Z",
-  "id": "kPFABLiLtqi4YtGE",
+  "createdAt": "2024-12-23T15:57:39.432Z",
+  "id": "KYxXGRl4Sr6PLlxu",
   "meta": null,
   "name": "WF050: Check if workflows contain build-in nodes that are not of the latest version",
   "nodes": [
@@ -167,7 +167,7 @@
       "typeVersion": 4.2,
       "credentials": {
         "n8nApi": {
-          "id": "0i2TfhytHlmFzftl",
+          "id": "BeNvCRvX0ueLkTve",
           "name": "n8n account"
         }
       }
@@ -308,7 +308,7 @@
       "typeVersion": 1,
       "credentials": {
         "n8nApi": {
-          "id": "0i2TfhytHlmFzftl",
+          "id": "BeNvCRvX0ueLkTve",
           "name": "n8n account"
         }
       }
@@ -539,6 +539,6 @@
   },
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:16.350Z",
-  "versionId": "7c34c8b1-84a3-4aa0-a4f6-0605629248ee"
+  "updatedAt": "2024-12-23T15:57:39.432Z",
+  "versionId": "1ec7774b-711b-448e-856c-b8b9f56b7a05"
 }
