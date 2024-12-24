@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.963Z",
-  "id": "Ah0b3IRmJbbonwsz",
+  "createdAt": "2024-12-23T15:57:35.583Z",
+  "id": "mKxBkriFJWYUKF3J",
   "meta": null,
   "name": "Get email notifications for newly uploaded Google Drive files",
   "nodes": [
@@ -66,6 +66,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.963Z",
-  "versionId": "6fcc8b56-d70c-4a6f-a450-552489ed9430"
+  "updatedAt": "2024-12-23T15:57:35.583Z",
+  "versionId": "872f40e2-d31a-4761-936e-d503437dd334"
 }
