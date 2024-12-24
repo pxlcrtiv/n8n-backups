@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.661Z",
-  "id": "6Xx02vvudzFAHsIa",
+  "createdAt": "2024-12-23T15:57:37.781Z",
+  "id": "et6GfqVT9SwHDgPD",
   "meta": null,
   "name": "Send a notification to Slack when a new high-quality lead is added to Hubspot",
   "nodes": [
@@ -203,6 +203,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.661Z",
-  "versionId": "1b110742-7180-469a-9bda-95bd35449cf4"
+  "updatedAt": "2024-12-23T15:57:37.781Z",
+  "versionId": "b382b911-ed55-4233-9f29-9c240657e19a"
 }
