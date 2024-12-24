@@ -102,8 +102,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.100Z",
-  "id": "vPUOddNa1z0kcYyk",
+  "createdAt": "2024-12-23T15:57:38.612Z",
+  "id": "50mTIZqhNKBSL6Tj",
   "meta": null,
   "name": "Sync tasks data between Notion and Asana",
   "nodes": [
@@ -307,6 +307,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.100Z",
-  "versionId": "f4168b0b-9771-4bf6-b7da-5c888d419f2b"
+  "updatedAt": "2024-12-23T15:57:38.612Z",
+  "versionId": "caf64a30-2720-4798-9e94-9242fdd6736f"
 }
