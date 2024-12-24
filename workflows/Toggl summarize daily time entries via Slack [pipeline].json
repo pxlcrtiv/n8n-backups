@@ -73,8 +73,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.236Z",
-  "id": "FteSxeXZNnFdBUyM",
+  "createdAt": "2024-12-23T15:57:38.221Z",
+  "id": "xgVtcrgih4dcrVxI",
   "meta": null,
   "name": "Toggl summarize daily time entries via Slack [pipeline]",
   "nodes": [
@@ -342,6 +342,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.236Z",
-  "versionId": "277ee94f-c2b4-4c50-bc7d-8c6ff1d0fbee"
+  "updatedAt": "2024-12-23T15:57:38.221Z",
+  "versionId": "b199dd97-0988-458f-aaf0-0b89c7658cdd"
 }
