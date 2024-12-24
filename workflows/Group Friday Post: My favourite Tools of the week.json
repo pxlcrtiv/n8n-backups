@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:12.121Z",
-  "id": "0amS5CT9dcRxf8Xc",
+  "createdAt": "2024-12-23T15:57:35.661Z",
+  "id": "KO0j5zuH29jSXNgO",
   "meta": null,
   "name": "Group Friday Post: My favourite Tools of the week",
   "nodes": [],
@@ -13,6 +13,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:12.121Z",
-  "versionId": "466f7c61-bc1c-479e-ba8b-9a87b5d06cf7"
+  "updatedAt": "2024-12-23T15:57:35.661Z",
+  "versionId": "921feb87-3410-439c-9063-96225141a3db"
 }
