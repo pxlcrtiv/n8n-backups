@@ -23,8 +23,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:09.571Z",
-  "id": "FoXvJ4dw2AXewcpB",
+  "createdAt": "2024-12-23T15:57:34.702Z",
+  "id": "3i9qZzeBNNK4vF5j",
   "meta": null,
   "name": "Create or update a post in WordPress",
   "nodes": [
@@ -79,6 +79,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:09.571Z",
-  "versionId": "2b24e7db-aeb9-4758-a543-e78be40ecf02"
+  "updatedAt": "2024-12-23T15:57:34.702Z",
+  "versionId": "51befb16-2cb8-4ddb-ae3a-4985756f1dee"
 }
