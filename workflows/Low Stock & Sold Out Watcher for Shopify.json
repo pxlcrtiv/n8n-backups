@@ -73,8 +73,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.257Z",
-  "id": "NKzNfFTMufII05vA",
+  "createdAt": "2024-12-23T15:57:36.460Z",
+  "id": "VbxahqNW4QdojxHe",
   "meta": null,
   "name": "Low Stock & Sold Out Watcher for Shopify",
   "nodes": [
@@ -337,6 +337,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.257Z",
-  "versionId": "ad007a06-66c9-4596-a27a-49209eaea883"
+  "updatedAt": "2024-12-23T15:57:36.460Z",
+  "versionId": "25e7cdd6-80ec-4436-8d77-23de155fc775"
 }
