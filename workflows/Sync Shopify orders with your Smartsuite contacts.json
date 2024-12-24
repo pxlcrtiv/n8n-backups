@@ -87,8 +87,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.036Z",
-  "id": "yJ6GKreaUR1uMyJx",
+  "createdAt": "2024-12-23T15:57:38.082Z",
+  "id": "K9oxYabILF8Tr7Dr",
   "meta": null,
   "name": "Sync Shopify orders with your Smartsuite contacts",
   "nodes": [
@@ -268,6 +268,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.036Z",
-  "versionId": "3a7cf6ab-741f-4f14-a253-f796bb0ace2e"
+  "updatedAt": "2024-12-23T15:57:38.082Z",
+  "versionId": "80a7eb80-6c04-45e3-a510-050ce4d0f01b"
 }
