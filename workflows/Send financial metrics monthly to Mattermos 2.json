@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.687Z",
-  "id": "laDYUdaOKFNTEiat",
+  "createdAt": "2024-12-23T15:57:37.809Z",
+  "id": "z5WHj0NdTbAxQiOQ",
   "meta": null,
   "name": "Send financial metrics monthly to Mattermos 2",
   "nodes": [
@@ -87,6 +87,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.687Z",
-  "versionId": "58161249-e861-4017-a076-82fc5fab48a7"
+  "updatedAt": "2024-12-23T15:57:37.809Z",
+  "versionId": "50a1bf9b-a7cd-42b0-96fc-c38bf28898ad"
 }
