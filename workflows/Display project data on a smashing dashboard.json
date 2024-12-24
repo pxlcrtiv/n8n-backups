@@ -162,8 +162,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.630Z",
-  "id": "ABnSvz8UxE6FpD3b",
+  "createdAt": "2024-12-23T15:57:35.228Z",
+  "id": "mlDdtebtY9P1kTy6",
   "meta": null,
   "name": "Display project data on a smashing dashboard",
   "nodes": [
@@ -693,7 +693,7 @@
       "id": "a37cf9d9-cff8-4220-91b5-3c31eb344199",
       "credentials": {
         "githubApi": {
-          "id": "9YzB9pdSS49M1s7B",
+          "id": "Bb0OhMSMCLsm47oS",
           "name": "GitHub account"
         }
       }
@@ -796,6 +796,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.630Z",
-  "versionId": "9a5db59c-bec2-419d-a1f3-93d21ea04ec7"
+  "updatedAt": "2024-12-23T15:57:35.228Z",
+  "versionId": "7307bdf8-5152-40eb-bf89-54d300903fa3"
 }
