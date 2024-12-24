@@ -111,8 +111,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.523Z",
-  "id": "Dw6T4RbH6LAEMqru",
+  "createdAt": "2024-12-23T15:57:35.129Z",
+  "id": "32qV7UqxfIctNAl2",
   "meta": null,
   "name": "Enrich lead captured by ConvertKit and save it in Hubspot",
   "nodes": [
@@ -530,6 +530,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.523Z",
-  "versionId": "b8a4f025-fc64-4a0d-ab90-7f22cf609668"
+  "updatedAt": "2024-12-23T15:57:35.129Z",
+  "versionId": "be9eaaae-337f-4458-8957-4b45822b4ca3"
 }
