@@ -101,8 +101,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.318Z",
-  "id": "0cR34SKYMAcGgmqR",
+  "createdAt": "2024-12-23T15:57:38.357Z",
+  "id": "iq09nmT6BolkIrtE",
   "meta": null,
   "name": "Unsubscribe Mautic contacts from automated unsubscribe emails",
   "nodes": [
@@ -388,6 +388,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.318Z",
-  "versionId": "f80a7835-86fb-4982-82be-fd73aa5d5839"
+  "updatedAt": "2024-12-23T15:57:38.357Z",
+  "versionId": "07a7bf17-9802-4cf9-98c3-e2af979b27e1"
 }
