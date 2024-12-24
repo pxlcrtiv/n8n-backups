@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "n8n": {
       "main": [
@@ -428,10 +428,10 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "1F7qgLF8Fj9aUXse7467R2v4tziHU_JOA",
+          "value": "14hj4Tdda6q-Am4SYIYtLUuakxaWMGCRt",
           "mode": "list",
-          "cachedResultName": "Nightly n8n Backups",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1F7qgLF8Fj9aUXse7467R2v4tziHU_JOA"
+          "cachedResultName": "n8n-backups",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14hj4Tdda6q-Am4SYIYtLUuakxaWMGCRt"
         },
         "options": {}
       },
@@ -463,10 +463,10 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "1F7qgLF8Fj9aUXse7467R2v4tziHU_JOA",
+          "value": "14hj4Tdda6q-Am4SYIYtLUuakxaWMGCRt",
           "mode": "list",
-          "cachedResultName": "Nightly n8n Backups",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1F7qgLF8Fj9aUXse7467R2v4tziHU_JOA"
+          "cachedResultName": "n8n-backups",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/14hj4Tdda6q-Am4SYIYtLUuakxaWMGCRt"
         },
         "options": {}
       },
@@ -475,7 +475,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "position": [
         1560,
-        820
+        816.2171673095763
       ],
       "typeVersion": 3,
       "credentials": {
@@ -520,6 +520,7 @@
     {
       "parameters": {
         "resource": "fileFolder",
+        "queryString": "= JVWBSN/nightly-n8n-backups",
         "returnAll": true,
         "filter": {
           "whatToSearch": "folders"
@@ -548,7 +549,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const items = $input.all();\nconst requiredNames = [\"n8n_old\", \"n8n_backups\"];\n\n// Filter the input names\nconst folderNames = items.map(item => item.json.name);\n\n// Find the missing names\nconst missingNames = requiredNames.filter(name => !folderNames.includes(name));\n\nif (missingNames.length === 0) {\n  return [{ json: { message: \"ok\" } }];\n} else {\n  return [{ json: { message: `The following are missing: ${missingNames.join(', ')}` } }];\n}"
+        "jsCode": "const items = $input.all();\nconst requiredNames = [\"n8n_old\", \"n8n_backups\"];\n\n// Filtrar los nombres de la entrada\nconst folderNames = items.map(item => item.json.name);\n\n// Encontrar los nombres que faltan\nconst missingNames = requiredNames.filter(name => !folderNames.includes(name));\n\nif (missingNames.length === 0) {\n  return [{ json: { message: \"ok\" } }];\n} else {\n  return [{ json: { message: `Faltan los siguientes: ${missingNames.join(', ')}` } }];\n}\n"
       },
       "id": "c15d3af2-5a53-4c02-a72f-ef6b3d18fad6",
       "name": "Code",
@@ -568,6 +569,7 @@
             "caseSensitive": true,
             "typeValidation": "strict"
           },
+          "combinator": "and",
           "conditions": [
             {
               "id": "43bd468e-1018-4b45-9448-c51835ed65bc",
@@ -578,8 +580,7 @@
               "leftValue": "={{ $json.message }}",
               "rightValue": "n8n_old"
             }
-          ],
-          "combinator": "and"
+          ]
         },
         "options": {}
       },
@@ -601,6 +602,7 @@
             "caseSensitive": true,
             "typeValidation": "strict"
           },
+          "combinator": "and",
           "conditions": [
             {
               "id": "43bd468e-1018-4b45-9448-c51835ed65bc",
@@ -611,8 +613,7 @@
               "leftValue": "={{ $json.message }}",
               "rightValue": "n8n_backups"
             }
-          ],
-          "combinator": "and"
+          ]
         },
         "options": {}
       },
@@ -709,7 +710,9 @@
       "parameters": {
         "rule": {
           "interval": [
-            {}
+            {
+              "triggerAtHour": 23
+            }
           ]
         }
       },
@@ -1027,15 +1030,8 @@
       "recurrenceRules": []
     }
   },
-  "tags": [
-    {
-      "createdAt": "2024-12-24T07:49:45.385Z",
-      "updatedAt": "2024-12-24T07:59:57.584Z",
-      "id": "8qu1t0FlAwTOvGti",
-      "name": "production"
-    }
-  ],
+  "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-12-24T07:49:55.000Z",
-  "versionId": "23a09447-c14f-4490-9e1b-5938b9a6941d"
+  "updatedAt": "2024-12-24T20:52:43.000Z",
+  "versionId": "a283708e-26d5-40a5-ae4e-ec2b606142f1"
 }
