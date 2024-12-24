@@ -120,8 +120,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:15.401Z",
-  "id": "WfMpQgkNKHhCQfUF",
+  "createdAt": "2024-12-23T15:57:37.872Z",
+  "id": "MnZi4PNDm64kHZuD",
   "meta": null,
   "name": "Send labeled email to a Notion database",
   "nodes": [
@@ -445,6 +445,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:15.401Z",
-  "versionId": "9cf75fd2-cf3b-4fd9-8cf9-a7795e1217e0"
+  "updatedAt": "2024-12-23T15:57:37.872Z",
+  "versionId": "bca58b80-5937-4894-b924-4e6666c5511f"
 }
