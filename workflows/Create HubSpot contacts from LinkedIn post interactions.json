@@ -168,8 +168,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:09.257Z",
-  "id": "ROxYkzpSZBwEUvL8",
+  "createdAt": "2024-12-23T15:57:34.513Z",
+  "id": "r1PnlI555ONdDl5i",
   "meta": null,
   "name": "Create HubSpot contacts from LinkedIn post interactions",
   "nodes": [
@@ -527,6 +527,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:09.257Z",
-  "versionId": "98e78177-df5d-463f-b32f-d70396bcf2f9"
+  "updatedAt": "2024-12-23T15:57:34.513Z",
+  "versionId": "889fc851-0fb4-4f21-8b43-fa020e8e333f"
 }
