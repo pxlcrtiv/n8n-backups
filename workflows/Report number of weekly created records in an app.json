@@ -62,8 +62,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.443Z",
-  "id": "cJYwrSH00zexkidJ",
+  "createdAt": "2024-12-23T15:57:37.442Z",
+  "id": "EXz5uQqhRyWELzBg",
   "meta": null,
   "name": "Report number of weekly created records in an app",
   "nodes": [
@@ -284,6 +284,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.443Z",
-  "versionId": "be9010b4-b4c3-4eb3-a4d2-e8305d1df2e4"
+  "updatedAt": "2024-12-23T15:57:37.442Z",
+  "versionId": "37e4ffb2-3dca-4560-a392-351eb8b0b730"
 }
