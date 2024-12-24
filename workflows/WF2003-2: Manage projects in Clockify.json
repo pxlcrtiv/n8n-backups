@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:16:23.242Z",
-  "id": "vNtuH1iAZC2svEu5",
+  "createdAt": "2024-12-23T15:57:39.538Z",
+  "id": "GqEzPqjn331lzlvz",
   "meta": null,
   "name": "WF2003-2: Manage projects in Clockify",
   "nodes": [
@@ -145,6 +145,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:16:23.242Z",
-  "versionId": "5e56231d-9648-4039-8629-99d4ddbaebcf"
+  "updatedAt": "2024-12-23T15:57:39.538Z",
+  "versionId": "f613c864-87ce-4063-99df-9391e3ef501f"
 }
