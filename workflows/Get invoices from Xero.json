@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:12.005Z",
-  "id": "QPP7JWASc2V5d8Hk",
+  "createdAt": "2024-12-23T15:57:35.619Z",
+  "id": "roAymEfLkPnyJh9F",
   "meta": null,
   "name": "Get invoices from Xero",
   "nodes": [
@@ -52,6 +52,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:12.005Z",
-  "versionId": "06be088e-5892-4885-af72-9445bce422a6"
+  "updatedAt": "2024-12-23T15:57:35.619Z",
+  "versionId": "b2441e4c-5805-4704-932a-2012b950ea6d"
 }
