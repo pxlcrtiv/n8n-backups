@@ -80,8 +80,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.022Z",
-  "id": "Zx6w0xnoVbahnixi",
+  "createdAt": "2024-12-23T15:57:38.047Z",
+  "id": "hae4dxUYTmX6RZJ0",
   "meta": null,
   "name": "Sync Shopify customers to your HubSpot contacts 2",
   "nodes": [
@@ -232,6 +232,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.022Z",
-  "versionId": "fa5469eb-62c5-4ac2-8456-c32ed13c751e"
+  "updatedAt": "2024-12-23T15:57:38.047Z",
+  "versionId": "a279ac7f-d829-4dde-822f-a126d9733182"
 }
