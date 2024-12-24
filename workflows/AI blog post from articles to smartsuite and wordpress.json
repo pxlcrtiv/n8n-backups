@@ -62,8 +62,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.590Z",
-  "id": "NTEI7cUfo1OklRz5",
+  "createdAt": "2024-12-23T15:57:40.395Z",
+  "id": "2JOnRlSEvp8inCXg",
   "meta": null,
   "name": "AI blog post from articles to smartsuite and wordpress",
   "nodes": [
@@ -199,6 +199,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.590Z",
-  "versionId": "b51e7328-6e0f-4a61-8a9b-b15adf09432e"
+  "updatedAt": "2024-12-23T15:57:40.395Z",
+  "versionId": "29c6e668-16ee-46da-ae1a-8c64e2a4c300"
 }
