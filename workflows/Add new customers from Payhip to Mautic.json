@@ -42,8 +42,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:01.502Z",
-  "id": "iXrwimE1KgFrWXIW",
+  "createdAt": "2024-12-23T15:57:32.262Z",
+  "id": "eqKtpNXYvVqykNYj",
   "meta": null,
   "name": "Add new customers from Payhip to Mautic",
   "nodes": [
@@ -146,6 +146,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:01.502Z",
-  "versionId": "b6945507-ac56-410b-94c1-348912fbd699"
+  "updatedAt": "2024-12-23T15:57:32.262Z",
+  "versionId": "0a15b1e4-21a7-4d84-a9a1-2c5dc22436b4"
 }
