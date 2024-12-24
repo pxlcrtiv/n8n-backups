@@ -194,8 +194,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:17.149Z",
-  "id": "ZXQqCnnIHJ257hIQ",
+  "createdAt": "2024-12-23T15:57:40.382Z",
+  "id": "8W4LcOOSd5DAkyZj",
   "meta": null,
   "name": "toggle - new entries",
   "nodes": [
@@ -751,6 +751,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:17.149Z",
-  "versionId": "a4dd0f8d-8847-4894-b2ec-81ec0d7f765a"
+  "updatedAt": "2024-12-23T15:57:40.382Z",
+  "versionId": "05771cbb-dc50-4803-b729-faa50d30c758"
 }
