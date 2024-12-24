@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:15.500Z",
-  "id": "AFrwnz9JGOAmzLxr",
+  "createdAt": "2024-12-23T15:57:38.025Z",
+  "id": "AFKorxHLO67W8XVf",
   "meta": null,
   "name": "Simplest way to create a Stripe Payment Link",
   "nodes": [
@@ -236,6 +236,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:15.500Z",
-  "versionId": "0a0a380b-c86f-4067-8ab5-3ac52dd4e822"
+  "updatedAt": "2024-12-23T15:57:38.025Z",
+  "versionId": "9e6c95ed-27be-49d7-815c-030717881ef1"
 }
