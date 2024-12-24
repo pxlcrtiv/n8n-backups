@@ -73,8 +73,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.734Z",
-  "id": "GR2V4hSNSR5n2e9i",
+  "createdAt": "2024-12-23T15:57:37.851Z",
+  "id": "UlhyFZdgf3nXkZgs",
   "meta": null,
   "name": "Send follow-ups using Gmail to Hubspot contacts",
   "nodes": [
@@ -375,6 +375,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.734Z",
-  "versionId": "3eb3cbd1-3fb7-4453-8f0c-251da81ace45"
+  "updatedAt": "2024-12-23T15:57:37.851Z",
+  "versionId": "3b1afa7a-1712-4617-bbba-1d9bd6744f28"
 }
