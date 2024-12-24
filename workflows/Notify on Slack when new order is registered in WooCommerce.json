@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.531Z",
-  "id": "f725qaZ9hTOivd6S",
+  "createdAt": "2024-12-23T15:57:36.696Z",
+  "id": "K1ItWm8TFZbdwXyi",
   "meta": null,
   "name": "Notify on Slack when new order is registered in WooCommerce",
   "nodes": [
@@ -120,6 +120,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.531Z",
-  "versionId": "d849f9e0-e9eb-4fc1-8d64-601263abaad4"
+  "updatedAt": "2024-12-23T15:57:36.696Z",
+  "versionId": "3b017a15-477f-4d76-b864-405d378316ec"
 }
