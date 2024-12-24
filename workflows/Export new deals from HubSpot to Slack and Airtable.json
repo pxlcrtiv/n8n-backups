@@ -83,8 +83,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.686Z",
-  "id": "NX7jLukJ1caI034b",
+  "createdAt": "2024-12-23T15:57:35.285Z",
+  "id": "VfdDPJ1DP7zrPGHx",
   "meta": null,
   "name": "Export new deals from HubSpot to Slack and Airtable",
   "nodes": [
@@ -334,6 +334,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.686Z",
-  "versionId": "139e8d77-bee7-498c-a622-143abd5da6cf"
+  "updatedAt": "2024-12-23T15:57:35.285Z",
+  "versionId": "6a96905a-083d-44be-9f0e-45561ae2b1f1"
 }
