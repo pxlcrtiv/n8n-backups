@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:09.634Z",
-  "id": "T82391oVlFdfZ6T9",
+  "createdAt": "2024-12-23T15:57:34.762Z",
+  "id": "rz6zbIFrA63s8EHE",
   "meta": null,
   "name": "Creates a time tracking project from Syncro to Clockify",
   "nodes": [
@@ -59,6 +59,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:09.634Z",
-  "versionId": "1a5c1029-51ac-4f17-a424-24b96e00f5a6"
+  "updatedAt": "2024-12-23T15:57:34.762Z",
+  "versionId": "11c8ed9c-32fe-463b-b539-3da05ff68ced"
 }
