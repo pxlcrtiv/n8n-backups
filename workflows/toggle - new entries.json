@@ -744,13 +744,20 @@
       ]
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2024-12-24T07:49:45.385Z",
+      "updatedAt": "2024-12-24T07:59:57.584Z",
+      "id": "8qu1t0FlAwTOvGti",
+      "name": "production"
+    }
+  ],
   "triggerCount": 0,
-  "updatedAt": "2024-12-23T15:57:40.382Z",
-  "versionId": "05771cbb-dc50-4803-b729-faa50d30c758"
+  "updatedAt": "2024-12-24T07:59:40.000Z",
+  "versionId": "ad6441b9-34b3-4994-9a82-aa5d8135246f"
 }
