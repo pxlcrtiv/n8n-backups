@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -484,13 +484,20 @@
       "typeVersion": 2
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-12-23T15:57:39.570Z",
-  "versionId": "91bc8c09-0908-4aa6-8066-5c43ad11c750"
+  "tags": [
+    {
+      "createdAt": "2024-12-24T07:49:45.385Z",
+      "updatedAt": "2024-12-24T07:59:57.584Z",
+      "id": "8qu1t0FlAwTOvGti",
+      "name": "production"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2024-12-24T07:50:45.000Z",
+  "versionId": "49aec5c8-fa6c-4258-a422-4df73f448d0c"
 }
