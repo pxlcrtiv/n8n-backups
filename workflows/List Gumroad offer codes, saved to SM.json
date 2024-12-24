@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:13.210Z",
-  "id": "pV86iIazItPyJqXK",
+  "createdAt": "2024-12-23T15:57:36.410Z",
+  "id": "7G2h5mp2KAdvmITm",
   "meta": null,
   "name": "List Gumroad offer codes, saved to SM",
   "nodes": [
@@ -38,6 +38,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.210Z",
-  "versionId": "0322eb22-a921-4191-a6e8-a4133e118dc0"
+  "updatedAt": "2024-12-23T15:57:36.410Z",
+  "versionId": "a0f62981-c9a0-4b0f-87f6-437c50f9cb40"
 }
