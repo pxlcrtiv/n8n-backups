@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.016Z",
-  "id": "LHQUSDDhGuVljWvT",
+  "createdAt": "2024-12-23T15:57:37.962Z",
+  "id": "SYyd9K6uvEw0aJTi",
   "meta": null,
   "name": "Summarise weekly time entries per project",
   "nodes": [
@@ -57,6 +57,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.016Z",
-  "versionId": "8724ecfa-6f0f-410e-b853-869d266a6084"
+  "updatedAt": "2024-12-23T15:57:37.962Z",
+  "versionId": "ea6408cd-59e6-4dfc-9e6e-8a1439c745f7"
 }
