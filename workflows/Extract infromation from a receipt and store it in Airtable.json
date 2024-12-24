@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:11.780Z",
-  "id": "Z78vpNWR0I8koatK",
+  "createdAt": "2024-12-23T15:57:35.354Z",
+  "id": "kBliYY0hasR146LC",
   "meta": null,
   "name": "Extract infromation from a receipt and store it in Airtable",
   "nodes": [
@@ -157,6 +157,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:11.780Z",
-  "versionId": "0c9f092a-d7e8-46d5-b5b4-5b5a94287457"
+  "updatedAt": "2024-12-23T15:57:35.354Z",
+  "versionId": "7db0da8d-1a5b-4537-8005-46887f002131"
 }
