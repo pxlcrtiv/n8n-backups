@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.379Z",
-  "id": "Ol211mhmJOnJCrBi",
+  "createdAt": "2024-12-23T15:57:36.544Z",
+  "id": "uJjET7QGJy9IWlYu",
   "meta": null,
   "name": "Manage transfers automatically in Wise",
   "nodes": [
@@ -117,6 +117,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.379Z",
-  "versionId": "b579db62-1ca7-428f-930d-baf6c7e20670"
+  "updatedAt": "2024-12-23T15:57:36.544Z",
+  "versionId": "9fbb0160-429f-4ce8-bd65-67f166b3363a"
 }
