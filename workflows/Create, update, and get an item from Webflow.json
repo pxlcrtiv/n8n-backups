@@ -35,8 +35,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:09.619Z",
-  "id": "GUeBJuqku7P8wECf",
+  "createdAt": "2024-12-23T15:57:34.754Z",
+  "id": "dtRgU1DcIxuTf0TS",
   "meta": null,
   "name": "Create, update, and get an item from Webflow",
   "nodes": [
@@ -149,6 +149,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:09.619Z",
-  "versionId": "bb409a23-0ba5-44d5-9dc5-c99e27768615"
+  "updatedAt": "2024-12-23T15:57:34.754Z",
+  "versionId": "c8bfecea-017d-44a2-b962-447cdd303a52"
 }
