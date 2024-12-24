@@ -80,8 +80,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.465Z",
-  "id": "f5lgpl2SGhO2G963",
+  "createdAt": "2024-12-23T15:57:37.467Z",
+  "id": "kRW6gH5n1R0eQAO5",
   "meta": null,
   "name": "Run weekly inventories on Shopify sales",
   "nodes": [
@@ -240,6 +240,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.465Z",
-  "versionId": "e5338c34-52cf-44e2-85e3-a56d8b66ea2e"
+  "updatedAt": "2024-12-23T15:57:37.467Z",
+  "versionId": "f887148a-d3a7-4b20-8eed-4fb51f51c276"
 }
