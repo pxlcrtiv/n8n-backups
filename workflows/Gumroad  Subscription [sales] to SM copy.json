@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:12.443Z",
-  "id": "DKurvhjITo8QtMN8",
+  "createdAt": "2024-12-23T15:57:35.725Z",
+  "id": "JusCTkMHD52TUKOZ",
   "meta": null,
   "name": "Gumroad  Subscription [sales] to SM copy",
   "nodes": [
@@ -43,6 +43,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:12.443Z",
-  "versionId": "d1026e30-7b95-4940-97cb-1a829479da84"
+  "updatedAt": "2024-12-23T15:57:35.725Z",
+  "versionId": "bb955914-a663-4685-8379-0f80bfc1fd21"
 }
