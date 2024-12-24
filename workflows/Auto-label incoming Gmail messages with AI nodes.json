@@ -117,8 +117,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:01.595Z",
-  "id": "T3oFujFAsNgXzhTR",
+  "createdAt": "2024-12-23T15:57:32.345Z",
+  "id": "pAWhVXI5IkTK2E9y",
   "meta": null,
   "name": "Auto-label incoming Gmail messages with AI nodes",
   "nodes": [
@@ -449,6 +449,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:01.595Z",
-  "versionId": "428bf224-f7ec-4bd6-8afc-1ecff9ffba27"
+  "updatedAt": "2024-12-23T15:57:32.345Z",
+  "versionId": "c1bc6427-7115-46e1-b8cc-e54b9039cb05"
 }
