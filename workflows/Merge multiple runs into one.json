@@ -76,8 +76,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.415Z",
-  "id": "2CVWwG0uikU6c0C0",
+  "createdAt": "2024-12-23T15:57:36.591Z",
+  "id": "BHDIgC7H2PEbVgww",
   "meta": null,
   "name": "Merge multiple runs into one",
   "nodes": [
@@ -184,6 +184,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.415Z",
-  "versionId": "4e14530d-b885-48a0-b703-842df6a753de"
+  "updatedAt": "2024-12-23T15:57:36.591Z",
+  "versionId": "62277313-7bf5-4c9b-8d38-dc1bdbbd3ca9"
 }
