@@ -46,8 +46,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.342Z",
-  "id": "zFLSfP6MB0bof3jI",
+  "createdAt": "2024-12-23T15:57:38.398Z",
+  "id": "oszEPxJUVrprBCYc",
   "meta": null,
   "name": "Update people through Zulip about open tickets in Zammad",
   "nodes": [
@@ -145,6 +145,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.342Z",
-  "versionId": "c401a694-37dd-4aff-9ff1-21343b5abe4c"
+  "updatedAt": "2024-12-23T15:57:38.398Z",
+  "versionId": "a62f7d5b-dced-4b53-ab1c-80df0885082e"
 }
