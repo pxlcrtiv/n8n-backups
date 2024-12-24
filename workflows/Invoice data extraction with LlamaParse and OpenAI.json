@@ -192,8 +192,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:13.155Z",
-  "id": "PL9yqQEIq2FHfgT3",
+  "createdAt": "2024-12-23T15:57:36.351Z",
+  "id": "SS85qIlhZQwRiAUE",
   "meta": null,
   "name": "Invoice data extraction with LlamaParse and OpenAI",
   "nodes": [
@@ -948,6 +948,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:13.155Z",
-  "versionId": "4ea30e8f-416b-40a0-b1f0-a501d04e3f6a"
+  "updatedAt": "2024-12-23T15:57:36.351Z",
+  "versionId": "650df8f5-5aa0-4ed8-b312-6209b8531964"
 }
