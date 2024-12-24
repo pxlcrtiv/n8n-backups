@@ -1,8 +1,8 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-12-20T16:06:01.563Z",
-  "id": "prIgNNhzFPAU5Rm3",
+  "createdAt": "2024-12-23T15:57:32.319Z",
+  "id": "hWRG1C4LKfbnbO7x",
   "meta": null,
   "name": "All Sales from Gumroad  to SM",
   "nodes": [
@@ -46,6 +46,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:01.563Z",
-  "versionId": "59b8b2a0-0320-48d5-9b78-8e58205bde3f"
+  "updatedAt": "2024-12-23T15:57:32.319Z",
+  "versionId": "41ebeec2-8e28-4a86-938b-8c9c0214ffc7"
 }
