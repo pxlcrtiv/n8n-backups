@@ -24,8 +24,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:14.011Z",
-  "id": "VsWe99fmEeVI0usL",
+  "createdAt": "2024-12-23T15:57:37.037Z",
+  "id": "0LdXMarT1UOVYOZa",
   "meta": null,
   "name": "Purge n8n execution history located in Mysql",
   "nodes": [
@@ -81,6 +81,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:14.011Z",
-  "versionId": "b83bd2c6-67b9-4550-a75f-06b56030f563"
+  "updatedAt": "2024-12-23T15:57:37.037Z",
+  "versionId": "259db503-276d-4ff0-89ce-cc35d5e4dd24"
 }
