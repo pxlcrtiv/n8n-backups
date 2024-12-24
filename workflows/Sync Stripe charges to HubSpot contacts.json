@@ -165,8 +165,8 @@
       ]
     }
   },
-  "createdAt": "2024-12-20T16:06:18.044Z",
-  "id": "J5UaeTCjXtRVEvOM",
+  "createdAt": "2024-12-23T15:57:38.098Z",
+  "id": "n8SaLDizNk4IlbAG",
   "meta": null,
   "name": "Sync Stripe charges to HubSpot contacts",
   "nodes": [
@@ -641,6 +641,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-12-20T16:06:18.044Z",
-  "versionId": "35d1c2d1-260a-443b-9e1a-3bf9add81d87"
+  "updatedAt": "2024-12-23T15:57:38.098Z",
+  "versionId": "cacedef3-e362-4fcb-bf95-cbec1bc12e53"
 }
