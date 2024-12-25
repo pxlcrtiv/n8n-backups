@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -520,7 +520,7 @@
     {
       "parameters": {
         "resource": "fileFolder",
-        "queryString": "= JVWBSN/nightly-n8n-backups",
+        "queryString": "=",
         "returnAll": true,
         "filter": {
           "whatToSearch": "folders"
@@ -1032,6 +1032,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-12-24T20:52:43.000Z",
-  "versionId": "a283708e-26d5-40a5-ae4e-ec2b606142f1"
+  "updatedAt": "2024-12-25T18:17:14.000Z",
+  "versionId": "c6c5bbf7-5f32-47c8-9a04-d36451852805"
 }
