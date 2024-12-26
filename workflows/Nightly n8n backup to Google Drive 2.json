@@ -806,7 +806,7 @@
         "binaryData": true,
         "name": "={{ $('Split In Batches').item.binary.data.fileName }}-{{ $node[\"n8n\"].json[\"updatedAt\"] }}.json",
         "parents": [
-          "={{ $('IGNORE FILES').item.json.id }}"
+          "="
         ],
         "options": {}
       },
@@ -1034,6 +1034,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-12-26T06:43:05.000Z",
-  "versionId": "43bc3f4f-906b-442d-b4e3-3903c09be638"
+  "updatedAt": "2024-12-26T16:24:33.000Z",
+  "versionId": "ac37b48f-ac3c-4f56-a107-bffb527da130"
 }
