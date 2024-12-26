@@ -804,7 +804,7 @@
       "parameters": {
         "authentication": "oAuth2",
         "binaryData": true,
-        "name": "={{ $('Split In Batches').item.binary.data.fileName }}-{{ $node[\"n8n\"].json[\"updatedAt\"] }}.json\n\n",
+        "name": "={{ $('Split In Batches').item.binary.data.fileName }}-{{ $node[\"n8n\"].json[\"updatedAt\"] }}.json",
         "parents": [
           "={{ $('IGNORE FILES').item.json.id }}"
         ],
@@ -1034,6 +1034,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-12-25T18:17:14.000Z",
-  "versionId": "c6c5bbf7-5f32-47c8-9a04-d36451852805"
+  "updatedAt": "2024-12-26T06:43:05.000Z",
+  "versionId": "43bc3f4f-906b-442d-b4e3-3903c09be638"
 }
