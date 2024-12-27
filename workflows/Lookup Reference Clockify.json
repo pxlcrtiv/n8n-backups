@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Split Out",
             "type": "main",
             "index": 0
           }
@@ -175,6 +175,28 @@
           }
         ]
       ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-12-27T07:22:16.682Z",
@@ -193,8 +215,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1040,
-        60
+        920,
+        -300
       ]
     },
     {
@@ -204,8 +226,8 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 1.1,
       "position": [
-        1660,
-        640
+        1540,
+        280
       ]
     },
     {
@@ -241,8 +263,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2140,
-        740
+        2020,
+        380
       ]
     },
     {
@@ -255,10 +277,6 @@
             {
               "name": "offet",
               "value": "0"
-            },
-            {
-              "name": "limit",
-              "value": "3"
             }
           ]
         },
@@ -282,8 +300,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2120,
-        220
+        1520,
+        -140
       ]
     },
     {
@@ -315,8 +333,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
       "position": [
-        1900,
-        400
+        1780,
+        40
       ]
     },
     {
@@ -331,8 +349,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1260,
-        520
+        1140,
+        160
       ]
     },
     {
@@ -347,8 +365,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2340,
-        740
+        2220,
+        380
       ]
     },
     {
@@ -376,8 +394,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2580,
-        740
+        2460,
+        380
       ]
     },
     {
@@ -390,8 +408,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2820,
-        660
+        2700,
+        300
       ]
     },
     {
@@ -401,8 +419,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3340,
-        520
+        3240,
+        160
       ]
     },
     {
@@ -412,8 +430,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        1060,
-        520
+        940,
+        160
       ]
     },
     {
@@ -427,8 +445,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3120,
-        520
+        3000,
+        160
       ]
     },
     {
@@ -450,8 +468,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1840,
-        640
+        1720,
+        280
       ]
     },
     {
@@ -473,8 +491,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1620,
-        400
+        1500,
+        40
       ]
     },
     {
@@ -496,8 +514,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1460,
-        640
+        1340,
+        280
       ]
     },
     {
@@ -508,8 +526,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2480,
-        380
+        2360,
+        20
       ],
       "id": "b378f879-2b38-4ba4-aeca-501eef04545e",
       "name": "Merge1"
@@ -521,8 +539,57 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 1.1,
       "position": [
-        2120,
-        400
+        2000,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "32816a8d-6f2a-4e99-bae0-f889a7c15a78",
+              "leftValue": "={{ $json.items.s1550ded13 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        -140
+      ],
+      "id": "c3f43dc7-0d51-41d9-8514-58fd1e9ee2b7",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=items",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "48c05b64-d044-427e-81db-201f94478927",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        -140
       ]
     }
   ],
@@ -540,6 +607,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2024-12-27T13:37:56.000Z",
-  "versionId": "2adb1f1d-42c0-4e5a-a375-96fba115fe24"
+  "updatedAt": "2024-12-27T15:49:25.000Z",
+  "versionId": "afaff874-9992-4224-aca1-864fea5f139d"
 }
