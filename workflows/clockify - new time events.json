@@ -141,8 +141,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1840,
-        380
+        1140,
+        220
       ]
     },
     {
@@ -155,8 +155,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        2740,
-        600
+        2040,
+        440
       ]
     },
     {
@@ -193,8 +193,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2940,
-        420
+        2240,
+        260
       ]
     },
     {
@@ -207,23 +207,23 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        2740,
-        420
+        2040,
+        260
       ]
     },
     {
       "parameters": {
         "content": "## Clockify Time Entries",
-        "height": 298.44136741563733,
-        "width": 218.6355150223082
+        "height": 80,
+        "width": 299
       },
       "id": "a5c87148-3837-4e67-b2fa-3b1ae212f0a1",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        940,
-        560
+        640,
+        -40
       ]
     },
     {
@@ -237,8 +237,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2700,
-        300
+        2000,
+        140
       ]
     },
     {
@@ -260,8 +260,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2080,
-        380
+        1380,
+        220
       ]
     },
     {
@@ -283,8 +283,8 @@
       "name": "Compare Datasets",
       "type": "n8n-nodes-base.compareDatasets",
       "position": [
-        2380,
-        460
+        1680,
+        300
       ],
       "typeVersion": 2.3
     },
@@ -322,8 +322,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2940,
-        600
+        2240,
+        440
       ]
     },
     {
@@ -333,8 +333,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2740,
-        120
+        2040,
+        -40
       ]
     },
     {
@@ -346,8 +346,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2120,
-        580
+        1420,
+        420
       ]
     },
     {
@@ -364,8 +364,8 @@
       "type": "n8n-nodes-base.clockifyTrigger",
       "typeVersion": 1,
       "position": [
-        1580,
-        580
+        880,
+        420
       ],
       "id": "e3a3538e-d76b-4bd1-ad63-4a844b62914b",
       "name": "clockify_trigger",
@@ -495,8 +495,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1860,
-        580
+        1160,
+        420
       ],
       "id": "bb22443f-e6a0-416a-9337-be6a876df780",
       "name": "map_attribtues_nested"
@@ -543,8 +543,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1600,
-        380
+        880,
+        220
       ]
     }
   ],
@@ -562,6 +562,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2024-12-27T07:36:38.000Z",
-  "versionId": "818c4622-77c9-4ef9-9869-177e7874878e"
+  "updatedAt": "2024-12-27T13:36:04.000Z",
+  "versionId": "1039aeab-ae36-45d2-9cfc-d199b54d7840"
 }
