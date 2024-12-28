@@ -1,0 +1,358 @@
+{
+  "active": false,
+  "connections": {
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FromTo": {
+      "main": [
+        [
+          {
+            "node": "CarrierNameLookup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Dates": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Under Price": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Merge & Extract",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Amadeus Flight Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge & Extract": {
+      "main": [
+        [
+          {
+            "node": "Under Price",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "FromTo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CarrierNameLookup": {
+      "main": [
+        [
+          {
+            "node": "Get Dates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Amadeus Flight Search": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-12-28T13:37:51.724Z",
+  "id": "ryoeCQWFqAdcOY1p",
+  "meta": {
+    "templateId": "2455"
+  },
+  "name": "Check for Bargain Flights and get notified using Amadeus and Gmail",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "var carrierCodes={}\nJSON.parse($('Get Carrier Codes').first().json.data).data.forEach(datum=>{\n  carrierCodes[datum.iataCode] = {icao:datum.icaoCode, name:datum.commonName}\n})\nreturn carrierCodes"
+      },
+      "id": "4fe13927-84cb-4227-9daa-d6cef72d10b9",
+      "name": "CarrierNameLookup",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        860,
+        880
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "subject": "=Bargain Flight Found! {{ $('FromTo').first().json.from }} -> {{ $('FromTo').first().json.to }} @ {{ $json.price }} on {{ $json.time }}",
+        "message": "=Hi! We just found a bargain flight:\nDeparture Time: {{ $json.time }}\n[{{ $json.legs[0].carrier }}] {{ $json.duration }} flight from {{ $('FromTo').first().json.from }} to {{ $('FromTo').first().json.to }}\n",
+        "options": {}
+      },
+      "id": "cb0ab93c-5fc5-402d-8ac9-672960b14112",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "position": [
+        2200,
+        960
+      ],
+      "typeVersion": 2.1,
+      "webhookId": "fd15c7d0-13d8-4578-934f-3772c8ddf32e"
+    },
+    {
+      "parameters": {
+        "jsCode": "const getNextSevenDays = () => {\n    const dates = [];\n    const today = new Date();\n\n    for (const i of [7, 14]) {\n        const nextDate = new Date(today);\n        nextDate.setDate(today.getDate() + i);\n        \n        // Format the date as YYYY-MM-DD\n        const formattedDate = nextDate.toISOString().split('T')[0];\n        dates.push({date:formattedDate});\n    }\n\n    return dates;\n};\n\nreturn getNextSevenDays()"
+      },
+      "id": "2f98b3e2-8a25-496e-89f3-b1ebe7e33192",
+      "name": "Get Dates",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1060,
+        860
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "jsCode": "//Merge\nresult = []\nfor (const item of $input.all()) {\n result = result.concat(JSON.parse(item.json.data).data)\n}\n\n//Extract data fields\nfinal_result = []\nfor (x of result){\n  let legs = x.itineraries[0].segments.map(y=>{\n          let a = $('CarrierNameLookup').item.json[y.carrierCode];\n           let carrier = a.name? a.name: a.icao;\n           return {carrier:carrier, duration:y.duration}})\n\n\n  console.log(x.itineraries[0].segments[0].departure.at)\n  let duration = x.itineraries[0].duration\n  let price = x.price.total+' '+x.price.currency\n\n  final_result.push({legs:legs, time:x.itineraries[0].segments[0].departure.at, duration:duration, price:price})\n}\n\nreturn final_result"
+      },
+      "id": "3d8cf3fa-6ce7-422a-978f-afe2884c1e1a",
+      "name": "Merge & Extract",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1780,
+        960
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "89df1c9b-c863-4cf5-88a2-18793d542f02",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        1320,
+        800
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "5595e34d-3736-42f6-ad64-e7f3c72c7f0a",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        1180,
+        1000
+      ],
+      "webhookId": "f1f32ed2-cead-4ced-ba43-d15613316721",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "bc2a9b61-41eb-45b1-9ee3-00fe211dadc3",
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              },
+              "leftValue": "={{ parseFloat($json.price) }}",
+              "rightValue": 600
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "550005ad-ea97-4d83-90ac-67c7c583f2dc",
+      "name": "Under Price",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        2000,
+        960
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1944c696-6cfd-4d4d-8f3d-31cb89b37d3d",
+              "name": "from",
+              "type": "string",
+              "value": "LHR"
+            },
+            {
+              "id": "9c4d5ac9-fa75-4fa7-a369-2b0493150203",
+              "name": "to",
+              "type": "string",
+              "value": "JFK"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ce1beef1-4189-4cd7-b8c6-dd5bef2d9963",
+      "name": "FromTo",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        680,
+        880
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "https://test.api.amadeus.com/v2/shopping/flight-offers",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "originLocationCode",
+              "value": "={{ $('FromTo').item.json.from }}"
+            },
+            {
+              "name": "destinationLocationCode",
+              "value": "={{ $('FromTo').item.json.to }}"
+            },
+            {
+              "name": "adults",
+              "value": "1"
+            },
+            {
+              "name": "departureDate",
+              "value": "={{ $json.date }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a4956257-28ce-4014-b549-ad413264c012",
+      "name": "Amadeus Flight Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1460,
+        1000
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "content": "# Amadeus Flight Bargains\nEvery day checks for bargain flights for an itinerary and price target of your choosing, and emails you if it finds a match.\n\n## Setup\n1. Create an api account on https://developers.amadeus.com/\n2. In **Amadeus Flight Search**, connect to Oauth2 API:\n  -- Grant Type - Client Credentials\n  -- Access Token URL - https://test.api.amadeus.com/v1/security/oauth2/token\n  -- Client ID/Secret - from your account\n3. Set your details in **Gmail**\n4. Set your desired Origin/Destination airports in FromTo\n5. Set the dates ahead you wish to search in **Get Dates** (default is 7 days and 14 days)\n6. Set the price target in **Under Price**\n\n## Test\nHit 'Test workflow'!",
+        "height": 538.1571460797832,
+        "width": 490.02125360646824
+      },
+      "id": "b7a41d45-799d-4f65-a904-f8fa82e59620",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "88126395-c96a-4905-87db-57ad19cead23",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        480,
+        880
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "url": "https://test.api.amadeus.com/v1/reference-data/airlines",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "id": "0fa74451-6053-470c-b5c5-9b25fd2e5b55",
+      "name": "Get Carrier Codes",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        480,
+        1160
+      ],
+      "typeVersion": 4.2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-12-28T13:37:51.724Z",
+  "versionId": "07819c1e-b8e9-4f30-b525-aa107f99de00"
+}
