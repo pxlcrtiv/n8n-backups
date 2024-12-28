@@ -226,8 +226,8 @@
       "type": "n8n-nodes-base.removeDuplicates",
       "typeVersion": 1.1,
       "position": [
-        1540,
-        280
+        1500,
+        240
       ]
     },
     {
@@ -263,8 +263,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2020,
-        380
+        1980,
+        320
       ]
     },
     {
@@ -300,8 +300,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1520,
-        -140
+        1500,
+        -100
       ]
     },
     {
@@ -334,7 +334,7 @@
       "typeVersion": 2,
       "position": [
         1780,
-        40
+        60
       ]
     },
     {
@@ -349,7 +349,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1140,
+        1100,
         160
       ]
     },
@@ -365,8 +365,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2220,
-        380
+        2180,
+        320
       ]
     },
     {
@@ -394,8 +394,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2460,
-        380
+        2420,
+        320
       ]
     },
     {
@@ -408,8 +408,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2700,
-        300
+        2660,
+        260
       ]
     },
     {
@@ -419,7 +419,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3240,
+        3120,
         160
       ]
     },
@@ -430,7 +430,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        940,
+        900,
         160
       ]
     },
@@ -445,7 +445,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3000,
+        2880,
         160
       ]
     },
@@ -468,8 +468,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1720,
-        280
+        1680,
+        240
       ]
     },
     {
@@ -492,7 +492,7 @@
       "typeVersion": 4.2,
       "position": [
         1500,
-        40
+        60
       ]
     },
     {
@@ -514,8 +514,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1340,
-        280
+        1300,
+        240
       ]
     },
     {
@@ -527,7 +527,7 @@
       "typeVersion": 3,
       "position": [
         2360,
-        20
+        40
       ],
       "id": "b378f879-2b38-4ba4-aeca-501eef04545e",
       "name": "Merge1"
@@ -540,7 +540,7 @@
       "typeVersion": 1.1,
       "position": [
         2000,
-        40
+        60
       ]
     },
     {
@@ -572,7 +572,7 @@
       "typeVersion": 2.2,
       "position": [
         2000,
-        -140
+        -100
       ],
       "id": "c3f43dc7-0d51-41d9-8514-58fd1e9ee2b7",
       "name": "Filter1"
@@ -589,7 +589,7 @@
       "typeVersion": 1,
       "position": [
         1780,
-        -140
+        -100
       ]
     }
   ],
@@ -607,6 +607,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2024-12-27T15:49:25.000Z",
-  "versionId": "afaff874-9992-4224-aca1-864fea5f139d"
+  "updatedAt": "2024-12-28T11:06:57.000Z",
+  "versionId": "f76f102f-3f3f-4909-a1a4-705887d8f296"
 }
