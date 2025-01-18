@@ -1,0 +1,560 @@
+{
+  "active": false,
+  "connections": {
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "ref_time_entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow2": {
+      "main": [
+        [
+          {
+            "node": "UpdateTmeEntryinSM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreatetimeEntryinSM1": {
+      "main": [
+        []
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "CreatetimeEntryinSM1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ref_time_entry": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Datasets": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Execute Workflow2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UpdateTmeEntryinSM": {
+      "main": [
+        []
+      ]
+    },
+    "Flattening_Time_Entry": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "clockify_trigger": {
+      "main": [
+        [
+          {
+            "node": "map_attribtues_nested",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "map_attribtues_nested": {
+      "main": [
+        [
+          {
+            "node": "Flattening_Time_Entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMClocifyTimeEntry": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:55:51.240Z",
+  "id": "ju9JzA0QVPu3KTCc",
+  "meta": null,
+  "name": "clockify - new time events",
+  "nodes": [
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {}
+      },
+      "id": "276c719a-f993-4284-9ed2-06a3dd486013",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "u7aFrxXxsyepmigv",
+        "options": {}
+      },
+      "id": "0d6aac66-937d-485a-abc5-c1fe8378a067",
+      "name": "Execute Workflow2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/676b0ffe402cc538bacdd559/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.start }} - {{ $json.description }}\",\n  \"description\": \"{{ $json.description }}\",\n  \"stoplight_status\": \"1\",\n  \"s88e7dacd4\": {\n    \"value\": \"in_progress\"\n  },\n  \"s7e18ac595\": \"{{ $json.billable }}\", \n  \"s388b58221\": \"{{ $json.client_name }}\",\n  \"sf78e2e067\": \"{{ $json.duration }}\",\n  \"sac94990b3\": \"{{ $json.time_entry_id }}\",\n  \"se64e66b7d\": \"{{ $json.pid }}\",\n  \"s104c552d1\": \"{{ $json.project_id }}\",\n  \"sf7335e6da\": \"{{ $json.proj_name }}\",\n  \"s462427aec\": \"{{ $json.workspace_id }}\",\n  \"sa60c2dda1\": \"{{ $json.start }}\",\n  \"sa7b8b841b\": \"{{ $json.stop }}\",\n  \"sa7a9c2140\": \"{{ $json.tags }}\",\n  \"se2afa90b2\": \"{{ $json.tag_ids }}\",\n  \"s8ce8d1b63\": \"{{ $json.duronly }}\",\n  \"s875daacbd\": \"{{ $json.at }}\",\n  \"s160017cbb\": \"{{ $json.server_deleted_at }}\",\n  \"s93e0bbcaa\": \"{{ $json.user_id }}\",\n  \"s5a8e4c60d\": \"{{ $json.uid }}\",\n  \"s4c2ea1202\": \"{{ $json.wid }}\",\n  \"s8e3e58cad\": \"{{ $json.client_id }}\",\n  \"sbca20347b\": \"{{ $json.project_sm_rec_id }}\",\n  \"s4621e0408\": \"{{ $json.client_sm_rec_id }}\"\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "23234e22-6309-440f-aee1-d7d9b70e9724",
+      "name": "CreatetimeEntryinSM1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2240,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "=u7aFrxXxsyepmigv",
+        "options": {}
+      },
+      "id": "7dcad094-3614-4524-91dd-b13f651034bd",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Clockify Time Entries",
+        "height": 80,
+        "width": 299
+      },
+      "id": "a5c87148-3837-4e67-b2fa-3b1ae212f0a1",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Create New Entry in SmartSuite",
+        "height": 80,
+        "width": 362
+      },
+      "id": "09358c70-fc16-44b2-bb2e-ad6ceb57b267",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "389a85fb-1391-4e06-8a8d-e2233f06b244",
+              "name": "time_id",
+              "value": "={{ $json.sac94990b3 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aed1db8c-463b-451f-b02f-77b1465829e8",
+      "name": "ref_time_entry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "time_id",
+              "field2": "id"
+            }
+          ]
+        },
+        "resolve": "preferInput2",
+        "options": {
+          "multipleMatches": "all"
+        }
+      },
+      "id": "ca928eae-0764-4c65-9a2a-b8a16cbb7177",
+      "name": "Compare Datasets",
+      "type": "n8n-nodes-base.compareDatasets",
+      "position": [
+        1680,
+        300
+      ],
+      "typeVersion": 2.3
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "https://app.smartsuite.com/api/v1/applications/676b0ffe402cc538bacdd559/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.start }} - {{ $json.description }}\",\n  \"description\": \"{{ $json.description }}\",\n  \"stoplight_status\": \"1\",\n  \"s88e7dacd4\": {\n    \"value\": \"in_progress\"\n  },\n  \"s7e18ac595\": \"{{ $json.billable }}\", \n  \"s388b58221\": \"{{ $json.client_name }}\",\n  \"sf78e2e067\": \"{{ $json.duration }}\",\n  \"sac94990b3\": \"{{ $json.time_entry_id }}\",\n  \"se64e66b7d\": \"{{ $json.pid }}\",\n  \"s104c552d1\": \"{{ $json.project_id }}\",\n  \"sf7335e6da\": \"{{ $json.proj_name }}\",\n  \"s462427aec\": \"{{ $json.workspace_id }}\",\n  \"sa60c2dda1\": \"{{ $json.start }}\",\n  \"sa7b8b841b\": \"{{ $json.stop }}\",\n  \"sa7a9c2140\": \"{{ $json.tags }}\",\n  \"se2afa90b2\": \"{{ $json.tag_ids }}\",\n  \"s8ce8d1b63\": \"{{ $json.duronly }}\",\n  \"s875daacbd\": \"{{ $json.at }}\",\n  \"s160017cbb\": \"{{ $json.server_deleted_at }}\",\n  \"s93e0bbcaa\": \"{{ $json.user_id }}\",\n  \"s5a8e4c60d\": \"{{ $json.uid }}\",\n  \"s4c2ea1202\": \"{{ $json.wid }}\",\n  \"s8e3e58cad\": \"{{ $json.client_id }}\",\n  \"sbca20347b\": \"{{ $json.project_sm_rec_id }}\",\n  \"s4621e0408\": \"{{ $json.client_sm_rec_id }}\"\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "55fe7a28-759f-4d46-bcc4-d7825468e3de",
+      "name": "UpdateTmeEntryinSM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2240,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "59c5160e-6bb2-4728-aa4f-45376c1c294f",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var newArr = [];\n// Assuming the output of 'map_attributes_nested' node is directly under items\nvar timeEntries = items.map(item => item.json);\n\nfor (let i = 0; i < timeEntries.length; i++) {\n  var entry = timeEntries[i];\n  // Flatten the necessary attributes and extract specified attributes\n  var flattenedEntry = {\n    id: entry.id,\n    description: entry.description,\n    tags: entry.tags,\n    userId: entry.userId,\n    billable: entry.billable,\n    task: entry.task,\n    timeIntervalStart: entry.timeInterval.start,\n    timeIntervalEnd: entry.timeInterval.end,\n    timeIntervalDuration: entry.timeInterval.duration,\n    workspaceId: entry.workspaceId,\n    hourlyRateAmount: entry.hourlyRate ? entry.hourlyRate.amount : null,\n    hourlyRateCurrency: entry.hourlyRate ? entry.hourlyRate.currency : null,\n    customFieldValues: JSON.stringify(entry.customFieldValues),\n    type: entry.type,\n    kiosk: entry.kiosk,\n    costRateAmount: entry.costRate ? entry.costRate.amount : null,\n    costRateCurrency: entry.costRate ? entry.costRate.currency : null,\n    kioskId: entry.kioskId,\n    tagIds: entry.tagIds ? entry.tagIds.join(\", \") : '', // Safely handle potentially undefined tagIds\n    projectId: entry.projectId,\n    taskId: entry.taskId,\n    isLocked: entry.isLocked\n  };\n\n  newArr.push({ json: flattenedEntry });\n}\n\nreturn newArr;\n"
+      },
+      "id": "0efa45f9-c015-48b0-be94-966f31b7457b",
+      "name": "Flattening_Time_Entry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "workspaceId": "65257da509b7a210604dda1a"
+      },
+      "type": "n8n-nodes-base.clockifyTrigger",
+      "typeVersion": 1,
+      "position": [
+        880,
+        420
+      ],
+      "id": "e3a3538e-d76b-4bd1-ad63-4a844b62914b",
+      "name": "clockify_trigger",
+      "credentials": {
+        "clockifyApi": {
+          "id": "8tUGMkOMIrWFmvWB",
+          "name": "Clockify account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bb83bff2-d248-423b-a322-b26d2ae806e1",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "091b28c4-b3e1-4223-b5ab-9d4bc6f691f4",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "5a769b3a-9172-499b-982c-24fa60a88a5a",
+              "name": "tags",
+              "value": "={{ $json.tags }}",
+              "type": "array"
+            },
+            {
+              "id": "25cba529-5b7c-46b3-80c5-3fa7c9235711",
+              "name": "userId",
+              "value": "={{ $json.userId }}",
+              "type": "string"
+            },
+            {
+              "id": "a6c2dd09-362b-46a4-8a74-678196464d2c",
+              "name": "billable",
+              "value": "={{ $json.billable }}",
+              "type": "boolean"
+            },
+            {
+              "id": "de75f8c9-4c87-40fc-b331-ae5325d5480e",
+              "name": "task",
+              "value": "={{ $json.task }}",
+              "type": "string"
+            },
+            {
+              "id": "2274a22a-4265-4700-8591-1222bdff7981",
+              "name": "timeInterval",
+              "value": "={{ $json.timeInterval }}",
+              "type": "object"
+            },
+            {
+              "id": "c7df98bd-e179-4b37-8fe9-d3bbfc0cd7c2",
+              "name": "workspaceId",
+              "value": "={{ $json.workspaceId }}",
+              "type": "string"
+            },
+            {
+              "id": "6c17d459-95cc-4641-bab7-8006db3811bf",
+              "name": "hourlyRate",
+              "value": "={{ $json.hourlyRate }}",
+              "type": "object"
+            },
+            {
+              "id": "6263b95a-39e3-45db-83ba-a5f97db44bc3",
+              "name": "customFieldValues",
+              "value": "={{ $json.customFieldValues }}",
+              "type": "array"
+            },
+            {
+              "id": "0a3a7eb2-4be1-483d-b5aa-21fbf7a465cb",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "4166ce4f-7d8a-493d-8ea5-3cb04e7d2698",
+              "name": "kiosk",
+              "value": "={{ $json.kiosk }}",
+              "type": "string"
+            },
+            {
+              "id": "5a68511e-0e5b-410d-9d3c-1561b9e6563a",
+              "name": "costRate",
+              "value": "={{ $json.costRate }}",
+              "type": "object"
+            },
+            {
+              "id": "3b63b8ab-32b8-4269-b84f-c147c427552f",
+              "name": "kioskId",
+              "value": "={{ $json.kioskId }}",
+              "type": "string"
+            },
+            {
+              "id": "e65f8571-f2ae-442e-bf6b-01e5854684c6",
+              "name": "tagIds",
+              "value": "={{ $json.tagIds }}",
+              "type": "array"
+            },
+            {
+              "id": "32879900-cf4a-4776-9727-61aad9590554",
+              "name": "projectId",
+              "value": "={{ $json.projectId }}",
+              "type": "string"
+            },
+            {
+              "id": "0a0dccf3-f0af-411b-a715-2a4056414860",
+              "name": "taskId",
+              "value": "={{ $json.taskId }}",
+              "type": "string"
+            },
+            {
+              "id": "bc10e707-3819-47c3-8e3d-7fee47c2d86d",
+              "name": "isLocked",
+              "value": "={{ $json.isLocked }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        420
+      ],
+      "id": "bb22443f-e6a0-416a-9337-be6a876df780",
+      "name": "map_attribtues_nested"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/676b0ffe402cc538bacdd559/records/list/",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "offet",
+              "value": "0"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"filter\": {\n    \"operator\": \"and\",\n    \"fields\": [\n      {        \n        \"field\": \"s2f4d235ba\",\n        \"comparison\": \"is\",\n        \"value\": {\n          \"date_mode\": \"past_number_of_days\",\n          \"date_mode_value\": \"20\"\n        }\n      }        \n    ]\n  }\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 25
+            }
+          }
+        }
+      },
+      "id": "7b3ff9ff-49d4-4bd7-8f77-1696b0870b8c",
+      "name": "SMClocifyTimeEntry",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        220
+      ]
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:55:51.240Z",
+  "versionId": "20889f6d-f0be-4338-b1ce-a12a09f78f0a"
+}
