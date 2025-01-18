@@ -1,0 +1,389 @@
+{
+  "active": false,
+  "connections": {
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Set1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Function",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "Date & Time2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function1": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Date & Time2": {
+      "main": [
+        [
+          {
+            "node": "Function1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:45:02.325Z",
+  "id": "8tXrDtRt0ySnFBdw",
+  "meta": null,
+  "name": "Send a daily summary of your Google Calendar events to Slack 2",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": "xxxxx@gmail.com",
+        "returnAll": true,
+        "options": {}
+      },
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "2582d232-a3a1-491c-9427-aa787444d84c"
+    },
+    {
+      "parameters": {
+        "functionCode": "var date = new Date().toISOString();\nvar day = new Date().getDay();\nconst weekday = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"];\n\nitems[0].json.date_today = date;\nitems[0].json.day_today = weekday[day];\n\nreturn items;"
+      },
+      "name": "Function",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        380,
+        630
+      ],
+      "notesInFlow": false,
+      "typeVersion": 1,
+      "id": "e038a44e-1640-4ee6-aab2-6c3dea79ee11"
+    },
+    {
+      "parameters": {
+        "value": "={{$json[\"start\"][\"dateTime\"]}}",
+        "dataPropertyName": "Event Start Date Only",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {
+          "toTimezone": "Asia/Qatar"
+        }
+      },
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        560,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "c800c255-545d-461b-87f1-09726f7386e6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "= {{$json[\"Event Date\"]}}",
+              "value2": "= {{$json[\"Today's Date\"]}}"
+            }
+          ],
+          "dateTime": []
+        }
+      },
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1250,
+        450
+      ],
+      "typeVersion": 1,
+      "id": "6981b01b-b285-4409-b6de-5c5edfd65f3f"
+    },
+    {
+      "parameters": {
+        "value": "={{$json[\"date_today\"]}}",
+        "dataPropertyName": "Today's Date",
+        "custom": true,
+        "toFormat": "DD/MM/YYYY",
+        "options": {
+          "toTimezone": "Asia/Qatar"
+        }
+      },
+      "name": "Date & Time1",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        720,
+        630
+      ],
+      "typeVersion": 1,
+      "id": "426e8803-3ae9-413a-b78c-3af204049f0e"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Event Name",
+              "value": "={{$json[\"summary\"]}}"
+            },
+            {
+              "name": "Event Date",
+              "value": "={{$json[\"Event Start Date Only\"]}}"
+            },
+            {
+              "name": "Today's Date",
+              "value": "="
+            },
+            {
+              "name": "Gcal URL",
+              "value": "={{$json[\"htmlLink\"]}}"
+            },
+            {
+              "name": "Location",
+              "value": "={{$json[\"location\"]}}"
+            },
+            {
+              "name": "Start Time",
+              "value": "={{$json[\"start\"][\"dateTime\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        750,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "645c8eca-430b-47b7-ad72-4d4e77302f36"
+    },
+    {
+      "parameters": {
+        "mode": "multiplex"
+      },
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1040,
+        450
+      ],
+      "typeVersion": 1,
+      "id": "6097d724-b3b1-442e-9b76-ab6eb96a724e"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [],
+          "string": [
+            {
+              "name": "Name",
+              "value": "={{$json[\"Event Name\"]}}"
+            },
+            {
+              "name": "Time",
+              "value": "={{$json[\"Start Time\"]}}"
+            },
+            {
+              "name": "URL",
+              "value": "={{$json[\"Gcal URL\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1470,
+        430
+      ],
+      "typeVersion": 1,
+      "id": "a393b25b-1b6e-4449-b82e-9e74403b91d7"
+    },
+    {
+      "parameters": {
+        "value": "={{$json[\"Time\"]}}",
+        "dataPropertyName": "Time",
+        "custom": true,
+        "toFormat": "HH:mm",
+        "options": {
+          "toTimezone": "Asia/Qatar"
+        }
+      },
+      "name": "Date & Time2",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        1640,
+        430
+      ],
+      "typeVersion": 1,
+      "id": "371bb4fc-fd45-4a34-a369-12d0ae6587f6"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Create our Slack message\n// This will output a list of Ticket URLs with the status and the subject\n// 12345 [STATUS] - Ticket Subject\nlet message = \"*Hello , Please find below a list of your meetings for today*. \\n\";\n\n// Loop the input items\nfor (item of items) {\n  // Append the ticket information to the message\n  message += \"*\" + item.json.Name +' @ '+ item.json.Time + \"\\n*  - \" + item.json.URL + \"\\n\"; \n}\n\n// Return our message\nreturn [{json: {message}}];\n"
+      },
+      "name": "Function1",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1800,
+        430
+      ],
+      "typeVersion": 1,
+      "id": "75c8b7c2-8d34-4f7f-8e98-ca1c31388820"
+    },
+    {
+      "parameters": {
+        "channel": "virtual-assistant",
+        "text": "={{$json[\"message\"]}}",
+        "otherOptions": {},
+        "attachments": []
+      },
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1990,
+        430
+      ],
+      "typeVersion": 1,
+      "id": "24bedd3a-d177-4d3f-9da4-8f29f40ded6c"
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "hour": 6
+            }
+          ]
+        }
+      },
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "position": [
+        90,
+        430
+      ],
+      "retryOnFail": true,
+      "typeVersion": 1,
+      "id": "ed480adb-0201-4838-951e-0df69424896f"
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:02.325Z",
+  "versionId": "35e8b26a-5c90-44b9-85fa-64af2c98115a"
+}
