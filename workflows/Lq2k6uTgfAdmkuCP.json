@@ -1,0 +1,548 @@
+{
+  "active": false,
+  "connections": {
+    "if after unsnooze date": {
+      "main": [
+        [
+          {
+            "node": "Set inbox project id",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set snoozed project id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "at 5am": {
+      "main": [
+        [
+          {
+            "node": "Get snoozed tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "every 5 min": {
+      "main": [
+        [
+          {
+            "node": "Get inbox tasks to snooze",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get snoozed tasks": {
+      "main": [
+        [
+          {
+            "node": "if task is not a subtask",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "if task is not a subtask": {
+      "main": [
+        [
+          {
+            "node": "If task has due date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If task has due date": {
+      "main": [
+        [
+          {
+            "node": "Get date to unsnooze",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get date to unsnooze": {
+      "main": [
+        [
+          {
+            "node": "if after unsnooze date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get inbox tasks to snooze": {
+      "main": [
+        [
+          {
+            "node": "if task is not a subtask",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set inbox project id": {
+      "main": [
+        [
+          {
+            "node": "If not same project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If not same project": {
+      "main": [
+        [
+          {
+            "node": "Set args to move",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set args to move": {
+      "main": [
+        [
+          {
+            "node": "Generate unique uuid for move",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate unique uuid for move": {
+      "main": [
+        [
+          {
+            "node": "Merge all items into a list",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge all items into a list": {
+      "main": [
+        [
+          {
+            "node": "Move the tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set snoozed project id": {
+      "main": [
+        [
+          {
+            "node": "If not same project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:45:02.822Z",
+  "id": "Lq2k6uTgfAdmkuCP",
+  "meta": null,
+  "name": "Snooze Todoist tasks until 3 days before due date",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "dateTime": [
+            {
+              "value1": "={{ DateTime.now() }}",
+              "value2": "={{ $json.unsnoozeDate }}"
+            }
+          ]
+        }
+      },
+      "id": "78f685de-4b3d-40cc-99eb-0e7f95125855",
+      "name": "if after unsnooze date",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1340,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 5
+            }
+          ]
+        }
+      },
+      "id": "009e689e-aac8-4dc8-ab4d-c3485f6aec33",
+      "name": "at 5am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        280,
+        640
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "79a57b64-65ba-47d9-a2f4-a0088d30c3a8",
+      "name": "every 5 min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        280,
+        420
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "filters": {
+          "projectId": "2325216129"
+        }
+      },
+      "id": "f7d894dc-e032-4451-a9c4-9c4b2cf93874",
+      "name": "Get snoozed tasks",
+      "type": "n8n-nodes-base.todoist",
+      "position": [
+        480,
+        640
+      ],
+      "retryOnFail": true,
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.parent_id }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "3280de5c-5c26-4d0d-b6b5-99e759ccdf9b",
+      "name": "if task is not a subtask",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        700,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ !$json.due }}"
+            }
+          ]
+        }
+      },
+      "id": "d564630e-729f-4dae-bd86-98d4cf97d065",
+      "name": "If task has due date",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        920,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "subtractFromDate",
+        "magnitude": "={{ $json.due.date }}",
+        "duration": 3,
+        "outputFieldName": "unsnoozeDate",
+        "options": {
+          "includeInputFields": true
+        }
+      },
+      "id": "65deba96-2219-4a2d-bf0a-cec918ed79ef",
+      "name": "Get date to unsnooze",
+      "type": "n8n-nodes-base.dateTime",
+      "position": [
+        1140,
+        640
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "filters": {
+          "projectId": "938017196"
+        }
+      },
+      "id": "a291883c-76a0-477b-b149-67b6af1fd76c",
+      "name": "Get inbox tasks to snooze",
+      "type": "n8n-nodes-base.todoist",
+      "position": [
+        480,
+        420
+      ],
+      "retryOnFail": true,
+      "typeVersion": 2,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "content": "### 👨‍🎤 Setup\n1. Add your Todoist creds\n2. Create a Todoist project called `snoozed`\n3. Set the project ids in the relevant nodes\n4. Add due dates to your tasks in Inbox. Watch them disappear to `snoozed`. Set their date to tomorrow, watch it return to inbox.",
+        "height": 182.09360845495712,
+        "width": 390.83694011071975,
+        "color": 5
+      },
+      "id": "fb5130b7-64c4-4e7c-a4c2-fb4ba9ea678d",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        720,
+        360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "target_project_id",
+              "type": "numberValue",
+              "numberValue": "2329427682"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8f7eed56-6c1f-42af-befd-f3b279efba49",
+      "name": "Set inbox project id",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1560,
+        560
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ parseInt($json.target_project_id) }}",
+              "operation": "notEqual",
+              "value2": "={{ parseInt($json.project_id) }}"
+            }
+          ]
+        }
+      },
+      "id": "4f4e1aa4-f953-4985-ac86-a435b3dd816d",
+      "name": "If not same project",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1780,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "args",
+              "type": "objectValue",
+              "objectValue": "={ id: {{ $json.id }}, project_id: {{ $json.target_project_id }} }"
+            },
+            {
+              "name": "type",
+              "stringValue": "item_move"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "df54083b-cd18-4de0-81e5-dd8103c369dd",
+      "name": "Set args to move",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1980,
+        640
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "action": "generate",
+        "dataPropertyName": "uuid"
+      },
+      "id": "901d0e08-8550-4819-9955-1dc7a42a0489",
+      "name": "Generate unique uuid for move",
+      "type": "n8n-nodes-base.crypto",
+      "position": [
+        2180,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "concatenateItems",
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "commands",
+        "options": {}
+      },
+      "id": "f717e3b0-ad17-4251-9044-266b27d4349c",
+      "name": "Merge all items into a list",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        2380,
+        640
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.todoist.com/sync/v9/sync",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "todoistApi",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "commands",
+              "value": "={{ JSON.stringify($json.commands) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8783c7d5-3b3c-4944-b24b-1e4435fa0550",
+      "name": "Move the tasks",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2580,
+        640
+      ],
+      "typeVersion": 4.1
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "target_project_id",
+              "type": "numberValue",
+              "numberValue": "2329427688"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69e3a177-e6a1-4f07-9bd1-648019a0bc07",
+      "name": "Set snoozed project id",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1560,
+        740
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "content": "👆 Set `snoozed` project id here. You can find it in the URL. ",
+        "height": 100,
+        "width": 202,
+        "color": 7
+      },
+      "id": "5e0dcffb-4203-43c8-969b-11775a428e31",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1580,
+        920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "👇🏽 Set `inbox` project id here. You can find it in the URL. ",
+        "height": 100,
+        "width": 202,
+        "color": 7
+      },
+      "id": "a6bb325b-ffa2-4aec-ae58-02fb06c83186",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1560,
+        400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "👆🏽 Adjust here the timeline to return tasks to Inbox (here set to 3 days before due date)",
+        "height": 100,
+        "width": 202,
+        "color": 7
+      },
+      "id": "cad7087f-7f62-47a7-bda0-b25c83133292",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1160,
+        800
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:02.822Z",
+  "versionId": "42a20015-c2af-41bf-9e5d-48ce346470d9"
+}
