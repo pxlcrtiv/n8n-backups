@@ -1,0 +1,429 @@
+{
+  "active": false,
+  "connections": {
+    "OCR recognize": {
+      "main": [
+        [
+          {
+            "node": "Unserialize response JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file for OCR": {
+      "main": [
+        [
+          {
+            "node": "OCR recognize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter processed files": {
+      "main": [
+        [
+          {
+            "node": "Download file for OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unserialize response JSON": {
+      "main": [
+        [
+          {
+            "node": "Save OCR result into Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On new file in Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Get already processed rows from Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Load files from Google Drive folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Load files from Google Drive folder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get already processed rows from Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load files from Google Drive folder": {
+      "main": [
+        [
+          {
+            "node": "Filter processed files",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Get already processed rows from Sheets": {
+      "main": [
+        [
+          {
+            "node": "Filter processed files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T08:23:36.099Z",
+  "id": "IXfjJbt5v8KJJBKe",
+  "meta": null,
+  "name": "Recognize_invoices___receipts_from_Google_Drive_and_put_them_into_Google_Sheets___JVWBSN",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "416ec5b5-4773-44e5-b3b1-4de7ed61b3bb",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Recognize invoices and convert them into structured JSON\n## Video Demo\nhttps://youtu.be/mGPt7fqGQD8\n\n## Quick OCR playground\n### 1. Get your OakPDF OCR API key here:\nhttps://rapidapi.com/restyler/api/receipt-and-invoice-ocr-api\n\n### 2. Poceed to the OCR Playground and upload your document or use example files:\nhttps://ocr.oakpdf.com/ \n\n\n**The API can recognize any document format: medical, financial, legal -- let me know which format you want to try and I will be happy to add it to the Playground!**\n\n## Running the n8n Workflow\nThis workflow allows you to recognize a folder with receipts or invoices (make sure your files are in .pdf, .png, or .jpg format). The workflow can be triggered via the \"Test workflow\" button, and it also monitors the folder for new files, automatically recognizing them.\n\n### 1. n8n import glitch\nAfter import, the trigger node \"When clicking 'Test workflow'\" might be disconnected. You need to connect it via 2 arrows to \"Google Sheets1\" and \"Google Drive\" nodes. So, the workflow has 2 triggers - via button, and via Google Sheets \"new file\" event - both of these triggers should be connected to 2 nodes.\nHere is how it should looks like: https://ocr.oakpdf.com/n8n_fix.png\n\n\n### 2. Set up RapidAPI HTTP auth key\nCreate new \"HTTP header\" n8n credential and paste your RapidAPI key from https://rapidapi.com/restyler/api/receipt-and-invoice-ocr-api  into it. https://ocr.oakpdf.com/n8n_api_key.png\n\nMake sure \"HTTP Request\" node uses this credential.\n\n### 3. Set up your Google Auth\nYou need a Google connection to work with your Google Sheets and Google Drive accounts: https://docs.n8n.io/integrations/builtin/credentials/google/oauth-generic/#finish-your-n8n-credential\n\n### 4. Set up Google Sheets\nCopy this Google Sheets document: https://docs.google.com/spreadsheets/d/1G0w-OMdFRrtvzOLPpfFJpsBVNqJ9cfRLMKCVWfrTQBg/edit?usp=sharing\n\n# Custom document formats and advanced usage\nEmail: contact@scrapeninja.net \nLinkedin: https://www.linkedin.com/in/anthony-sidashin/\n",
+        "height": 1062.9450261780098,
+        "width": 1120.9554973821976
+      },
+      "id": "c30784dd-d34a-4a24-95da-3989521a3c94",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        580,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://receipt-and-invoice-ocr-api.p.rapidapi.com/recognize",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "settings",
+              "value": "{ \"documentType\": \"invoice\" }"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54c6b87b-be83-4392-b197-beace0b7593f",
+      "name": "OCR recognize",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1080,
+        100
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.parsedData = JSON.parse(item.json.result.data);\n}\n\nreturn $input.all();"
+      },
+      "id": "8aa44f81-84cf-4923-8d93-4c5d2cfa2187",
+      "name": "Unserialize response JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1300,
+        100
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "mode": "list",
+          "value": "1MjLoaDp2KgJgJDfgUce8RmniwGBUOZnI",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1MjLoaDp2KgJgJDfgUce8RmniwGBUOZnI",
+          "cachedResultName": "n8n_test_ocr"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "5a8f3485-9f57-4605-860c-986d68bf3572",
+      "name": "On new file in Google Drive",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        0,
+        200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "1MjLoaDp2KgJgJDfgUce8RmniwGBUOZnI",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1MjLoaDp2KgJgJDfgUce8RmniwGBUOZnI",
+            "cachedResultName": "n8n_test_ocr"
+          }
+        },
+        "options": {}
+      },
+      "id": "2970641e-e29a-4c49-a33c-1867a2b1d5e3",
+      "name": "Load files from Google Drive folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        300,
+        200
+      ],
+      "executeOnce": true,
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "id",
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "id": "5ebbdc2b-6bff-4973-9c96-2ef25e80771c",
+      "name": "Filter processed files",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        620,
+        100
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {}
+      },
+      "id": "d6af30e9-c326-4d70-b723-05de6258e2b7",
+      "name": "Download file for OCR",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        860,
+        100
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8/edit?usp=drivesdk",
+          "cachedResultName": "n8n_test_ocr"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8/edit#gid=0",
+          "cachedResultName": "Sheet1"
+        },
+        "columns": {
+          "value": {
+            "id": "={{ $('Load files from Google Drive folder').item.json.id }}",
+            "data": "={{ $json.parsedData }}",
+            "from": "={{ $json.parsedData.from.company_name }}  (country: {{ $json.parsedData.from.addr_country_code }})",
+            "amount": "={{ $json.parsedData.total_due }}  {{ $json.parsedData.currency }}",
+            "filename": "={{ $('Load files from Google Drive folder').item.json.name }}",
+            "line1_cost": "={{ $json.parsedData.lines[0].line_cost }}",
+            "line1_descr": "={{ $json.parsedData.lines[0].descr }}"
+          },
+          "schema": [
+            {
+              "id": "id",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "id",
+              "defaultMatch": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "filename",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "filename",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "data",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "from",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "from",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "amount",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "amount",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "line1_descr",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "line1_descr",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "line1_cost",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "line1_cost",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "id"
+          ]
+        },
+        "options": {}
+      },
+      "id": "09cbfe9e-ca73-424c-9c8c-3e5342780b68",
+      "name": "Save OCR result into Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1520,
+        100
+      ],
+      "typeVersion": 4.3
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8/edit?usp=drivesdk",
+          "cachedResultName": "n8n_test_ocr"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ACXNwlTDB73obmvSNJB3sA06ADF2myJGmAeiSa3NN8/edit#gid=0",
+          "cachedResultName": "Sheet1"
+        },
+        "options": {}
+      },
+      "id": "1d9e9ec3-5036-451f-a6cb-07a706bbc6c3",
+      "name": "Get already processed rows from Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        300,
+        0
+      ],
+      "executeOnce": true,
+      "typeVersion": 4.3,
+      "alwaysOutputData": true
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T08:23:42.000Z",
+  "versionId": "3dede4e5-0fe0-4cb9-9b0b-0e4986df43a1"
+}
