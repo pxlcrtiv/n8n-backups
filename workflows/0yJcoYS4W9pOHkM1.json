@@ -1,0 +1,18 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-01-18T07:55:51.202Z",
+  "id": "0yJcoYS4W9pOHkM1",
+  "meta": null,
+  "name": "copy client final selection to google drive folder and share",
+  "nodes": [],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:55:51.202Z",
+  "versionId": "9f752d25-0a70-4dcf-9ed2-84171ed161c8"
+}
