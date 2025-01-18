@@ -1,0 +1,347 @@
+{
+  "active": false,
+  "connections": {
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Send to Gmail",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Yesterday Date": {
+      "main": [
+        [
+          {
+            "node": "SMTimeEntry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Everyday at 7PM": {
+      "main": [
+        [
+          {
+            "node": "Yesterday Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Yesterday Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMTimeEntry": {
+      "main": [
+        [
+          {
+            "node": "param",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "param": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:45:03.470Z",
+  "id": "J50GU4TIubafmvZD",
+  "meta": null,
+  "name": "Toggl summarize daily time entries via Slack [pipeline]",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 19 * * *"
+            }
+          ]
+        }
+      },
+      "id": "faade37e-908d-494c-af74-93c8f01adcc5",
+      "name": "Everyday at 7PM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        1320,
+        305
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "jsCode": "// Create a new date object for yesterday, 7pm\nconst yesterday = new Date();\nyesterday.setDate( new Date().getDate() - 1); \nyesterday.setHours(19, 0, 0, 0);\nconst isoString = yesterday.toISOString();\nreturn {yesterday:isoString, now:new Date().toISOString()}"
+      },
+      "id": "ea29159e-3674-4385-a0bd-2a9df7d7117c",
+      "name": "Yesterday Date",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1540,
+        345
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n</head>\n<body>\n  <table border=\"1\" cellpadding=\"10\">\n    <thead>\n      <tr>\n        <th>Date</th>\n        <th>Client</th>\n        <th>Project</th>\n        <th>Descr</th>\n        <th>Start Date</th>\n        <th>End Date</th>\n        <th>Duration (Sec)</th>\n        <th>Duration (Min)</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td> {{ $('param').item.json.spend_date }} </td>\n            <td> {{ $('param').item.json.client}} </td>\n            <td> {{ $('param').item.json.project }} </td>\n            <td> {{ $('param').item.json.description.preview }} </td>\n            <td> {{ $('param').item.json.start.date }} </td>\n            <td> {{ $('param').item.json.stop.date }} </td>\n            <td> {{ $('param').item.json.duration.sec }} </td>\n            <td> {{ $('param').item.json.duration.hours_min}} </td>\n          </tr>\n    </tbody>\n  </table>\n</body>\n</html>\n\n<style>\ntable {\n  width: 100%;\n  border-collapse: collapse;\n}\nth, td {\n  text-align: left;\n  padding:\n"
+      },
+      "id": "8254aa63-2682-4c48-8843-c93830c724de",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "position": [
+        2220,
+        340
+      ],
+      "executeOnce": true,
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "sendTo": "axelrose20272027@gmail.com",
+        "subject": "Daily Order Summary",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "68eaa8f7-3b67-484e-8bad-87e621adc1df",
+      "name": "Send to Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "position": [
+        2460,
+        280
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "content": "### Daily summary sent to email at 7PM",
+        "height": 366.2051912396619,
+        "width": 1463.0412453373413
+      },
+      "id": "6907ae8d-90b7-4e07-883d-3ebd4440d811",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1220,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Aggregate Daily Time Entries with SmartSuite\n### This workflow will collect order data as it is produced, then send a summary email of all orders at the end of every day, formatted in a table.\n\n\n## Setup:\n 1. Create a new table in Airtable and give it a field *time* with type date, *orderID* with type number, and *orderPrice* also with type number. \n 2. Create a new access token if you haven't already at https://airtable.com/create/tokens/new. Make sure to give the token the scopes *data.records:read*, *data.records:write*, *schema.bases:read* and access to whichever table you choose to store the orders. A pop-up window appears with the token. Use this token to make `Create New Credential` > `Access Token` for Airtable in the `Store Order` and `Airtable Get Today's Orders` nodes.\n 3. Create access credentials for your Gmail as described here: https://developers.google.com/workspace/guides/create-credentials. Use the credentials from your *client_secret.json* in the `Send to Gmail` node.\n 4. In the `Store Order` node, change *Base* and *Table* to the database and table in your Airtable account you wish to use to store orders. Make sure to use these same values in the `Airtable Get Today's Orders` node.\n 5. Every time an order is created in your system, send a POST request to Webhook from your order software. Each request must contain a single order containing fields *'orderID'* and *'orderPrice'* (or, edit `Set Order Fields` to select which incoming fields you wish to save)\n 6. Change the schedule time for sending email from `Everyday at 7PM` to whichever time you choose. \n \n\n## Test:\n- Activate the workflow.\n- From the node `Webhook`, copy *Production URL*\n- Send the following CURL request to the URL given to you:\n` curl -X POST   -H \"Content-Type: application/json\"   -d '{\"orderID\": 12345, \"orderPrice\": 99.99}' YOUR_URL_HERE`\n- It should say *Node executed successfully*. Now check your Airtable and confirm the order was stored in the right place.",
+        "height": 913.402557784715,
+        "width": 607.7708924207209,
+        "color": 4
+      },
+      "id": "848c6acb-2f9c-4d85-8349-a4a31204922b",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        400,
+        -20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": " - It's 7PM!",
+        "height": 80,
+        "width": 170,
+        "color": 3
+      },
+      "id": "0f433e34-79cd-42d0-9b56-4a306eb91907",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1080,
+        365
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "otherOptions": {}
+      },
+      "id": "902f6e5a-ddc4-44ea-8789-0d7555e3176b",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        2460,
+        460
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "LiUWq0KJPPyKLDUI",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "5026ba67-ab74-41ab-90bd-208e6c849af9",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/668ecb995b7d04577b9a4190/records/list/",
+        "sendQuery": true,
+        "specifyQuery": "=keypair",
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"filter\": {\n    \"operator\": \"and\",\n    \"fields\": [\n      {        \n        \"field\": \"sa60c2dda1\",\n        \"comparison\": \"is\",\n        \"value\": {\n          \"date_mode\": \"past_number_of_days\",\n          \"date_mode_value\": \"1\"\n        }\n      }        \n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "1026afd6-4531-46b5-bc55-2c8ea3c31fa4",
+      "name": "SMTimeEntry",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f2938e31-fda4-410f-8f4a-8ce8696c389a",
+              "name": "title",
+              "value": "={{ $json.items[0].title }}",
+              "type": "string"
+            },
+            {
+              "id": "caa41fd5-e6ea-468b-b90a-c403af52bdbe",
+              "name": "spend_date",
+              "value": "={{ $json.items[0].s2e7d2b64e }}",
+              "type": "string"
+            },
+            {
+              "id": "ac691b1a-17de-441c-8a73-ebf6ed2f2d68",
+              "name": "description",
+              "value": "={{ $json.items[1].description }}",
+              "type": "object"
+            },
+            {
+              "id": "6adb2582-76ea-48ae-baa5-dad7fbd8c7ce",
+              "name": "client",
+              "value": "={{ $json.items[1].s388b58221 }}",
+              "type": "string"
+            },
+            {
+              "id": "f8b659c8-01d4-4968-b37f-22b9fa202ead",
+              "name": "project",
+              "value": "={{ $json.items[1].sf7335e6da }}",
+              "type": "string"
+            },
+            {
+              "id": "a1e05d35-c3fa-4f1f-b623-f7de6575d125",
+              "name": "start",
+              "value": "={{ $json.items[1].sa60c2dda1 }}",
+              "type": "object"
+            },
+            {
+              "id": "a1b6c732-c9e0-4ecc-81dc-5307a7cbafb2",
+              "name": "stop",
+              "value": "={{ $json.items[1].sa7b8b841b }}",
+              "type": "object"
+            },
+            {
+              "id": "712c74c5-8d7a-40c0-9187-3948b6eced39",
+              "name": "duration_sec",
+              "value": "={{ $json.items[1].se2afa90b2 }}",
+              "type": "string"
+            },
+            {
+              "id": "697b5a93-2950-4bb4-b921-59f2f514d466",
+              "name": "duration_hrs",
+              "value": "={{ $json.items[0].se6d1375cc }}",
+              "type": "string"
+            },
+            {
+              "id": "518fa6d6-e9f9-4bdb-bc5a-7fb8d74712ba",
+              "name": "duration_recalc",
+              "value": "={{ $json.items[0].s6e80240de }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "abd6eb26-f06d-4053-9d38-0fc568814bc1",
+      "name": "param",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1980,
+        340
+      ]
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:03.470Z",
+  "versionId": "bbd4002e-4686-43de-81c0-aa3e174610aa"
+}
