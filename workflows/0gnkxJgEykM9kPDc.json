@@ -1,0 +1,759 @@
+{
+  "active": false,
+  "connections": {
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "lookup_clockify_project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lookup SM Project": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lookup SMCliient": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Remove_dup_clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pass ": {
+      "main": [
+        [
+          {
+            "node": "Map_Project",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "MergeClientProjectTime",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Filter2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Pass ",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lookup_clockify_project": {
+      "main": [
+        [
+          {
+            "node": "lookup_clockify_client",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Filter3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lookup_clockify_client": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map_Project": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove_dup_clients": {
+      "main": [
+        [
+          {
+            "node": "MergeClient",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "MergeClient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter2": {
+      "main": [
+        [
+          {
+            "node": "MergeProject",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MergeClient": {
+      "main": [
+        [
+          {
+            "node": "MergeClientProjectTime",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MergeProject": {
+      "main": [
+        [
+          {
+            "node": "MergeClientProjectTime",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "MergeClientProjectTime": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "lookup SMCliient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Lookup SM Project",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter3": {
+      "main": [
+        [
+          {
+            "node": "MergeProject",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T08:23:19.885Z",
+  "id": "0gnkxJgEykM9kPDc",
+  "meta": null,
+  "name": "Lookup_Reference_Clockify",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# Lookup References for Clockify Integration\n\nThis workflow is designed to facilitate the integration between Clockify time entries and SmartSuite. Specifically, it aims to ensure that each time entry recorded in Clockify can be correctly linked to corresponding records in SmartSuite, such as clients and projects.\n\n## Purpose of the Workflow:\nEnhance Data Accuracy: By automating the lookup and mapping of references, the workflow reduces manual entry errors and increases the accuracy of data.\nStreamline Operations: It simplifies the process of recording and managing time entries by ensuring they are automatically associated with the right client and project within SmartSuite.\n\nImprove Reporting and Billing: Accurate linkage of time entries to projects and clients helps in generating precise reports and efficient billing processes.\n\nThis node, in particular, fetches relevant reference data from SmartSuite, such as client IDs and project IDs. This data is then used by subsequent nodes to map these IDs correctly to the time entries from Clockify. This ensures that each entry is associated with the correct client and project, making tracking and reporting both straightforward and reliable.",
+        "height": 460,
+        "width": 1037
+      },
+      "id": "3178e049-90fe-46b4-a7d0-07a5f92467e9",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        700,
+        340
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f1aad66b-fc73-418d-8eab-de42f8bb3c08",
+      "name": "Remove Duplicates",
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/673cb516b2ae49fb43001456/records/list/",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "offet",
+              "value": "0"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b3685108-886b-4043-abe2-9f1b64cc0012",
+      "name": "Lookup SM Project",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/673cb516b2ae49fb43001479/records/list/",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "offet",
+              "value": "0"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "592ec752-0d20-4e0d-9fd0-58b57726ff98",
+      "name": "lookup SMCliient",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "08ff3ca5-b4b3-485d-a7f0-995210d56231",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "={{ $('lookup_clockify_project').item.json.clientId }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "415e153c-8f5c-458e-9e6f-1069384c4d76",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": []
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "58de0c8b-9815-49a7-b52b-92e2fced098f",
+      "name": "Pass ",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=items",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "d0a0f43b-ac29-4690-84b1-46e497039679",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        60
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "6673d527-8d64-4a19-8e3a-94e07b1126ef",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d10dac80-71f6-4880-9923-f0a96bc689d6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clockify.me/api/v1/workspaces/65257da509b7a210604dda1a/projects",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "NDk4ZWExZDctNWJhMi00NmY1LTk5ODctNWU2ZDExMDhmNDYw"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f16f1085-32ee-4e52-abf8-c4a85c2557f3",
+      "name": "lookup_clockify_project",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clockify.me/api/v1/workspaces/65257da509b7a210604dda1a/clients",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "NDk4ZWExZDctNWJhMi00NmY1LTk5ODctNWU2ZDExMDhmNDYw"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"operator\": \"and\",\n    \"fields\": [\n      {        \n        \"field\": \" {{ $json.clientId }}\",\n        \"comparison\": \"is\",\n        \"value\": {\n          \"date_mode\": \"id\"}\n      }        \n    ]\n  }\n}\n",
+        "options": {}
+      },
+      "id": "8df778d3-2a92-4c80-b742-5e1c5e5893ef",
+      "name": "lookup_clockify_client",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f7122793-20cb-4ed8-b704-40e43d29ed22",
+              "name": "project_id",
+              "value": "={{ $json.projectId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f2a907f8-2d23-45ee-ac06-c8e15af1791a",
+      "name": "Map_Project",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ffce85ff-f58e-44e0-b417-f83f62bf8fa3",
+      "name": "Remove_dup_clients",
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4a805af3-854c-4f87-a5c8-9310e8e2115c",
+              "leftValue": "={{ $json.items.sf156ac5bc }}",
+              "rightValue": "\"complete\"",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1260,
+        -420
+      ],
+      "id": "2b9c5f22-f801-4110-9dd1-cefd1c8fa5bb",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "=items",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "id": "d6b476ef-faf1-4f20-8c79-c6ec051ba8ad",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        980,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8ee3a611-6786-42a2-a89f-9575bd1b0b3c",
+              "leftValue": "={{ $json.items.status }}",
+              "rightValue": "\"complete\"",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1300,
+        60
+      ],
+      "id": "ad098eef-1ac2-4e22-b487-53388d87d21d",
+      "name": "Filter2"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "={{ $json.items.id }}",
+              "field2": "={{ $json.items.s13497d7dd }}"
+            }
+          ]
+        },
+        "joinMode": "enrichInput1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1780,
+        -320
+      ],
+      "id": "01832f30-e605-4aa3-9e57-16f23c928099",
+      "name": "MergeClient"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "query": "SELECT \n  input1.*,\n  input2.*\nFROM input1 \n  INNER JOIN input2 ON input1.clientid = input2.id"
+      },
+      "id": "459c8556-fea6-435f-8f05-d7516de03867",
+      "name": "MergeProject",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "numberInputs": 3,
+        "query": "WITH \n  time_entry  AS\n  (\n  select * from input2\n  )\nselect \n  --project.sm_id as project_sm_rec_id,\n  --project.name as proj_name,\n  --client.record_id as client_sm_rec_id,\n  --client.id as client_id,\n  --client.name as client_name,\n  time_entry.id as time_entry_id,\n  time_entry.*\nfrom time_entry\n  --inner join project on project.id = time_entry.project_id\n  --inner join client on client.id = project.client_id"
+      },
+      "id": "39dd16e5-b498-40fe-a318-4a50c2cd60d4",
+      "name": "MergeClientProjectTime",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2100,
+        -220
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        -420
+      ],
+      "id": "3f67bc14-9415-413a-81c0-6d407c0c5f04",
+      "name": "Limit"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        520,
+        60
+      ],
+      "id": "cfd2e040-dbc1-48e7-b500-2aa9cd690e64",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "dfa89552-5d68-4291-ac38-0077334fab5e",
+              "leftValue": "={{ $json.archived }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1420,
+        -140
+      ],
+      "id": "218d6865-3213-451c-9e53-0ef9b7e4b0e8",
+      "name": "Filter3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2cf490ee-7f09-43c8-a76e-d6a3e9bb2388",
+              "name": "sm_id",
+              "value": "={{ $json.items.id }}",
+              "type": "string"
+            },
+            {
+              "id": "add3b906-5fff-471c-92f2-e68827095892",
+              "name": "sm_time_entry",
+              "value": "={{ $json.items.sbb40df392 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17a0d83e-d758-4154-bfe6-c9f978089a62",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2300,
+        380
+      ],
+      "disabled": true
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-18T08:23:15.592Z",
+      "updatedAt": "2025-01-18T08:23:15.592Z",
+      "id": "MN4rLDVAYYW5C4fC",
+      "name": "dev"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T08:23:19.885Z",
+  "versionId": "8b4b242c-17f1-4765-862d-b247f55e2aec"
+}
