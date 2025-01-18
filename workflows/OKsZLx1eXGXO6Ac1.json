@@ -1,0 +1,45 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-01-18T07:45:01.874Z",
+  "id": "OKsZLx1eXGXO6Ac1",
+  "meta": null,
+  "name": "Receive updates for new events in Clockify",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "workspaceId": "5f115b31e3f0ad7f90326b39"
+      },
+      "name": "Clockify Trigger",
+      "type": "n8n-nodes-base.clockifyTrigger",
+      "position": [
+        -160,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "9004285c-2231-4a75-a282-d485a191aca0",
+      "credentials": {
+        "clockifyApi": {
+          "id": "8tUGMkOMIrWFmvWB",
+          "name": "Clockify account"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:01.874Z",
+  "versionId": "2a114b18-e6d9-4900-8c69-3a7c8650140a"
+}
