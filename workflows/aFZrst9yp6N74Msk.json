@@ -1,0 +1,386 @@
+{
+  "active": false,
+  "connections": {
+    "Download PDF": {
+      "main": [
+        [
+          {
+            "node": "Extract data from PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get PDF or Images": {
+      "main": [
+        [
+          {
+            "node": "Route based on PDF or Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract data from PDF": {
+      "main": [
+        [
+          {
+            "node": "ExtractData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route based on PDF or Image": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateTimesheetinSM": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches2": {
+      "main": [
+        [
+          {
+            "node": "Download PDF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExtractData": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "CreateTimesheetinSM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T08:21:59.907Z",
+  "id": "aFZrst9yp6N74Msk",
+  "meta": null,
+  "name": "Extract_text_from_PDF_and_image_into_smartsuite",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "authentication": "serviceAccount",
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86",
+          "mode": "list",
+          "cachedResultName": "timesheet_inbox",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "a474588b-22eb-449e-9b00-0dd1b062ec6a",
+      "name": "Get PDF or Images",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        420,
+        500
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Get PDF or Images').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "fileName": "={{ $json.name }}"
+        }
+      },
+      "id": "837ff6d1-de67-4e4f-943f-f33759aec5df",
+      "name": "Download PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1180,
+        420
+      ],
+      "executeOnce": true,
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "id": "7ec50228-b81d-44c6-a879-50e5def455be",
+      "name": "Extract data from PDF",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        1400,
+        420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## How to extract PDF and image text into CSV using n8n (without manual data entry)\n\nThis workflow will extract text data from PDF and images, then store it as CSV.\n\n[💡 You can read more about this workflow here](https://rumjahn.com/how-to-create-an-a-i-agent-to-analyze-matomo-analytics-using-n8n-for-free/)",
+        "height": 163.2468619246862,
+        "width": 589.0376569037658
+      },
+      "id": "423c898e-a3a1-46e8-ae89-3f581003ce5c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Get PDF or image\nYou need to create a new folder inside Google Drive for uploading your PDF and images.\n\nOnce you create a folder, you need to add your Google cloud user by going to Share -> Add user. The user email should be like: n8n-server@n8n-server-435232.iam.gserviceaccount.com",
+        "height": 432.7364016736402,
+        "width": 248.11715481171547,
+        "color": 4
+      },
+      "id": "3b1657c0-2d94-475f-91ec-74bea69da801",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{$json.mimeType}}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "application/pdf",
+              "outputKey": "pdf"
+            },
+            {
+              "operation": "contains",
+              "value2": "image/",
+              "outputKey": "image"
+            }
+          ]
+        }
+      },
+      "id": "7252aa30-a849-40ed-aef2-f3512c1fd8da",
+      "name": "Route based on PDF or Image",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        660,
+        500
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "value": "0AO4pwPDytuLPUk9PVA",
+          "mode": "list",
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86",
+          "mode": "list",
+          "cachedResultName": "ee_timesheet_inbox",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1260,
+        620
+      ],
+      "id": "25043908-3e0c-439d-a887-fec42dae18a3",
+      "name": "Google Drive"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/673f9850fd7f7757d7d8a304/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.date }} - {{ $json.referenceNumber }}\",\n  \"s88e7dacd4\": {\n    \"value\": \"ready_for_review\"\n  },\n  \"sc6358e22b\": \"{{ $json.candidateName }}\",\n  \"s6820339ba\": \"{{ $json.referenceNumber }}\",\n  \"s62a9aa083\": \"{{ $json.clientName }}\",\n  \"sd4cb9fc1a\": \"{{ $json.dateEnding }}\",\n  \"s46840c42e\": \"{{ $json.location }}\",\n  \"s6d6c84d0e\": \"{{ $json.day }}\",\n  \"s79ec764b0\": \"{{ $json.date }}\",\n  \"s648fe3550\": \"{{ $json.hours }}\",\n  \"s6085b7d41\": \"{{ $json.days }}\",\n  \"s20922dd4d\": \"{{ $json.signedBy }}\",\n  \"sf8ceb18d9\": \"{{ $json.signedAt }}\",\n  \"s81402a07c\": \"{{ $json.documentId }}\",\n  \"sc119cf5c1\": \"{{ $json.verificationDate }}\",\n  \"sf9f6aef7a\": \"{{ $('Download PDF').item.json.webViewLink }}\"\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "c95e8e57-baf2-4ce9-9c11-693a45799332",
+      "name": "CreateTimesheetinSM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "2ce2f272-93f1-471a-bc60-9fe0ebb3e047",
+      "name": "Split In Batches2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        920,
+        480
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=✅ New EE client time sheet has been added to Smartsuite - workflows have been processed.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1480,
+        620
+      ],
+      "id": "ffc51df2-725c-48a3-a0b9-441e5e081c8e",
+      "name": "Slack1",
+      "webhookId": "ca2af7b6-d0ef-43dc-86d7-9daafd885ff9"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = items[0].json.text; // Assuming the text content is stored in the 'text' property of the first item\nconst lines = text.split('\\n'); // Split the text into lines for easier processing\n\n// Initialize object to store extracted data\nconst data = {\n  candidateName: '',\n  referenceNumber: '',\n  clientName: '',\n  dateEnding: '',\n  formattedDateEnding: '', // New attribute for the transformed date\n  location: '',\n  projectName: '', // Assume this is previously added or will be added\n  timeEntries: [],\n  signedBy: '',\n  signedAt: '',\n  ipAddresses: [],\n  documentId: '',\n  verificationDate: ''\n};\n\n// Improved extraction logic\ndata.candidateName = lines[6].match(/Candidate:\\s(.+?)\\sReference:/)?.[1] || \"Not available\";\ndata.referenceNumber = lines[6].match(/Reference:\\s(\\d+)/)?.[1] || \"Not available\";\n\n// Extract location and dateEnding with improved logic\nconst clientAndDateLine = lines.find(line => line.includes(\"Client:\"));\nif (clientAndDateLine) {\n    data.dateEnding = clientAndDateLine.match(/Date Ending:\\s([^]*)/)?.[1] || \"Not specified\";\n    data.clientName = clientAndDateLine.match(/Client:\\s(.+?)\\sDate Ending/)?.[1] || \"Not available\";\n}\n\nconst locationLine = lines.find(line => line.includes(\"Location:\"));\nif (locationLine) {\n    data.location = locationLine.split('Location: ')[1].trim();\n}\n\n// Convert dateEnding to DD/MM/YYYY format\nif (data.dateEnding !== \"Not specified\") {\n    const dateParts = data.dateEnding.split(' '); // Split \"21 Dec 2024\" into parts\n    const months = { Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06', Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12' };\n    const day = dateParts[0].padStart(2, '0'); // Ensure day is two digits\n    const month = months[dateParts[1]]; // Convert month name to month number\n    const year = dateParts[2];\n    data.formattedDateEnding = `${day}/${month}/${year}`; // Format to DD/MM/YYYY\n}\n\n// Extract signature and verification details\ndata.signedBy = text.match(/Signed by:\\s(.+?)\\sSigned at:/)?.[1] || \"Not available\";\ndata.signedAt = text.match(/Signed at:\\s(.+?),/)?.[1] || \"Not specified\";\ndata.ipAddresses = text.match(/IP Address:\\s([\\d.,\\s]+)/)?.[1].split(',').map(ip => ip.trim()) || [];\ndata.documentId = text.match(/Document ID:\\s([\\d\\s]+)/)?.[1].replace(/\\s+/g, '').trim() || \"Not available\";\ndata.verificationDate = text.match(/Date:\\s(\\d{2} \\w+ \\d{4})/)?.[1] || \"Not specified\";\n\n// Extract time entries and flatten them\nconst entryRegex = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\\s(\\d{1,2}\\s\\w+\\s\\d{4})\\s(\\d+\\.\\d+)\\s(\\d+\\.\\d+)$/;\nconst flattenedEntries = [];\nlines.forEach(line => {\n  const match = line.match(entryRegex);\n  if (match) {\n    flattenedEntries.push({\n      json: {\n        candidateName: data.candidateName,\n        referenceNumber: data.referenceNumber,\n        clientName: data.clientName,\n        dateEnding: data.dateEnding,\n        formattedDateEnding: data.formattedDateEnding, // Include new formatted date attribute\n        location: data.location,\n        day: match[1],\n        date: match[2],\n        hours: parseFloat(match[3]),\n        days: parseFloat(match[4]),\n        signedBy: data.signedBy,\n        signedAt: data.signedAt,\n        ipAddresses: data.ipAddresses,\n        documentId: data.documentId,\n        verificationDate: data.verificationDate\n      }\n    });\n  }\n});\n\nreturn flattenedEntries;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        420
+      ],
+      "id": "44326856-e874-4371-ba92-7d0f8244df62",
+      "name": "ExtractData"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        420
+      ],
+      "id": "2a717756-0120-4cdb-9f0f-627d2a01526e",
+      "name": "Limit"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T08:21:59.907Z",
+  "versionId": "861bff85-3293-48db-a20b-3259d8526054"
+}
