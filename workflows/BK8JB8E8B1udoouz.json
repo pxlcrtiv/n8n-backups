@@ -1,0 +1,1312 @@
+{
+  "active": false,
+  "connections": {
+    "n8n": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If n8n_old",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If1 n8n_backups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If n8n_old": {
+      "main": [
+        [
+          {
+            "node": "Create n8n_old",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge mensage",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Item Lists": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IGNORE FILES": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT BACKUPS1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge mensage": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT FOLDER CREATES",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create n8n_old": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT FOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1 n8n_backups": {
+      "main": [
+        [
+          {
+            "node": "Create n8n_backups",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge mensage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move Binary Data": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Starting Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "UPLOAD_WORKFLOWS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Completed Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches2": {
+      "main": [
+        [
+          {
+            "node": "MOVE INTO OLD FOLDER1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Completed Notification1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create n8n_backups": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT FOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET CURRENT FOLDER": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET CURRENT BACKUPS1": {
+      "main": [
+        [
+          {
+            "node": "Item Lists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET CURRENT FOLDER CREATES": {
+      "main": [
+        [
+          {
+            "node": "IGNORE FILES",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Starting Message": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT FOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Starting Message1": {
+      "main": [
+        [
+          {
+            "node": "LIST OLD BACKUPS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger3": {
+      "main": [
+        [
+          {
+            "node": "Starting Message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LIST OLD BACKUPS1": {
+      "main": [
+        [
+          {
+            "node": "Item Lists old1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DELETE OLD BACKUP1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches old1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item Lists old1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches old1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches old1": {
+      "main": [
+        [
+          {
+            "node": "DELETE OLD BACKUP1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Completed Notification2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MOVE INTO OLD FOLDER1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UPLOAD_WORKFLOWS": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Move Binary Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT BACKUPS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET CURRENT BACKUPS": {
+      "main": [
+        [
+          {
+            "node": "Item Lists1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item Lists1": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches3": {
+      "main": [
+        [
+          {
+            "node": "MOVE INTO OLD FOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T08:22:17.363Z",
+  "id": "BK8JB8E8B1udoouz",
+  "meta": null,
+  "name": "Nightly_n8n_backup_to_Google_Drive",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "MOVE CURRENT BACKUPS TO OLD FOLDER",
+        "height": 248,
+        "width": 1303,
+        "color": 4
+      },
+      "id": "f3ca9dda-1dbd-495d-b123-1f0241891291",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1900,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "BACKUP ALL CURRENT WORKFLOWS limit 100 (Change)",
+        "height": 267,
+        "width": 1305
+      },
+      "id": "88fa0216-a8dc-4cba-a97e-a54595dadba5",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1900,
+        280
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "jsonToBinary",
+        "options": {
+          "fileName": "={{ $json.name }}-{{ $json.active === false ? 'inactive' : $json.active === true ? 'active' : 'unknown' }}",
+          "useRawData": true
+        }
+      },
+      "id": "82ef820c-a065-4f8a-b6e3-358d2279e74e",
+      "name": "Move Binary Data",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "position": [
+        2280,
+        360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## get Google Drive folders",
+        "height": 1016,
+        "width": 1029,
+        "color": 2
+      },
+      "id": "074763e2-65f5-49d4-a7bd-6547a9dd07ea",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        440,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Ignore any other folders other than: n8n_backups\n(it is important that you created this folder)",
+        "height": 1013,
+        "width": 392,
+        "color": 6
+      },
+      "id": "2333081c-a1e9-4114-acf2-e61d834f072a",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1500,
+        20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "98415e9e-5354-4223-9107-ef3ade30c2f0",
+              "operator": {
+                "name": "filter.operator.equals",
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $node[\"GET CURRENT FOLDER\"].json.name }}",
+              "rightValue": "n8n_backups"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "766082d2-72f8-4359-aa00-72854d33818b",
+      "name": "IGNORE FILES",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1620,
+        120
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "n8n_backups",
+        "driveId": {
+          "__rl": true,
+          "value": "0AO4pwPDytuLPUk9PVA",
+          "mode": "list",
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "root",
+          "mode": "list",
+          "cachedResultName": "/ (Root folder)",
+          "cachedResultUrl": "https://drive.google.com/drive"
+        },
+        "options": {}
+      },
+      "id": "5b486841-420d-4c54-9bcb-42ed96252e32",
+      "name": "Create n8n_backups",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1180,
+        420
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "n8n_old",
+        "driveId": {
+          "__rl": true,
+          "value": "0AE-eUFLe706EUk9PVA",
+          "mode": "list",
+          "cachedResultName": "n8n-old",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AE-eUFLe706EUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "root",
+          "mode": "list",
+          "cachedResultName": "/ (Root folder)",
+          "cachedResultUrl": "https://drive.google.com/drive"
+        },
+        "options": {}
+      },
+      "id": "5b42b0b9-46aa-45db-8456-99a5e22aea6a",
+      "name": "Create n8n_old",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1180,
+        580
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "content": "## Contact me \n**By Mail**. [Send Mail](mailto:nuntius.creative.hub@gmail.com)",
+        "height": 105.6805438265643,
+        "width": 355.73762189847923,
+        "color": 3
+      },
+      "id": "0860134b-80eb-4197-b283-cc37164cac13",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        480,
+        620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Since the folder does not exist, it creates a new one.\nn8n_backups\nn8n_old",
+        "height": 451.756147757587,
+        "width": 327.6965514381564,
+        "color": 5
+      },
+      "id": "04bb64fc-76e4-46f4-a99e-b3388d43d598",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1080,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "queryString": "=",
+        "returnAll": true,
+        "filter": {
+          "whatToSearch": "folders"
+        },
+        "options": {}
+      },
+      "id": "110583e5-4762-41cb-8346-5f38f81a0479",
+      "name": "GET CURRENT FOLDER",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        500,
+        320
+      ],
+      "executeOnce": true,
+      "notesInFlow": true,
+      "retryOnFail": true,
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst requiredNames = [\"n8n_old\", \"n8n_backups\"];\n\n// Filtrar los nombres de la entrada\nconst folderNames = items.map(item => item.json.name);\n\n// Encontrar los nombres que faltan\nconst missingNames = requiredNames.filter(name => !folderNames.includes(name));\n\nif (missingNames.length === 0) {\n  return [{ json: { message: \"ok\" } }];\n} else {\n  return [{ json: { message: `Faltan los siguientes: ${missingNames.join(', ')}` } }];\n}\n"
+      },
+      "id": "589a1d82-e7bd-4362-9f80-8f7161a8e911",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        660,
+        320
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "43bd468e-1018-4b45-9448-c51835ed65bc",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              },
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "n8n_old"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b43096da-5419-4366-a947-b6c754bc7e6c",
+      "name": "If n8n_old",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        860,
+        440
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "43bd468e-1018-4b45-9448-c51835ed65bc",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              },
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "n8n_backups"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54af152a-79d8-4622-a309-f700872afac1",
+      "name": "If1 n8n_backups",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        860,
+        200
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "returnAll": true,
+        "filter": {
+          "whatToSearch": "folders"
+        },
+        "options": {}
+      },
+      "id": "bc5d87ab-4e3c-462f-afce-7bba255e1f47",
+      "name": "GET CURRENT FOLDER CREATES",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1300,
+        120
+      ],
+      "executeOnce": true,
+      "notesInFlow": true,
+      "retryOnFail": true,
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "a3ec76a7-a952-4d71-826b-97f83f831c89",
+      "name": "Merge mensage",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1120,
+        120
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "queryString": ".json",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
+            "cachedResultName": "n8n_backups"
+          }
+        },
+        "options": {
+          "fields": [
+            "name",
+            "id"
+          ]
+        }
+      },
+      "id": "c7e4fa07-7b11-43e2-b087-aa0f43a1214b",
+      "name": "GET CURRENT BACKUPS1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1980,
+        80
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 23
+            }
+          ]
+        }
+      },
+      "id": "cd06494e-21a3-4fed-9bd4-95ac71961fb8",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        460,
+        60
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "content": "## Does a folder exist?, if it does not exist it creates it",
+        "height": 542.95115693689,
+        "width": 203.08765089203305,
+        "color": 7
+      },
+      "id": "6d8b0f20-eaa5-4ee6-967c-e7c1947c9d4e",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        820,
+        40
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Description\nThis template creates a nightly backup of all n8n workflows and saves them to a Google Drive folder. Each night, the previous night's backups are moved to an “n8n_old” folder and renamed with the corresponding date.\n\nBackups older than a specified age are automatically deleted (this feature is active for 30 days, you can remove it if you don't want the backups to be deleted).\n\n## Prerequisites\n\n- Google Drive account and credentials **Get** from the following link. [Link](https://console.cloud.google.com/apis/credentials/oauthclient/)\n- n8n version 1.70.1 or higher\n- N8n api key **Guide** from the following link. [Link](https://witmovil.com/where-to-create-the-api-key-in-n8n/)\n- A destination folder for backups:\n“n8n_old”\n“n8n_backups”\n(if it doesn't exist, create it)\n\n## Configuration\nUpdate all Google Drive nodes with your credentials.\nEdit the Schedule Trigger node with the desired time to run the backup.\nIf you want to automatically purge old backups.\n\nEdit the “PURGE DAYS” node to specify the age of the backups you want to delete.\nEnable the “PURGE DAYS” node and the 3 subsequent nodes.\nEnable the workflow to run on the specified schedule.",
+        "height": 1019,
+        "width": 397,
+        "color": 3
+      },
+      "id": "53a006f5-f14f-4f83-a35f-83d7d13ebd5f",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "options": {}
+      },
+      "id": "d288153d-7f27-4ba1-abf9-9fa4da7e70e6",
+      "name": "Item Lists",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        2180,
+        80
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "63ae847c-ff82-4237-aec7-3d14ecefa528",
+      "name": "Split In Batches2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        2400,
+        80
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "6e6c68c6-82f8-4b56-a333-15f226012811",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        2460,
+        360
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "returnAll": false,
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "db77f7ca-aaac-4f5d-8467-2040d8396023",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        1940,
+        360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Errors corrected: \n* Now iterates through each file to save, move, or delete.\n* Added an \"active\" or \"inactive\" label in the name to indicate the status.\n* Corrected names and filters.\nSet a limit of 100, which can be adjusted in n8n for additional copies.\n* Fixed node n8n, now it gets both active and inactive workflows.",
+        "height": 253.8630009376974,
+        "width": 356.757187810333,
+        "color": 7
+      },
+      "id": "82539183-279f-40c3-8886-ad02dced153d",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1520,
+        420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=:information_source:  Starting Nightly Workflow Backup to G-Drive [{{ $execution.id }}]",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "4e1a5809-a268-4952-92ee-1086dae07639",
+      "name": "Starting Message",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        620,
+        60
+      ],
+      "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
+      "typeVersion": 2.2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('UPLOAD_WORKFLOWS').all().length }} workflows have been processed.",
+        "otherOptions": {}
+      },
+      "id": "27f08cf0-68bc-4620-bd4e-57af7d7907ae",
+      "name": "Completed Notification",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        2880,
+        420
+      ],
+      "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
+      "executeOnce": true,
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=:information_source:  Starting PURGE BACKUPS OLDER THEN 30 DAYS [{{ $execution.id }}]",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "86ffabbf-765f-45d7-96d8-fc1df268d9ad",
+      "name": "Starting Message1",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        2220,
+        720
+      ],
+      "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "d3cea308-bf5c-4c79-87bf-516bf876c11c",
+      "name": "Schedule Trigger3",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        2000,
+        720
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "## Main workflow loop",
+        "height": 436,
+        "width": 1293,
+        "color": 7
+      },
+      "id": "d24dc6ad-1a8a-47ff-864a-b3a707a48bdd",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1920,
+        580
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "queryString": ".json",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "1UcusrWKnbFl3cJYIjaDdp1VCgreg2oeV",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1UcusrWKnbFl3cJYIjaDdp1VCgreg2oeV",
+            "cachedResultName": "n8n_old"
+          }
+        },
+        "options": {
+          "fields": [
+            "name",
+            "id"
+          ]
+        }
+      },
+      "id": "f49b0e28-4a1d-4c29-bc1f-512aec6f32e6",
+      "name": "LIST OLD BACKUPS1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        2440,
+        720
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {
+          "deletePermanently": true
+        }
+      },
+      "id": "d2e86be6-7c01-4200-97ce-79f950ad1bcc",
+      "name": "DELETE OLD BACKUP1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        3020,
+        640
+      ],
+      "typeVersion": 3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "options": {}
+      },
+      "id": "38ed8002-e79b-443f-9116-4616cebea8e5",
+      "name": "Item Lists old1",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        2640,
+        720
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "e4c1393f-e741-4a2f-b1b4-9cfe491c48c6",
+      "name": "Split In Batches old1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        2840,
+        720
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=✅ Backup has completed - {{ $('n8n2').all().length }} workflows have been processed.",
+        "otherOptions": {}
+      },
+      "id": "3547ef99-6806-4dab-a500-e620776d149d",
+      "name": "Completed Notification2",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        3020,
+        840
+      ],
+      "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
+      "executeOnce": true,
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "value": "0AO4pwPDytuLPUk9PVA",
+          "mode": "list",
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n",
+          "mode": "list",
+          "cachedResultName": "ee_timesheet_done",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2640,
+        40
+      ],
+      "id": "ad211a48-1953-49c1-ba0f-043252db6fcb",
+      "name": "MOVE INTO OLD FOLDER1"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('n8n1').all().length }} workflows have been processed. All current files has been moved to the old folder.",
+        "otherOptions": {}
+      },
+      "id": "773d9569-519d-413b-96bd-b517f895571b",
+      "name": "Completed Notification1",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        2820,
+        140
+      ],
+      "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
+      "executeOnce": true,
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "binaryData": true,
+        "name": "={{ $('Split In Batches').item.binary.data.fileName }}-{{ $node[\"n8n\"].json[\"updatedAt\"] }}.json",
+        "parents": [
+          "=/16-scUjI9vHpuP89JpdwZ1_l0mX8ZWzvG"
+        ],
+        "options": {}
+      },
+      "id": "a034961d-3a78-407c-bb72-f35940e6b9bf",
+      "name": "UPLOAD_WORKFLOWS",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        2700,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        360
+      ],
+      "id": "161452ac-f1fc-45b7-9ff1-5192f08f165b",
+      "name": "Limit"
+    },
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1300
+      ],
+      "id": "3cef6559-c681-41c4-bbb3-1696dfd3f511"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "queryString": ".json",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
+            "cachedResultName": "n8n_backups"
+          }
+        },
+        "options": {
+          "fields": [
+            "name",
+            "id"
+          ]
+        }
+      },
+      "id": "14bb31e1-8083-4330-a95b-6a8e59d67944",
+      "name": "GET CURRENT BACKUPS",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        280,
+        1300
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "id",
+        "options": {}
+      },
+      "id": "605b257f-5b36-4480-960d-648724f67552",
+      "name": "Item Lists1",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        480,
+        1300
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "41c09791-ae62-4461-85eb-75d7f83443fc",
+      "name": "Split In Batches3",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        740,
+        1300
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "1Nb0ZdwD8KFACkcBR7rdwaXLgpyb-tG7z",
+          "mode": "list",
+          "cachedResultName": "📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox-inactive-2024-12-28T13:26:44.697Z.json",
+          "cachedResultUrl": "https://drive.google.com/file/d/1Nb0ZdwD8KFACkcBR7rdwaXLgpyb-tG7z/view?usp=drivesdk"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        }
+      },
+      "id": "321f4d9c-1f17-4288-a462-8f4a41ca6627",
+      "name": "MOVE INTO OLD FOLDER",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1020,
+        1280
+      ],
+      "typeVersion": 3,
+      "alwaysOutputData": false
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-18T07:22:20.820Z",
+      "updatedAt": "2025-01-18T07:22:20.820Z",
+      "id": "yV5sK5e9WSoCLTNm",
+      "name": "production"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T08:22:17.363Z",
+  "versionId": "6dc88b22-eb31-4225-a7af-87b54b15c396"
+}
