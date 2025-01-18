@@ -1,0 +1,18 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-01-18T07:45:02.109Z",
+  "id": "eZGE5V5plTum6f8V",
+  "meta": null,
+  "name": "Report credit card added to Stripe , now  smartsuite",
+  "nodes": [],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:02.109Z",
+  "versionId": "92d6e800-6b49-4459-aecc-d1174d9ed32f"
+}
