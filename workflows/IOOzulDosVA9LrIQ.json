@@ -1,0 +1,404 @@
+{
+  "active": false,
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Pass 1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pass 1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OneAtATime1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Toggl Trigger": {
+      "main": [
+        [
+          {
+            "node": "OneAtATime1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Start Date (use in title)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Date (use in title)": {
+      "main": [
+        [
+          {
+            "node": "CreatetimeEntryinSM1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:45:04.900Z",
+  "id": "IOOzulDosVA9LrIQ",
+  "meta": null,
+  "name": "WF003e: Toggl Time Trigger",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        }
+      },
+      "id": "2253dcda-5f52-4671-9377-522660b437f4",
+      "name": "Toggl Trigger",
+      "type": "n8n-nodes-base.togglTrigger",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        940
+      ],
+      "credentials": {
+        "togglApi": {
+          "id": "wOpHm0uOfCkD1PBD",
+          "name": "Toggl account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "d8ce5860-17d2-448b-a7dd-c1e76b7dd5bf",
+              "leftValue": "={{ $json.stop }}",
+              "rightValue": "",
+              "operator": {
+                "type": "dateTime",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c702a54d-d377-4fa8-9e2f-8fd2bc89c357",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "edac2a69-922b-4ae6-b446-77135538cd30",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "6a4f893e-935d-40e1-9d47-42f447baf48f",
+              "name": "workspace_id",
+              "value": "={{ $json.workspace_id }}",
+              "type": "string"
+            },
+            {
+              "id": "2434288c-8868-4d9c-974e-5a4d52264ffc",
+              "name": "project_id",
+              "value": "={{ $json.project_id }}",
+              "type": "string"
+            },
+            {
+              "id": "b3321c6c-53b4-4cab-b7cd-ac8631e015b1",
+              "name": "billable",
+              "value": "={{ $json.billable }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d9735093-d7e2-4f68-a91c-71e6b8eb502d",
+              "name": "start",
+              "value": "={{ $json.start }}",
+              "type": "string"
+            },
+            {
+              "id": "22cb8c7e-cf8c-4f47-a0a8-7a545b4d2eb8",
+              "name": "stop",
+              "value": "={{ $json.stop }}",
+              "type": "string"
+            },
+            {
+              "id": "6f7675da-ae62-46ea-bd96-03ebc3e4c1c2",
+              "name": "duration",
+              "value": "={{ $json.duration }}",
+              "type": "number"
+            },
+            {
+              "id": "fae21602-5447-4d3c-aec7-30d0279c5f8a",
+              "name": "duration",
+              "value": "={{ $json.duration }}",
+              "type": "number"
+            },
+            {
+              "id": "06fbe186-6946-4005-8b83-e6f250972aa4",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "d56eea09-b6eb-4d31-93d7-61aef5e017b9",
+              "name": "tags",
+              "value": "={{ $json.tags }}",
+              "type": "array"
+            },
+            {
+              "id": "d92ac077-7fae-409b-8ab3-74448c420a5e",
+              "name": "tag_ids",
+              "value": "={{ $json.tag_ids }}",
+              "type": "array"
+            },
+            {
+              "id": "0c178e35-c7c7-45e2-844d-f933f2d88a43",
+              "name": "duronly",
+              "value": "={{ $json.duronly }}",
+              "type": "boolean"
+            },
+            {
+              "id": "5064f29c-a084-4f86-9161-ef846ab352eb",
+              "name": "at",
+              "value": "={{ $json.at }}",
+              "type": "string"
+            },
+            {
+              "id": "c477e6cd-f2d7-4be1-a916-cbe6664fdb95",
+              "name": "server_deleted_at",
+              "value": "={{ $json.server_deleted_at }}",
+              "type": "string"
+            },
+            {
+              "id": "22140dac-6e84-4075-b049-430506352e6e",
+              "name": "user_id",
+              "value": "={{ $json.user_id }}",
+              "type": "number"
+            },
+            {
+              "id": "ac6cee6f-5f0b-4e18-b06f-0045f27d5127",
+              "name": "uid",
+              "value": "={{ $json.uid }}",
+              "type": "number"
+            },
+            {
+              "id": "1ccc3d98-f005-458a-8a81-b329760126ce",
+              "name": "wid",
+              "value": "={{ $json.wid }}",
+              "type": "number"
+            },
+            {
+              "id": "d76eb227-9508-43ea-9443-97f4d8e5ec9d",
+              "name": "pid",
+              "value": "={{ $json.pid }}",
+              "type": "number"
+            },
+            {
+              "id": "d7e495dd-1775-4e45-9c5e-0a746ec1a4b9",
+              "name": "permissions",
+              "value": "={{ $json.permissions }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0f27b148-0ce6-401e-96f4-72759fac5a58",
+      "name": "Pass 1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2060,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  item.json.id = item.json.id.trim();\n  return item;\n});"
+      },
+      "id": "7f4639e7-84e0-411b-8dd1-137ea48823ba",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2340,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 5,
+        "options": {}
+      },
+      "id": "8c9340d7-a3ea-4347-a2b7-6622ca095169",
+      "name": "OneAtATime1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        1460,
+        940
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "160461f0-1d59-4f9b-aff2-69cc2755abd9",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1900,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "=1NAagpQhPsFanzss",
+        "options": {}
+      },
+      "id": "7e5ccfe8-1e65-422e-ae58-24d175a0a446",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ $json.start }}",
+        "format": "MM-dd-yyyy",
+        "options": {}
+      },
+      "id": "965b2c5c-fe30-4b9c-b9e0-7c9a1abf079a",
+      "name": "Start Date (use in title)",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/674750e37e7d9e589acc33c5/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.formattedDate }} - {{ $('Execute Workflow').item.json.description }}\",\n  \"description\": \"{{ $('Execute Workflow').item.json.description }}\",\n  \"stoplight_status\": \"1\",\n  \"s88e7dacd4\": \"ready_for_review\",\n  \"s15d6baee8\": \"{{ $('Execute Workflow').item.json.billable}}\", \n  \"s388b58221\": \"{{ $('Execute Workflow').item.json.client_name }}\",\n  \"s5c79c9b17\": \"{{ $('Execute Workflow').item.json.duration }}\",\n  \"sbbbd78005\": \"{{ $('Execute Workflow').item.json.time_entry_id }}\",\n  \"s3851854fc\": \"{{ $('Execute Workflow').item.json.pid }}\",\n  \"s33b6e5fe8\": \"{{ $('Execute Workflow').item.json.project_id }}\",\n  \"sf7335e6da\": \"{{ $('Execute Workflow').item.json.proj_name }}\",\n  \"s87fd78e5b\": \"{{ $('Execute Workflow').item.json.workspace_id }}\",\n  \"secc7998c7\": \"{{ $('Execute Workflow').item.json.start }}\",\n  \"s99144efe4\": \"{{ $('Execute Workflow').item.json.stop }}\",\n  \"s3b39d3e25\": \"{{ $('Execute Workflow').item.json.tags }}\",\n  \"sb293e4690\": \"{{ $('Execute Workflow').item.json.tag_ids }}\",\n  \"sd8819d04d\": \"{{ $('Execute Workflow').item.json.duronly }}\",\n  \"s3742f511d\": \"{{ $('Execute Workflow').item.json.at }}\",\n  \"s4f1a3cd3f\": \"{{ $('Execute Workflow').item.json.server_deleted_at }}\",\n  \"s96dec0618\": \"{{ $('Execute Workflow').item.json.user_id }}\",\n  \"s29db882b6\": \"{{ $('Execute Workflow').item.json.uid }}\",\n  \"s24debe149\": \"{{ $('Execute Workflow').item.json.wid }}\",\n  \"s8e3e58cad\": \"{{ $('Execute Workflow').item.json.client_id }}\",\n  \"sbca20347b\": \"{{ $('Execute Workflow').item.json.project_sm_rec_id }}\",\n  \"s4621e0408\": \"{{ $('Execute Workflow').item.json.client_sm_rec_id }}\"\n}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
+      },
+      "id": "67b90000-9d3e-4297-ac6a-81ccc4dbfbf4",
+      "name": "CreatetimeEntryinSM1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3120,
+        920
+      ]
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Toggl Trigger": {
+      "lastTimeChecked": "2024-12-04T06:49:31+00:00"
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:04.900Z",
+  "versionId": "2bca911f-f084-4d66-a30a-1b19ec771cde"
+}
