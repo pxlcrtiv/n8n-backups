@@ -1,0 +1,78 @@
+{
+  "active": false,
+  "connections": {
+    "On new event": {
+      "main": [
+        [
+          {
+            "node": "Create/update contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:44:59.840Z",
+  "id": "x2UKy7xcRc6AhI8f",
+  "meta": null,
+  "name": "Create or update Mautic contact on a new Calendly event",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "invitee.created"
+        ]
+      },
+      "id": "40216649-af2c-44df-83c6-75afe75dcdaf",
+      "name": "On new event",
+      "type": "n8n-nodes-base.calendlyTrigger",
+      "position": [
+        800,
+        300
+      ],
+      "webhookId": "28087fc9-e623-48fe-949e-e002cbc7a817",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "email": "={{$node[\"On new event\"].json[\"payload\"][\"email\"]}}",
+        "firstName": "={{$json[\"payload\"][\"name\"]}}",
+        "additionalFields": {},
+        "options": {}
+      },
+      "id": "46914a34-984e-4736-b2a3-6e97555b73c7",
+      "name": "Create/update contact",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        1020,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Create/update Mautic contact on a new Calendly event\n1. `On new event` triggers on new Calendly events.\n2. `Create/update contact` will create a contact in Mautic or update the contact's first name. If the contact's email is already in Mautic, then the first name will be overwritten to the new first name.",
+        "height": 229,
+        "width": 313
+      },
+      "id": "df809a8d-7b05-4ecc-a022-7bb12842b4bc",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:44:59.840Z",
+  "versionId": "b6030331-e359-442e-b23d-768fd997b69c"
+}
