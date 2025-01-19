@@ -1,0 +1,254 @@
+{
+  "active": false,
+  "connections": {
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Update Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CoinGecko": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Portfolio": {
+      "main": [
+        [
+          {
+            "node": "CoinGecko",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Values": {
+      "main": [
+        [
+          {
+            "node": "Get Portfolio Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Top of Hour": {
+      "main": [
+        [
+          {
+            "node": "Get Portfolio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Portfolio Values": {
+      "main": [
+        [
+          {
+            "node": "Determine Total Value",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Determine Total Value": {
+      "main": [
+        [
+          {
+            "node": "Append Portfolio Value",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-18T07:45:04.234Z",
+  "id": "3fE9WegvqSHkA9mG",
+  "meta": null,
+  "name": "Tracking your crypto portfolio in Airtable",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "coinId": "={{$json[\"fields\"][\"Symbol\"]}}",
+        "options": {
+          "localization": false,
+          "market_data": true
+        }
+      },
+      "name": "CoinGecko",
+      "type": "n8n-nodes-base.coinGecko",
+      "position": [
+        810,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "ff4bbf42-87dd-4c52-8c0a-05669d7a9fe8"
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "application": "appT7eX4iZcZVRIdq",
+        "table": "Portfolio",
+        "additionalOptions": {
+          "fields": [
+            "Symbol"
+          ]
+        }
+      },
+      "name": "Get Portfolio",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        590,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "b75de664-459c-47b0-8e52-7d3daa30a8e0"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "Present Price",
+              "value": "={{$json[\"market_data\"][\"current_price\"][\"usd\"]}}"
+            },
+            {
+              "name": "Id",
+              "value": "={{$node[\"Get Portfolio\"].json[\"id\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1010,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "46a1039b-90cb-4555-9781-e1ea62de8e9d"
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        }
+      },
+      "name": "Run Top of Hour",
+      "type": "n8n-nodes-base.cron",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "ade60ff8-7985-4ea0-a639-7c531e902c99"
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "application": "appT7eX4iZcZVRIdq",
+        "table": "Portfolio",
+        "additionalOptions": {
+          "fields": [
+            "Present Value"
+          ]
+        }
+      },
+      "name": "Get Portfolio Values",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1400,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "aa4f3ca0-3b8f-4ca3-8c6e-c65716f19636"
+    },
+    {
+      "parameters": {
+        "functionCode": "var totalValues = 0;\n\nitems.forEach(sumValues);\n\nfunction sumValues(value, index, array) {\n  totalValues = totalValues + value.json.fields['Present Value'];\n}\n\nitems = [{\"json\": {}}];\n\n\nitems[0].json['Portfolio Value (US$)'] = totalValues;\n\nreturn items;"
+      },
+      "name": "Determine Total Value",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1600,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "12e7731b-9045-4a40-8258-e5cf58001417"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "application": "appT7eX4iZcZVRIdq",
+        "table": "Portfolio",
+        "id": "={{$node[\"SplitInBatches\"].json[\"id\"]}}",
+        "updateAllFields": false,
+        "fields": [
+          "Present Price"
+        ],
+        "options": {}
+      },
+      "name": "Update Values",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1210,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "6261eaca-faba-444f-9428-5549f8a96fa9"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "application": "appT7eX4iZcZVRIdq",
+        "table": "Portfolio Value",
+        "addAllFields": false,
+        "fields": [
+          "Portfolio Value (US$)"
+        ],
+        "options": {}
+      },
+      "name": "Append Portfolio Value",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1800,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "48ca9ed1-f891-4db4-86a6-bbc53a82f4c4"
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:04.234Z",
+  "versionId": "40e99f7a-06ac-4bbc-a117-6b46220a0477"
+}
