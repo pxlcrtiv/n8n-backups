@@ -1,0 +1,18 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-01-18T07:45:04.638Z",
+  "id": "RJOKvYRRJU7GMgMS",
+  "meta": null,
+  "name": "webfence email alerts to slack",
+  "nodes": [],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T07:45:04.638Z",
+  "versionId": "ae1c03d1-b585-4069-b7fb-ec73591be454"
+}
