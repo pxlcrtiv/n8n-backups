@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -822,9 +822,13 @@
   ],
   "pinData": {},
   "settings": {},
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-01-19T10:44:21.000Z",
+  "triggerCount": 1,
+  "updatedAt": "2025-01-19T12:29:55.000Z",
   "versionId": "6c51a0b8-4df5-4300-b86d-52db63fd7810"
 }
