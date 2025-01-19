@@ -1,0 +1,127 @@
+{
+  "active": false,
+  "connections": {
+    "WooCommerce": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce1": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-19T12:50:41.813Z",
+  "id": "pL2ooyITCgh9Yyyk",
+  "meta": {
+    "templateId": "847"
+  },
+  "name": "Create, update and get a product from WooCommerce",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "2dd4ca21-3353-47c1-b818-6f20aff6964a"
+    },
+    {
+      "parameters": {
+        "resource": "product",
+        "operation": "create",
+        "name": "n8n Sweatshirt",
+        "additionalFields": {
+          "description": "Stay warm with this sweatshirt!",
+          "regularPrice": "30"
+        },
+        "dimensionsUi": {},
+        "imagesUi": {
+          "imagesValues": []
+        },
+        "metadataUi": {
+          "metadataValues": []
+        }
+      },
+      "name": "WooCommerce",
+      "type": "n8n-nodes-base.wooCommerce",
+      "position": [
+        600,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "e92957b9-5847-421f-b60e-af77306dee9d"
+    },
+    {
+      "parameters": {
+        "resource": "product",
+        "operation": "update",
+        "productId": "={{$node[\"WooCommerce\"].json[\"id\"]}}",
+        "updateFields": {
+          "stockQuantity": 100
+        },
+        "dimensionsUi": {},
+        "imagesUi": {},
+        "metadataUi": {}
+      },
+      "name": "WooCommerce1",
+      "type": "n8n-nodes-base.wooCommerce",
+      "position": [
+        800,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "4bd613bf-4824-4cb8-ba86-64c923735634"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "productId": "={{$node[\"WooCommerce\"].json[\"id\"]}}"
+      },
+      "name": "WooCommerce2",
+      "type": "n8n-nodes-base.wooCommerce",
+      "position": [
+        1000,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "7a7f33db-52f5-4eeb-93d7-0644f99b2ac7"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-19T12:50:41.813Z",
+  "versionId": "87a9b67d-8ed8-41cf-b2d0-f3faca1cdccb"
+}
