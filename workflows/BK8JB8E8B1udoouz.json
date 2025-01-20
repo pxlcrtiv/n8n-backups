@@ -331,50 +331,6 @@
           }
         ]
       ]
-    },
-    "Start": {
-      "main": [
-        [
-          {
-            "node": "GET CURRENT BACKUPS",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "GET CURRENT BACKUPS": {
-      "main": [
-        [
-          {
-            "node": "Item Lists1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Item Lists1": {
-      "main": [
-        [
-          {
-            "node": "Split In Batches3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split In Batches3": {
-      "main": [
-        [
-          {
-            "node": "MOVE INTO OLD FOLDER",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
   "createdAt": "2025-01-18T08:22:17.363Z",
@@ -491,14 +447,13 @@
       "name": "IGNORE FILES",
       "type": "n8n-nodes-base.filter",
       "position": [
-        1620,
+        1640,
         120
       ],
       "typeVersion": 2.2
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "resource": "folder",
         "name": "n8n_backups",
         "driveId": {
@@ -526,23 +481,22 @@
       ],
       "typeVersion": 3,
       "credentials": {
-        "googleApi": {
-          "id": "rtuXHD6dF4zRyTOx",
-          "name": "Google Drive account"
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
         }
       }
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "resource": "folder",
         "name": "n8n_old",
         "driveId": {
           "__rl": true,
-          "value": "0AE-eUFLe706EUk9PVA",
+          "value": "0AO4pwPDytuLPUk9PVA",
           "mode": "list",
-          "cachedResultName": "n8n-old",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/0AE-eUFLe706EUk9PVA"
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
         },
         "folderId": {
           "__rl": true,
@@ -562,9 +516,9 @@
       ],
       "typeVersion": 3,
       "credentials": {
-        "googleApi": {
-          "id": "rtuXHD6dF4zRyTOx",
-          "name": "Google Drive account"
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
         }
       }
     },
@@ -711,7 +665,6 @@
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "resource": "fileFolder",
         "returnAll": true,
         "filter": {
@@ -732,9 +685,9 @@
       "typeVersion": 3,
       "alwaysOutputData": true,
       "credentials": {
-        "googleApi": {
-          "id": "rtuXHD6dF4zRyTOx",
-          "name": "Google Drive account"
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
         }
       },
       "onError": "continueRegularOutput"
@@ -1259,110 +1212,6 @@
       ],
       "id": "161452ac-f1fc-45b7-9ff1-5192f08f165b",
       "name": "Limit"
-    },
-    {
-      "parameters": {},
-      "name": "Start",
-      "type": "n8n-nodes-base.start",
-      "typeVersion": 1,
-      "position": [
-        80,
-        1300
-      ],
-      "id": "3cef6559-c681-41c4-bbb3-1696dfd3f511"
-    },
-    {
-      "parameters": {
-        "resource": "fileFolder",
-        "queryString": ".json",
-        "returnAll": true,
-        "filter": {
-          "folderId": {
-            "__rl": true,
-            "mode": "list",
-            "value": "1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
-            "cachedResultUrl": "https://drive.google.com/drive/folders/1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
-            "cachedResultName": "n8n_backups"
-          }
-        },
-        "options": {
-          "fields": [
-            "name",
-            "id"
-          ]
-        }
-      },
-      "id": "14bb31e1-8083-4330-a95b-6a8e59d67944",
-      "name": "GET CURRENT BACKUPS",
-      "type": "n8n-nodes-base.googleDrive",
-      "position": [
-        280,
-        1300
-      ],
-      "typeVersion": 3
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "id",
-        "options": {}
-      },
-      "id": "605b257f-5b36-4480-960d-648724f67552",
-      "name": "Item Lists1",
-      "type": "n8n-nodes-base.itemLists",
-      "position": [
-        480,
-        1300
-      ],
-      "typeVersion": 3
-    },
-    {
-      "parameters": {
-        "batchSize": 1,
-        "options": {
-          "reset": false
-        }
-      },
-      "id": "41c09791-ae62-4461-85eb-75d7f83443fc",
-      "name": "Split In Batches3",
-      "type": "n8n-nodes-base.splitInBatches",
-      "position": [
-        740,
-        1300
-      ],
-      "typeVersion": 2
-    },
-    {
-      "parameters": {
-        "authentication": "serviceAccount",
-        "operation": "move",
-        "fileId": {
-          "__rl": true,
-          "value": "1Nb0ZdwD8KFACkcBR7rdwaXLgpyb-tG7z",
-          "mode": "list",
-          "cachedResultName": "📈 Receive Daily Market News from FT.com to your Microsoft outlook inbox-inactive-2024-12-28T13:26:44.697Z.json",
-          "cachedResultUrl": "https://drive.google.com/file/d/1Nb0ZdwD8KFACkcBR7rdwaXLgpyb-tG7z/view?usp=drivesdk"
-        },
-        "driveId": {
-          "__rl": true,
-          "mode": "list",
-          "value": "My Drive"
-        },
-        "folderId": {
-          "__rl": true,
-          "mode": "list",
-          "value": "root",
-          "cachedResultName": "/ (Root folder)"
-        }
-      },
-      "id": "321f4d9c-1f17-4288-a462-8f4a41ca6627",
-      "name": "MOVE INTO OLD FOLDER",
-      "type": "n8n-nodes-base.googleDrive",
-      "position": [
-        1020,
-        1280
-      ],
-      "typeVersion": 3,
-      "alwaysOutputData": false
     }
   ],
   "pinData": {},
@@ -1379,6 +1228,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-01-19T18:56:12.000Z",
-  "versionId": "27c3a489-5e78-49ab-a347-5834eace0fef"
+  "updatedAt": "2025-01-20T09:31:55.000Z",
+  "versionId": "1a5a394f-fa86-4283-9227-cea0548e209f"
 }
