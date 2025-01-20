@@ -1,0 +1,129 @@
+{
+  "active": false,
+  "connections": {
+    "On Error": {
+      "main": [
+        [
+          {
+            "node": "Set message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set message": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-19T19:20:54.877Z",
+  "id": "L3HfCWdtM7j3hLXY",
+  "meta": {
+    "templateId": "2150"
+  },
+  "name": "🚨 Report n8n workflow errors to Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "name",
+          "value": "#alerts-n8n-workflows"
+        },
+        "text": "={{ $json.message }}",
+        "otherOptions": {}
+      },
+      "id": "eb305364-de39-4b9e-ad6e-eea54ebf712d",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        980,
+        440
+      ],
+      "typeVersion": 2.1,
+      "webhookId": "62c61dd3-05e2-41a3-b0dc-093896b3024d"
+    },
+    {
+      "parameters": {},
+      "id": "9babcea6-ac7c-4a75-bd4c-f3d6a54c0ec7",
+      "name": "On Error",
+      "type": "n8n-nodes-base.errorTrigger",
+      "position": [
+        460,
+        440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "message",
+              "value": "=:warning: [prod] workflow `{{$json[\"workflow\"][\"name\"]}}` failed to run! <{{ $json.execution.url }}|execution>\n\nerror message from node: {{ $json.execution.lastNodeExecuted }}\n {{ $json.execution.error.message }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "134acca3-d4a7-485c-ab45-5a2721ed6a2c",
+      "name": "Set message",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        720,
+        440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### 👨‍🎤 Setup\n1. Add Slack creds\n2. Add this error workflow to other workflows\nhttps://docs.n8n.io/flow-logic/error-handling/#create-and-set-an-error-workflow",
+        "height": 154.7766688696994,
+        "width": 424.4907862645661,
+        "color": 5
+      },
+      "id": "b6dfce1e-95c0-43c4-8a81-098b33130232",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### 👆🏽 Adjust error message here",
+        "height": 80,
+        "width": 241
+      },
+      "id": "619e2628-6860-47ca-9e6a-9294ea123f8f",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        720,
+        620
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-19T19:20:54.877Z",
+  "versionId": "a9d09c94-db09-4006-ad21-9d356ccbc84b"
+}
