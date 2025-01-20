@@ -1,0 +1,234 @@
+{
+  "active": false,
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Filter Contact ": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Contacts": {
+      "main": [
+        [
+          {
+            "node": "Filter Contact ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-19T19:15:43.169Z",
+  "id": "MrBxW341G4d1x8VV",
+  "meta": {
+    "templateId": "2731"
+  },
+  "name": "Daily Birthday Reminders from Google Contacts to Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "5a10c683-bf86-4161-815b-00a58614dbaa",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        460,
+        380
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "fields": [
+          "emailAddresses",
+          "birthdays",
+          "names",
+          "nicknames"
+        ],
+        "options": {}
+      },
+      "id": "86a89d14-03ff-484c-9589-3163d73a9aaf",
+      "name": "Google Contacts",
+      "type": "n8n-nodes-base.googleContacts",
+      "position": [
+        680,
+        380
+      ],
+      "notesInFlow": true,
+      "typeVersion": 1,
+      "notes": "Get the contact details\n"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "eff6fe23-651d-474d-8d77-3734e1ac4c13",
+              "operator": {
+                "name": "filter.operator.equals",
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $json.today }}",
+              "rightValue": "={{ $('Google Contacts').item.json.birthdays }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "17c6d7d8-579d-4550-9e0c-1591db23f7df",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1180,
+        420
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "C088HAK6E81",
+          "cachedResultName": "all-wli"
+        },
+        "messageType": "block",
+        "blocksUi": "=Today is {{$json[\"first_name\"]}} {{$json[\"last_name\"]}}'s birthday! 🎉",
+        "text": "Todays Birthday of your friend",
+        "otherOptions": {}
+      },
+      "id": "a79a52c6-d53a-4173-a5c4-c07bb461d9aa",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        1400,
+        300
+      ],
+      "webhookId": "b5fda056-5b45-49ee-8e09-cd4bc7a2a881",
+      "notesInFlow": true,
+      "typeVersion": 2.3,
+      "notes": "Reminds to the birthday message"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "edb146b2-f338-4563-a991-d38613d1d5aa",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $('Google Contacts').item.json.birthdays }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "30bc9de2-7870-4362-bef5-596640ddccbf",
+      "name": "Filter Contact ",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        940,
+        380
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "Send Daily Birthday Reminders from Google Contacts to Slack",
+        "height": 320,
+        "width": 1220
+      },
+      "id": "4207deb3-76f0-46ac-8109-6beaede9dee9",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "This workflow automates the process of retrieving your Google Contacts, filtering out the ones with birthdays on the current day, and sending a reminder to a designated Slack channel. By scheduling it to run daily at a specific time, the workflow ensures that you never miss a birthday reminder. Whether for team celebrations, personal reminders, or simply keeping track of important dates, this workflow can be easily customized to notify you or your team about upcoming birthdays directly in Slack.",
+        "height": 100,
+        "width": 1220
+      },
+      "id": "093871b1-5622-4811-809a-dcabc0b56f30",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        600
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-19T19:15:43.169Z",
+  "versionId": "44ad1709-d474-4bbb-83ea-042f6e082cfc"
+}
