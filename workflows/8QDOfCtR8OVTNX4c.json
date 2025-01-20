@@ -1,0 +1,136 @@
+{
+  "active": false,
+  "connections": {
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Slack - Add",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Slack - Remove",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Github Trigger": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-19T19:26:02.289Z",
+  "id": "8QDOfCtR8OVTNX4c",
+  "meta": {
+    "templateId": "4"
+  },
+  "name": "Send selected GitHub events to Slack 2",
+  "nodes": [
+    {
+      "parameters": {
+        "owner": "n8n-io",
+        "repository": "n8n",
+        "events": [
+          "star"
+        ],
+        "options": {}
+      },
+      "name": "Github Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "da259bd0-a89d-46d6-87ab-381d69c99722",
+      "webhookId": "43765a4a-a7d4-48ab-b4fd-fd6086136bbf"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"Github Trigger\"].data[\"body\"][\"action\"]}}",
+              "value2": "created"
+            }
+          ]
+        }
+      },
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        580,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "8525223b-8da4-4ea6-af49-40259885c036"
+    },
+    {
+      "parameters": {
+        "channel": "#general",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "text": "=The project has now: {{$node[\"Github Trigger\"].data[\"body\"][\"repository\"][\"stargazers_count\"]}} Stars",
+            "color": "#88FF00",
+            "title": "=Got new star from: {{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"login\"]}}",
+            "image_url": "={{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"avatar_url\"]}}",
+            "title_link": "={{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"html_url\"]}}"
+          }
+        ]
+      },
+      "name": "Slack - Add",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        780,
+        140
+      ],
+      "typeVersion": 1,
+      "id": "749db68e-7eeb-45bc-b2a8-e9ea7b517dd8"
+    },
+    {
+      "parameters": {
+        "channel": "#general",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "text": "=The project has now: {{$node[\"Github Trigger\"].data[\"body\"][\"repository\"][\"stargazers_count\"]}} Stars",
+            "color": "#ff0000",
+            "title": "=Star got removed by: {{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"login\"]}}",
+            "image_url": "={{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"avatar_url\"]}}",
+            "title_link": "={{$node[\"Github Trigger\"].data[\"body\"][\"sender\"][\"html_url\"]}}"
+          }
+        ]
+      },
+      "name": "Slack - Remove",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        780,
+        340
+      ],
+      "typeVersion": 1,
+      "id": "40fe3557-c920-4418-8c42-979160573fd9"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-19T19:26:02.289Z",
+  "versionId": "4b87c449-949b-4362-a699-048d362a98bc"
+}
