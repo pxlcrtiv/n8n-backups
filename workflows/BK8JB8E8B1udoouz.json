@@ -498,6 +498,7 @@
     },
     {
       "parameters": {
+        "authentication": "serviceAccount",
         "resource": "folder",
         "name": "n8n_backups",
         "driveId": {
@@ -523,10 +524,17 @@
         1180,
         420
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
+        "authentication": "serviceAccount",
         "resource": "folder",
         "name": "n8n_old",
         "driveId": {
@@ -552,7 +560,13 @@
         1180,
         580
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -608,6 +622,12 @@
       "retryOnFail": true,
       "typeVersion": 3,
       "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -691,6 +711,7 @@
     },
     {
       "parameters": {
+        "authentication": "serviceAccount",
         "resource": "fileFolder",
         "returnAll": true,
         "filter": {
@@ -702,7 +723,7 @@
       "name": "GET CURRENT FOLDER CREATES",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        1300,
+        1340,
         120
       ],
       "executeOnce": true,
@@ -710,6 +731,12 @@
       "retryOnFail": true,
       "typeVersion": 3,
       "alwaysOutputData": true,
+      "credentials": {
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -729,6 +756,7 @@
     },
     {
       "parameters": {
+        "authentication": "serviceAccount",
         "resource": "fileFolder",
         "queryString": ".json",
         "returnAll": true,
@@ -755,7 +783,13 @@
         1980,
         80
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -867,7 +901,13 @@
         1940,
         360
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "FMjmGrqZdEsyDdDG",
+          "name": "n8n account"
+        }
+      }
     },
     {
       "parameters": {
@@ -913,7 +953,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -933,11 +972,16 @@
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -958,7 +1002,13 @@
         720
       ],
       "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1046,6 +1096,12 @@
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -1080,7 +1136,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -1100,7 +1155,13 @@
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1132,11 +1193,16 @@
         40
       ],
       "id": "ad211a48-1953-49c1-ba0f-043252db6fcb",
-      "name": "MOVE INTO OLD FOLDER1"
+      "name": "MOVE INTO OLD FOLDER1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -1156,7 +1222,13 @@
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
-      "typeVersion": 2.2
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1307,6 +1379,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-01-18T08:22:17.363Z",
-  "versionId": "6dc88b22-eb31-4225-a7af-87b54b15c396"
+  "updatedAt": "2025-01-19T18:56:12.000Z",
+  "versionId": "27c3a489-5e78-49ab-a347-5834eace0fef"
 }
