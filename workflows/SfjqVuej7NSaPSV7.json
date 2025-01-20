@@ -1,0 +1,95 @@
+{
+  "active": false,
+  "connections": {
+    "Product Created": {
+      "main": [
+        [
+          {
+            "node": "Send to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-19T19:28:34.822Z",
+  "id": "SfjqVuej7NSaPSV7",
+  "meta": {
+    "templateId": "1458"
+  },
+  "name": "Notify on Slack when new product is added in WooCommerce 2",
+  "nodes": [
+    {
+      "parameters": {
+        "event": "product.created"
+      },
+      "name": "Product Created",
+      "type": "n8n-nodes-base.wooCommerceTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "webhookId": "267c4855-6227-4d33-867e-74600097473e",
+      "typeVersion": 1,
+      "id": "d281e0dd-e8ed-4a3d-84db-92589408b77b"
+    },
+    {
+      "parameters": {
+        "channel": "woo-commerce",
+        "text": ":new: A new product has been added! :new:",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "color": "#66FF00",
+            "fields": {
+              "item": [
+                {
+                  "short": false,
+                  "title": "Name",
+                  "value": "={{$json[\"name\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Price",
+                  "value": "={{$json[\"regular_price\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Sale Price",
+                  "value": "={{$json[\"sale_price\"]}}"
+                },
+                {
+                  "short": false,
+                  "title": "Link",
+                  "value": "={{$json[\"permalink\"]}}"
+                }
+              ]
+            },
+            "footer": "=Added: {{$json[\"date_created\"]}}"
+          }
+        ],
+        "blocksUi": {
+          "blocksValues": []
+        }
+      },
+      "name": "Send to Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        600,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "db38667c-3c45-4799-961d-ea90dae191f9"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-19T19:28:34.822Z",
+  "versionId": "cfb54311-cb34-4a0d-9b02-2f7fad6d1ffd"
+}
