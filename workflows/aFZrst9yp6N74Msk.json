@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Download PDF": {
       "main": [
@@ -110,8 +110,10 @@
   },
   "createdAt": "2025-01-18T08:21:59.907Z",
   "id": "aFZrst9yp6N74Msk",
-  "meta": null,
-  "name": "Extract_text_from_PDF_and_image_into_smartsuite",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Extract text from PDF and image into smartsuite",
   "nodes": [
     {
       "parameters": {
@@ -122,17 +124,13 @@
             }
           ]
         },
-        "authentication": "serviceAccount",
         "triggerOn": "specificFolder",
         "folderToWatch": {
           "__rl": true,
-          "value": "1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86",
-          "mode": "list",
-          "cachedResultName": "timesheet_inbox",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86"
+          "value": "1QaKZIab55ZaR9TSYwvMsuGyeY0jk4_W8",
+          "mode": "id"
         },
-        "event": "fileCreated",
-        "options": {}
+        "event": "watchFolderUpdated"
       },
       "id": "a474588b-22eb-449e-9b00-0dd1b062ec6a",
       "name": "Get PDF or Images",
@@ -141,11 +139,16 @@
         420,
         500
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "operation": "download",
         "fileId": {
           "__rl": true,
@@ -164,7 +167,13 @@
         420
       ],
       "executeOnce": true,
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {
@@ -257,10 +266,8 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86",
-          "mode": "list",
-          "cachedResultName": "ee_timesheet_inbox",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86"
+          "value": "1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n",
+          "mode": "id"
         }
       },
       "type": "n8n-nodes-base.googleDrive",
@@ -270,7 +277,13 @@
         620
       ],
       "id": "25043908-3e0c-439d-a887-fec42dae18a3",
-      "name": "Google Drive"
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {
@@ -306,7 +319,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2080,
+        2020,
         420
       ]
     },
@@ -328,7 +341,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -342,12 +354,18 @@
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.3,
       "position": [
-        1480,
+        1460,
         620
       ],
       "id": "ffc51df2-725c-48a3-a0b9-441e5e081c8e",
       "name": "Slack1",
-      "webhookId": "ca2af7b6-d0ef-43dc-86d7-9daafd885ff9"
+      "webhookId": "ca2af7b6-d0ef-43dc-86d7-9daafd885ff9",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
@@ -356,7 +374,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1640,
+        1620,
         420
       ],
       "id": "44326856-e874-4371-ba92-7d0f8244df62",
@@ -367,7 +385,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1860,
+        1840,
         420
       ],
       "id": "2a717756-0120-4cdb-9f0f-627d2a01526e",
@@ -378,9 +396,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Get PDF or Images": {
+      "lastTimeChecked": "2025-01-21T14:33:52Z"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-01-18T08:21:59.907Z",
-  "versionId": "861bff85-3293-48db-a20b-3259d8526054"
+  "triggerCount": 1,
+  "updatedAt": "2025-01-21T14:33:52.000Z",
+  "versionId": "ff8071b0-e53a-4646-bf1b-e4dffde515af"
 }
