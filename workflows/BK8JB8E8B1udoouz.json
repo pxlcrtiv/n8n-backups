@@ -1,11 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
         [
           {
-            "node": "Limit",
+            "node": "Move Binary Data",
             "type": "main",
             "index": 0
           }
@@ -157,7 +157,7 @@
       "main": [
         [
           {
-            "node": "MOVE INTO OLD FOLDER1",
+            "node": "MOVE INTO OLD FOLDER",
             "type": "main",
             "index": 0
           }
@@ -299,17 +299,6 @@
         ]
       ]
     },
-    "MOVE INTO OLD FOLDER1": {
-      "main": [
-        [
-          {
-            "node": "Split In Batches2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "UPLOAD_WORKFLOWS": {
       "main": [
         [
@@ -321,11 +310,11 @@
         ]
       ]
     },
-    "Limit": {
+    "MOVE INTO OLD FOLDER": {
       "main": [
         [
           {
-            "node": "Move Binary Data",
+            "node": "Split In Batches2",
             "type": "main",
             "index": 0
           }
@@ -335,7 +324,9 @@
   },
   "createdAt": "2025-01-18T08:22:17.363Z",
   "id": "BK8JB8E8B1udoouz",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Nightly_n8n_backup_to_Google_Drive",
   "nodes": [
     {
@@ -381,7 +372,7 @@
       "name": "Move Binary Data",
       "type": "n8n-nodes-base.moveBinaryData",
       "position": [
-        2280,
+        2160,
         360
       ],
       "typeVersion": 1
@@ -716,10 +707,8 @@
         "filter": {
           "folderId": {
             "__rl": true,
-            "mode": "list",
-            "value": "1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
-            "cachedResultUrl": "https://drive.google.com/drive/folders/1ZwT37QsrdxpdP0yp9yJLka-TSIIuxruu",
-            "cachedResultName": "n8n_backups"
+            "value": "16-scUjI9vHpuP89JpdwZ1_l0mX8ZWzvG",
+            "mode": "id"
           }
         },
         "options": {
@@ -836,7 +825,7 @@
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        2460,
+        2340,
         360
       ],
       "typeVersion": 2
@@ -880,7 +869,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -902,7 +890,12 @@
       ],
       "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
       "typeVersion": 2.2,
-      "disabled": true
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {
@@ -913,14 +906,14 @@
           "mode": "list",
           "cachedResultName": "n8n-notifications"
         },
-        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('UPLOAD_WORKFLOWS').all().length }} workflows have been processed.",
+        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('UPLOAD_WORKFLOWS').all().length }} workflows have been backed up.",
         "otherOptions": {}
       },
       "id": "27f08cf0-68bc-4620-bd4e-57af7d7907ae",
       "name": "Completed Notification",
       "type": "n8n-nodes-base.slack",
       "position": [
-        2880,
+        2760,
         420
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
@@ -968,7 +961,8 @@
         "rule": {
           "interval": [
             {
-              "daysInterval": 30
+              "daysInterval": 30,
+              "triggerAtHour": 2
             }
           ]
         }
@@ -1006,10 +1000,8 @@
         "filter": {
           "folderId": {
             "__rl": true,
-            "mode": "list",
-            "value": "1UcusrWKnbFl3cJYIjaDdp1VCgreg2oeV",
-            "cachedResultUrl": "https://drive.google.com/drive/folders/1UcusrWKnbFl3cJYIjaDdp1VCgreg2oeV",
-            "cachedResultName": "n8n_old"
+            "value": "1MhvTje1EUa4g7nk6t_ev9aTZcH1kZShI",
+            "mode": "id"
           }
         },
         "options": {
@@ -1026,7 +1018,13 @@
         2440,
         720
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {
@@ -1096,7 +1094,7 @@
           "mode": "list",
           "cachedResultName": "n8n-notifications"
         },
-        "text": "=✅ Backup has completed - {{ $('n8n2').all().length }} workflows have been processed.",
+        "text": "=✅ PURGE BACKUPS OLDER THEN 30 DAYS COMPLETED - {{ $('n8n2').all().length }} workflows have been processed.",
         "otherOptions": {}
       },
       "id": "3547ef99-6806-4dab-a500-e620776d149d",
@@ -1118,44 +1116,6 @@
     },
     {
       "parameters": {
-        "operation": "move",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.id }}",
-          "mode": "id"
-        },
-        "driveId": {
-          "__rl": true,
-          "value": "0AO4pwPDytuLPUk9PVA",
-          "mode": "list",
-          "cachedResultName": "[7] JVWBSN",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
-        },
-        "folderId": {
-          "__rl": true,
-          "value": "1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n",
-          "mode": "list",
-          "cachedResultName": "ee_timesheet_done",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n"
-        }
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        2640,
-        40
-      ],
-      "id": "ad211a48-1953-49c1-ba0f-043252db6fcb",
-      "name": "MOVE INTO OLD FOLDER1",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "kr63xedjWH78ceBj",
-          "name": "Google Drive account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
         "select": "channel",
         "channelId": {
           "__rl": true,
@@ -1163,7 +1123,7 @@
           "mode": "list",
           "cachedResultName": "n8n-notifications"
         },
-        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('n8n1').all().length }} workflows have been processed. All current files has been moved to the old folder.",
+        "text": "=✅ Nightly Backup to G-Drive has completed - {{ $('MOVE INTO OLD FOLDER').all().length }} current files has been moved to the old folder.",
         "otherOptions": {}
       },
       "id": "773d9569-519d-413b-96bd-b517f895571b",
@@ -1189,7 +1149,7 @@
         "binaryData": true,
         "name": "={{ $('Split In Batches').item.binary.data.fileName }}-{{ $node[\"n8n\"].json[\"updatedAt\"] }}.json",
         "parents": [
-          "=/16-scUjI9vHpuP89JpdwZ1_l0mX8ZWzvG"
+          "=16-scUjI9vHpuP89JpdwZ1_l0mX8ZWzvG"
         ],
         "options": {}
       },
@@ -1197,7 +1157,7 @@
       "name": "UPLOAD_WORKFLOWS",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        2700,
+        2580,
         320
       ],
       "typeVersion": 1,
@@ -1209,22 +1169,54 @@
       }
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "value": "0AO4pwPDytuLPUk9PVA",
+          "mode": "list",
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1MhvTje1EUa4g7nk6t_ev9aTZcH1kZShI",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
       "position": [
-        2100,
-        360
+        2640,
+        40
       ],
-      "id": "161452ac-f1fc-45b7-9ff1-5192f08f165b",
-      "name": "Limit"
+      "id": "ad211a48-1953-49c1-ba0f-043252db6fcb",
+      "name": "MOVE INTO OLD FOLDER",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:Schedule Trigger3": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [
     {
       "createdAt": "2025-01-18T07:22:20.820Z",
@@ -1233,7 +1225,7 @@
       "name": "production"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-01-20T18:36:55.000Z",
-  "versionId": "a1cd642a-9885-4314-a5ee-042abb822e22"
+  "triggerCount": 2,
+  "updatedAt": "2025-01-21T11:27:06.000Z",
+  "versionId": "07343103-5d5c-4cd6-9de3-fb599387a076"
 }
