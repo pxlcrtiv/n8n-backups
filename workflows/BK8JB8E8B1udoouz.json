@@ -1200,7 +1200,13 @@
         2700,
         320
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
     },
     {
       "parameters": {},
@@ -1228,6 +1234,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-01-20T09:31:55.000Z",
-  "versionId": "1a5a394f-fa86-4283-9227-cea0548e209f"
+  "updatedAt": "2025-01-20T18:36:55.000Z",
+  "versionId": "a1cd642a-9885-4314-a5ee-042abb822e22"
 }
