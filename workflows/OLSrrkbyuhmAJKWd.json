@@ -821,14 +821,20 @@
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "timezone": "Africa/Johannesburg",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v0"
+  },
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        12
+      ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-19T12:29:55.000Z",
-  "versionId": "6c51a0b8-4df5-4300-b86d-52db63fd7810"
+  "updatedAt": "2025-01-22T06:28:02.000Z",
+  "versionId": "b914ab1f-8ce6-462e-8306-6b18cd1fe7cd"
 }
