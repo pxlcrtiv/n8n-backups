@@ -124,6 +124,7 @@
             }
           ]
         },
+        "authentication": "serviceAccount",
         "triggerOn": "specificFolder",
         "folderToWatch": {
           "__rl": true,
@@ -141,9 +142,9 @@
       ],
       "typeVersion": 1,
       "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "kr63xedjWH78ceBj",
-          "name": "Google Drive account 2"
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
         }
       }
     },
@@ -321,7 +322,8 @@
       "position": [
         2020,
         420
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -394,15 +396,17 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "Africa/Johannesburg",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Get PDF or Images": {
-      "lastTimeChecked": "2025-01-21T14:33:52Z"
+      "lastTimeChecked": "2025-01-22T06:27:28Z"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-21T14:33:52.000Z",
-  "versionId": "ff8071b0-e53a-4646-bf1b-e4dffde515af"
+  "updatedAt": "2025-01-22T06:27:32.000Z",
+  "versionId": "07a3700f-5a87-4385-97d5-88a37f3868bc"
 }
