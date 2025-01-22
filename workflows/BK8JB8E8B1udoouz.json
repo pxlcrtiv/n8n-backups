@@ -1207,7 +1207,9 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "Africa/Johannesburg",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Schedule Trigger": {
@@ -1226,6 +1228,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2025-01-21T11:27:06.000Z",
-  "versionId": "07343103-5d5c-4cd6-9de3-fb599387a076"
+  "updatedAt": "2025-01-22T06:27:13.000Z",
+  "versionId": "9fcc050d-8197-4264-bd4a-b1c081560306"
 }
