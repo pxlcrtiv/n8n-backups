@@ -1216,7 +1216,9 @@
       "recurrenceRules": []
     },
     "node:Schedule Trigger3": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        23
+      ]
     }
   },
   "tags": [
