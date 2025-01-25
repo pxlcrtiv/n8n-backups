@@ -1,0 +1,424 @@
+{
+  "active": false,
+  "connections": {
+    "Product Create or Maintenance": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "WooCommerce3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "WooCommerce4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce": {
+      "main": [
+        [
+          {
+            "node": "Send to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce3": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce1": {
+      "main": [
+        [
+          {
+            "node": "Send to Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce4": {
+      "main": [
+        [
+          {
+            "node": "WooCommerce2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WooCommerce2": {
+      "main": [
+        [
+          {
+            "node": "Send to Slack2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-25T12:16:10.657Z",
+  "id": "wPJ1uA5ASyzY4yvD",
+  "meta": {
+    "templateId": "1458",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Notify on Slack when new product is published in WooCommerce",
+  "nodes": [
+    {
+      "parameters": {
+        "channel": "woo-commerce",
+        "text": ":new: A new product has been added! :new:",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "color": "#66FF00",
+            "fields": {
+              "item": [
+                {
+                  "short": false,
+                  "title": "Name",
+                  "value": "={{$json[\"name\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Price",
+                  "value": "={{$json[\"regular_price\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Sale Price",
+                  "value": "={{$json[\"sale_price\"]}}"
+                },
+                {
+                  "short": false,
+                  "title": "Link",
+                  "value": "={{$json[\"permalink\"]}}"
+                }
+              ]
+            },
+            "footer": "=Added: {{$json[\"date_created\"]}}"
+          }
+        ],
+        "blocksUi": {
+          "blocksValues": []
+        }
+      },
+      "name": "Send to Slack",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        440,
+        140
+      ],
+      "typeVersion": 1,
+      "id": "2cc8640b-edbc-467f-af89-2ebd7b0fd9d3",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "6e911636-49fd-4f1b-bff5-f14c7439b319",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -300,
+        280
+      ],
+      "id": "f37f71a1-9c95-4074-8ad5-ae1b1c14d8f0",
+      "name": "Product Create or Maintenance",
+      "webhookId": "6e911636-49fd-4f1b-bff5-f14c7439b319"
+    },
+    {
+      "parameters": {
+        "resource": "product",
+        "operation": "create",
+        "name": "",
+        "additionalFields": {},
+        "dimensionsUi": {},
+        "imagesUi": {},
+        "metadataUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        200,
+        140
+      ],
+      "id": "d16c71b8-9a28-4f7d-9b40-1d460e8832d9",
+      "name": "WooCommerce",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "6x3Scw1Ak7JLmJex",
+          "name": "WooCommerce account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "product",
+        "operation": "update",
+        "productId": "",
+        "updateFields": {},
+        "dimensionsUi": {},
+        "imagesUi": {},
+        "metadataUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        440,
+        300
+      ],
+      "id": "85d85f69-5ecb-4fda-b654-9a5cfa843d78",
+      "name": "WooCommerce1"
+    },
+    {
+      "parameters": {
+        "operation": "delete"
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        440,
+        480
+      ],
+      "id": "200385ac-6509-4640-b9fd-ce9b704985a4",
+      "name": "WooCommerce2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4dbe5322-720e-413b-a55e-ef846fee3426",
+              "leftValue": "",
+              "rightValue": "Create",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "6639d43e-4e5b-4147-a0cd-2d045eb3377a",
+              "leftValue": "",
+              "rightValue": "Update",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "7ae06d33-9511-43f7-9651-5d332224b14a",
+              "leftValue": "",
+              "rightValue": "Delete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        280
+      ],
+      "id": "46eb38e4-f4c7-49ee-ba4a-541de79b3cf5",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "get"
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ],
+      "id": "5fde0e3f-52a6-41d6-8804-11ffb2205877",
+      "name": "WooCommerce3"
+    },
+    {
+      "parameters": {
+        "channel": "woo-commerce",
+        "text": ":new: A new product has been added! :new:",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "color": "#66FF00",
+            "fields": {
+              "item": [
+                {
+                  "short": false,
+                  "title": "Name",
+                  "value": "={{$json[\"name\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Price",
+                  "value": "={{$json[\"regular_price\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Sale Price",
+                  "value": "={{$json[\"sale_price\"]}}"
+                },
+                {
+                  "short": false,
+                  "title": "Link",
+                  "value": "={{$json[\"permalink\"]}}"
+                }
+              ]
+            },
+            "footer": "=Added: {{$json[\"date_created\"]}}"
+          }
+        ],
+        "blocksUi": {
+          "blocksValues": []
+        }
+      },
+      "name": "Send to Slack1",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        680,
+        300
+      ],
+      "typeVersion": 1,
+      "id": "5a5e1dea-22a9-47f5-b8c9-23b17eb62085",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get"
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        200,
+        480
+      ],
+      "id": "c92cfde3-0905-484b-9e3d-4a9106f9ca4f",
+      "name": "WooCommerce4"
+    },
+    {
+      "parameters": {
+        "channel": "woo-commerce",
+        "text": ":new: A new product has been added! :new:",
+        "otherOptions": {},
+        "attachments": [
+          {
+            "color": "#66FF00",
+            "fields": {
+              "item": [
+                {
+                  "short": false,
+                  "title": "Name",
+                  "value": "={{$json[\"name\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Price",
+                  "value": "={{$json[\"regular_price\"]}}"
+                },
+                {
+                  "short": true,
+                  "title": "Sale Price",
+                  "value": "={{$json[\"sale_price\"]}}"
+                },
+                {
+                  "short": false,
+                  "title": "Link",
+                  "value": "={{$json[\"permalink\"]}}"
+                }
+              ]
+            },
+            "footer": "=Added: {{$json[\"date_created\"]}}"
+          }
+        ],
+        "blocksUi": {
+          "blocksValues": []
+        }
+      },
+      "name": "Send to Slack2",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        680,
+        480
+      ],
+      "typeVersion": 1,
+      "id": "44580fbb-30c4-4721-9256-8c93f625212f",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-25T12:27:12.000Z",
+  "versionId": "c3fe3674-fa2c-4bfe-a4c5-22c4a2b48929"
+}
