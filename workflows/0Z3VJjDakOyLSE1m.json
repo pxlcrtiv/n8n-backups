@@ -1,0 +1,547 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Webhook Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find User": {
+      "main": [
+        [
+          {
+            "node": "If not found return -1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update User": {
+      "main": [
+        [
+          {
+            "node": "IF unsubscribe_from_marketing_emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set userFound": {
+      "main": [
+        [
+          {
+            "node": "@MAIN STUDENT DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Full Name": {
+      "main": [
+        [
+          {
+            "node": "@MAIN STUDENT DATA",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "IF NOT userFound": {
+      "main": [
+        [
+          {
+            "node": "Mautic",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch User.type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch User.type": {
+      "main": [
+        [
+          {
+            "node": "Update User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Unsubscribe User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Remove unsubscribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "@MAIN STUDENT DATA": {
+      "main": [
+        [
+          {
+            "node": "IF NOT userFound",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Webhook Request": {
+      "main": [
+        [
+          {
+            "node": "Switch Webhook Types",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Webhook Types": {
+      "main": [
+        [
+          {
+            "node": "Find User",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Split Full Name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Find User To Tag Sale",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find User To Tag Sale": {
+      "main": [
+        [
+          {
+            "node": "Tag User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If not found return -1": {
+      "main": [
+        [
+          {
+            "node": "Set userFound",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF unsubscribe_from_marketing_emails": {
+      "main": [
+        [
+          {
+            "node": "Unsubscribe User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Remove unsubscribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-01-26T10:19:25.786Z",
+  "id": "0Z3VJjDakOyLSE1m",
+  "meta": {
+    "templateId": "467"
+  },
+  "name": "Send sales data from Webhook to Mautic",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "PuHq2RQsmc3HXB/hook",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        380,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "e17c0204-5a50-4ab2-9277-214382537029",
+      "webhookId": "36499b6d-2cf6-4d02-899c-db392bd25025"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "email": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"email\"]}}",
+        "firstName": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"firstName\"]}}",
+        "lastName": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"lastName\"]}}",
+        "company": 1,
+        "additionalFields": {},
+        "options": {}
+      },
+      "name": "Mautic",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        2200,
+        -40
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": false,
+      "id": "bb6ff545-88aa-4737-98b9-6df0a1124c54"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "search": "={{$node[\"Set Webhook Request\"].json[\"student\"][\"email\"]}}"
+        }
+      },
+      "name": "Find User",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        1100,
+        60
+      ],
+      "notesInFlow": false,
+      "typeVersion": 1,
+      "alwaysOutputData": false,
+      "id": "d5cd1f68-f353-4496-a478-a1afa3b36c8c"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "contactId": "={{$node[\"@MAIN STUDENT DATA\"].json[\"userFound\"]}}",
+        "updateFields": {
+          "email": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"email\"]}}",
+          "firstName": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"firstName\"]}}",
+          "lastName": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"lastName\"]}}"
+        },
+        "options": {}
+      },
+      "name": "Update User",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        2500,
+        40
+      ],
+      "typeVersion": 1,
+      "id": "4aedb415-1630-4912-8ed6-2504c5587967"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "contactId": "={{$node[\"Find User To Tag Sale\"].json[\"id\"]}}",
+        "updateFields": {
+          "tags": "={{$node[\"Set Webhook Request\"].json[\"student\"][\"course\"][\"name\"]}}"
+        },
+        "options": {}
+      },
+      "name": "Tag User",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        1360,
+        460
+      ],
+      "typeVersion": 1,
+      "id": "964393bc-4f17-417a-9c50-c11bae803110"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "contactId": "={{$node[\"@MAIN STUDENT DATA\"].json[\"userFound\"]}}",
+        "updateFields": {
+          "tags": "=#unsubscribe"
+        },
+        "options": {}
+      },
+      "name": "Unsubscribe User",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        3100,
+        200
+      ],
+      "typeVersion": 1,
+      "id": "7e74c653-fbe8-4ed7-b49b-81b79f796945"
+    },
+    {
+      "parameters": {
+        "functionCode": "const student = items[0].json.student\nstudent.firstName = student.name ? student.name.split(' ').slice(0, -1).join(' ') : ''\nstudent.lastName= student.name ? student.name.split(' ').slice(-1).join(' ') : ''\nitems[0].json.student = student\nreturn items;"
+      },
+      "name": "Split Full Name",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1280,
+        220
+      ],
+      "typeVersion": 1,
+      "id": "e3d583c2-2292-451c-b99b-ac414bc53707"
+    },
+    {
+      "parameters": {
+        "functionCode": "items[0].json.id = items[0].json.id || -1\nreturn items"
+      },
+      "name": "If not found return -1",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1380,
+        60
+      ],
+      "typeVersion": 1,
+      "id": "1348222f-fa84-477b-9176-0a6bf7ff8fab"
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex",
+        "join": "inner"
+      },
+      "name": "@MAIN STUDENT DATA",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1840,
+        200
+      ],
+      "typeVersion": 1,
+      "id": "82da3db8-e6c9-4bed-a4f0-17c69389a99c"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "update",
+        "contactId": "={{$node[\"@MAIN STUDENT DATA\"].json[\"userFound\"]}}",
+        "updateFields": {
+          "tags": "=-#unsubscribe"
+        },
+        "options": {}
+      },
+      "name": "Remove unsubscribe",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        2700,
+        300
+      ],
+      "typeVersion": 1,
+      "id": "82926861-2f1d-41ca-9d84-5a7c8366c913"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "search": "={{$node[\"Set Webhook Request\"].json[\"student\"][\"user\"][\"email\"]}}"
+        }
+      },
+      "name": "Find User To Tag Sale",
+      "type": "n8n-nodes-base.mautic",
+      "position": [
+        1120,
+        460
+      ],
+      "notesInFlow": false,
+      "typeVersion": 1,
+      "alwaysOutputData": false,
+      "id": "20584505-1ef1-4d26-a8ed-ee1985082fa1"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "userFound",
+              "value": "={{$node[\"If not found return -1\"].json[\"id\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set userFound",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1640,
+        60
+      ],
+      "typeVersion": 1,
+      "id": "d0c5f6bb-9806-4318-b88b-38c5024d1f41"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{$node[\"Set Webhook Request\"].json[\"type\"]}}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "contains",
+              "value2": "User."
+            },
+            {
+              "operation": "contains",
+              "value2": "Sale.",
+              "output": 1
+            }
+          ]
+        }
+      },
+      "name": "Switch Webhook Types",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        860,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "94345448-e8b9-4dc0-aae4-90f020a276a8"
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "student",
+              "value": "={{$node[\"Webhook\"].json[\"body\"][\"object\"]}}"
+            },
+            {
+              "name": "type",
+              "value": "={{$node[\"Webhook\"].json[\"body\"][\"type\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set Webhook Request",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        620,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "c3b55c44-2d13-44a4-bca6-4bba378fa556"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"@MAIN STUDENT DATA\"].json[\"userFound\"]}}",
+              "operation": "regex",
+              "value2": "-1"
+            }
+          ]
+        }
+      },
+      "name": "IF NOT userFound",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2020,
+        200
+      ],
+      "typeVersion": 1,
+      "id": "1b773c2a-28e5-48d1-b0dd-ba78c8955f31"
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{$node[\"@MAIN STUDENT DATA\"].json[\"type\"]}}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "User.updated"
+            },
+            {
+              "value2": "User.unsubscribe_from_marketing_emails",
+              "output": 1
+            },
+            {
+              "value2": "=User.subscribe_to_marketing_emails",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "name": "Switch User.type",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        2320,
+        220
+      ],
+      "typeVersion": 1,
+      "id": "5bbc6360-6a0f-4049-ac02-5b309c02f621"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [],
+          "boolean": [
+            {
+              "value1": "={{$node[\"@MAIN STUDENT DATA\"].json[\"student\"][\"unsubscribe_from_marketing_emails\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "IF unsubscribe_from_marketing_emails",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2700,
+        40
+      ],
+      "typeVersion": 1,
+      "id": "20b26955-1717-43b3-88ad-f8ffd8ea70fd"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-26T10:19:41.000Z",
+  "versionId": "39dc88ba-32e7-4e65-929a-82d223a8555b"
+}
