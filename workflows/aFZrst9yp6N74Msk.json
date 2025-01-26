@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Route based on PDF or Image",
+            "node": "Starting Message",
             "type": "main",
             "index": 0
           }
@@ -106,6 +106,17 @@
           }
         ]
       ]
+    },
+    "Starting Message": {
+      "main": [
+        [
+          {
+            "node": "Route based on PDF or Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-18T08:21:59.907Z",
@@ -137,7 +148,7 @@
       "name": "Get PDF or Images",
       "type": "n8n-nodes-base.googleDriveTrigger",
       "position": [
-        420,
+        280,
         500
       ],
       "typeVersion": 1,
@@ -218,7 +229,7 @@
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        360,
+        220,
         240
       ],
       "typeVersion": 1
@@ -350,7 +361,7 @@
           "mode": "list",
           "cachedResultName": "n8n-notifications"
         },
-        "text": "=✅ New EE client time sheet has been added to Smartsuite - workflows have been processed.",
+        "text": "=✅ New EE client time sheet - [{{ $execution.id }}] has been added to Smartsuite - workflows have been processed.",
         "otherOptions": {}
       },
       "type": "n8n-nodes-base.slack",
@@ -392,6 +403,36 @@
       ],
       "id": "2a717756-0120-4cdb-9f0f-627d2a01526e",
       "name": "Limit"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C07CD5PH1DJ",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications"
+        },
+        "text": "=:information_source:  Starting Nightly Workflow Backup to G-Drive [{{ $execution.id }}]",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "a76f1ce5-6fc4-4db2-8da4-4bea9c2cc574",
+      "name": "Starting Message",
+      "type": "n8n-nodes-base.slack",
+      "position": [
+        460,
+        500
+      ],
+      "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
+      "typeVersion": 2.2,
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -402,11 +443,11 @@
   },
   "staticData": {
     "node:Get PDF or Images": {
-      "lastTimeChecked": "2025-01-25T05:25:28Z"
+      "lastTimeChecked": "2025-01-26T09:13:27Z"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-22T06:27:32.000Z",
-  "versionId": "07a3700f-5a87-4385-97d5-88a37f3868bc"
+  "updatedAt": "2025-01-26T09:13:27.000Z",
+  "versionId": "0fc8a4b1-de0b-4818-938f-93367f755fa0"
 }
