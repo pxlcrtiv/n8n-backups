@@ -604,6 +604,7 @@
     },
     {
       "parameters": {
+        "authentication": "serviceAccount",
         "operation": "append",
         "documentId": {
           "__rl": true,
@@ -699,7 +700,13 @@
         1380,
         840
       ],
-      "typeVersion": 4.5
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleApi": {
+          "id": "rtuXHD6dF4zRyTOx",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -823,6 +830,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-02-08T17:30:00.713Z",
-  "versionId": "6a743a85-5595-40d6-ba35-6f3a76d4fafb"
+  "updatedAt": "2025-02-09T15:25:52.000Z",
+  "versionId": "cd7acf16-2307-44bf-9afc-e7c2480f4724"
 }
