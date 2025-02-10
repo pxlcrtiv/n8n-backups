@@ -829,8 +829,8 @@
       "name": "Email the Report",
       "type": "n8n-nodes-base.gmail",
       "position": [
-        920,
-        1360
+        1000,
+        1300
       ],
       "webhookId": "80d4d964-449a-4599-b2de-bca9c8822bbd",
       "typeVersion": 2.1
@@ -860,6 +860,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-19T19:14:38.877Z",
-  "versionId": "c9bd5016-c57d-4e28-8ed0-c5588704956d"
+  "updatedAt": "2025-02-10T16:26:27.000Z",
+  "versionId": "4e651549-0563-4134-ab55-daea7285bd89"
 }
