@@ -1,0 +1,302 @@
+{
+  "active": false,
+  "connections": {
+    "GetImg": {
+      "main": [
+        [
+          {
+            "node": "ImgBinary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "CreateMDReport",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Move Binary Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ImgBinary": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "SortElements": {
+      "main": [
+        [
+          {
+            "node": "GetImg",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateMDReport": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move Binary Data1": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetTimesheetRecords": {
+      "main": [
+        [
+          {
+            "node": "SortElements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "GetTimesheetRecords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-10T16:38:52.632Z",
+  "id": "0goLb13trH7zXwvy",
+  "meta": {
+    "templateId": "1692"
+  },
+  "name": "Markdown timesheet report generation 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "34e4c9e8-33f8-4e57-aadd-2d72111518fb"
+    },
+    {
+      "parameters": {
+        "operation": "sort",
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "UserName"
+            },
+            {
+              "fieldName": "TaskTitle"
+            },
+            {
+              "fieldName": "date"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "SortElements",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        740,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "a091ed55-1544-4515-9f49-bb771c507679"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{$json[\"mdreport\"]}}",
+        "options": {
+          "completeHTMLDocument": true,
+          "customizedHeaderId": false,
+          "noHeaderId": true,
+          "rawHeaderId": false,
+          "simpleLineBreaks": true,
+          "tables": true
+        }
+      },
+      "name": "Markdown",
+      "type": "n8n-nodes-base.markdown",
+      "position": [
+        1600,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "2b67ff13-6c9b-4d60-b0a3-1132023b138c"
+    },
+    {
+      "parameters": {
+        "functionCode": "// created report header and custom table style\nvar md_reporthead=\"#Timesheet report\\n\";\nvar md_style =  (`\n<style> table {border: 0.5px solid; border-spacing: 0px;}\n        table th {border-bottom: 0.5px solid;}\n        table thead {background: #D0E4F5;}\n        table tr:nth-child(even) { background: #D8D8D8;}\n</style>\\n\\n`);\n\nvar md_reportbody=md_style+md_reporthead;\n\n//declare several variables that are used for report generation\nvar tablehead = \"| Date | Hours | Task Description |\\n|:---|:---:|---|\\n\";\n\nvar cur_user=\"\";\nvar cur_usernum=0;\n\nvar cur_task=\"\";\nvar cur_tasktotal=0;\n\n\nfor (item of items) {\n  \n  // Check if new user\n  if (item.json.UserName != cur_user) {\n    // Close previous user's task\n    md_reportbody += (cur_tasktotal) ? \"\\n*\"+cur_tasktotal.toFixed(2)+\" - Total hours for this task*\\n\" : \"\";\n    cur_tasktotal = 0; cur_task=\"\";\n\n    // add new user and embed avatar as base64 image\n    cur_user = item.json.UserName;\n    md_reportbody += `\\n##![img](data:image/png;base64,${items[cur_usernum].binary.data.data}) ${cur_user}\\n`;\n    cur_usernum   += 1;\n  } // Check for new user - ENDIF\n\n\n  // Check if new task\n  if (item.json.TaskTitle != cur_task) {\n\n    // if not empty task - add total amount of hours for *previous* task\n    md_reportbody += (cur_tasktotal) ? `\\n*${cur_tasktotal.toFixed(2)} - Total hours for this task*\\n` : \"\";\n\n    // Add new task header and reset total hours counter\n    cur_task = item.json.TaskTitle;\n    md_reportbody += `\\n###${cur_task}\\n${tablehead}`;\n    cur_tasktotal = 0;\n  } // Check for new task - ENDIF\n\n  // Add current task + update total hours\n   md_reportbody += `| ${item.json.date.split('T',1)} | ${item.json.hours.toFixed(2)} | ${item.json.note} |\\n`;\n   cur_tasktotal += item.json.hours;\n}\n\n// Let's not forget the last task's total hours:\nmd_reportbody += (cur_tasktotal) ? `\\n*${cur_tasktotal.toFixed(2)} - Total hours for this task*\\n` : \"\";\n\n// Finalise the report\nmd_reportbody += `\\n*Timesheet report generated on: ${$now.toISODate()}*`;\nmd_reporthead += \"\\n\";\n\nreturn [{mdreport: md_reportbody}];"
+      },
+      "name": "CreateMDReport",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1420,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "69d540a4-1271-4ea0-b067-0bc9f9a0dca5"
+    },
+    {
+      "parameters": {
+        "subject": "TimeSheet report",
+        "attachments": "data",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "position": [
+        2020,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "71d29ead-6e06-465e-9bc8-496e6132fe98",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "removeDuplicates",
+        "compare": "selectedFields",
+        "fieldsToCompare": {
+          "fields": [
+            {
+              "fieldName": "UserAvatar"
+            }
+          ]
+        },
+        "options": {
+          "removeOtherFields": true
+        }
+      },
+      "name": "GetImg",
+      "type": "n8n-nodes-base.itemLists",
+      "position": [
+        900,
+        440
+      ],
+      "typeVersion": 1,
+      "id": "5161181c-8243-4d69-8e9f-9b1fd0b87c1d"
+    },
+    {
+      "parameters": {
+        "url": "={{$json[\"UserAvatar\"]}}",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "name": "ImgBinary",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1080,
+        440
+      ],
+      "typeVersion": 2,
+      "id": "3d1a901e-3817-45cc-8e33-aa348eb6b91c"
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex",
+        "join": "outer"
+      },
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1240,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "76273410-e5ef-46b9-9084-34a3c4871d3a"
+    },
+    {
+      "parameters": {
+        "mode": "jsonToBinary",
+        "convertAllData": false,
+        "options": {
+          "fileName": "report.html",
+          "mimeType": "text/html",
+          "useRawData": true
+        }
+      },
+      "name": "Move Binary Data1",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "position": [
+        1780,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "3b207bd0-542d-41c5-99c4-ba69a382c1cd"
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Admin\",\n         date: \"2022-05-31T00:00:00.0000000+02:00\",\n         note: \"Creating invoices and submitting timesheets\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Admin\",\n         date: \"2022-05-02T00:00:00.0000000+02:00\",\n         note: \"Reporting last month's activity\",\n         hours: 0.5},\n         {UserName: \"User 2 - Designer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=identicon&s=32\",\n         TaskTitle: \"Admin\",\n         date: \"2022-05-30T00:00:00.0000000+02:00\",\n         note: \"Filling timesheets\",\n         hours: 0.5},\n         {UserName: \"User 2 - Designer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=identicon&s=32\",\n         TaskTitle: \"Admin\",\n         date: \"2022-05-03T00:00:00.0000000+02:00\",\n         note: \"Monthly retro meeting\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-26T00:00:00.0000000+02:00\",\n         note: \"Weekly meeting\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-05T00:00:00.0000000+02:00\",\n         note: \"Weekly meeting\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-19T00:00:00.0000000+02:00\",\n         note: \"Weekly meeting\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-12T00:00:00.0000000+02:00\",\n         note: \"Weekly meeting\",\n         hours: 0.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-12T00:00:00.0000000+02:00\",\n         note: \"Programmed new feature\",\n         hours: 4.5},\n         {UserName: \"User 1 - Lead Programmer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=robohash&s=32\",\n         TaskTitle: \"Client 1\",\n         date: \"2022-05-02T00:00:00.0000000+02:00\",\n         note: \"Updated this and that\",\n         hours: 2.75},\n         {UserName: \"User 2 - Designer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=identicon&s=32\",\n         TaskTitle: \"Client 2\",\n         date: \"2022-05-13T00:00:00.0000000+02:00\",\n         note: \"Designed a new report template\",\n         hours: 6.5},\n         {UserName: \"User 2 - Designer\",\n         UserAvatar: \"https://www.gravatar.com/avatar/?d=identicon&s=32\",\n         TaskTitle: \"Client 2\",\n         date: \"2022-05-23T00:00:00.0000000+02:00\",\n         note: \"Presented the results\",\n         hours: 1.5}\n         ];"
+      },
+      "name": "GetTimesheetRecords",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        560,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "c8372f34-ebf5-45ae-8b27-7f8952a31579"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-10T16:38:52.632Z",
+  "versionId": "11d6d8b3-82e0-4a19-bac4-e9dc1ad3455a"
+}
