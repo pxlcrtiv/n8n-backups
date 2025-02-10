@@ -1,0 +1,621 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "OpenAI - Extract Line Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Upload File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Invoice": {
+      "main": [
+        []
+      ]
+    },
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Extract Line Items": {
+      "main": [
+        [
+          {
+            "node": "Create Invoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive1": {
+      "main": [
+        [
+          {
+            "node": "Upload File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-02-10T16:42:54.225Z",
+  "id": "oHRlw6hYN5mVWLDw",
+  "meta": {
+    "templateId": "2661"
+  },
+  "name": "Parse PDF timesheet with LlamaParse and save to SmartSuite",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {}
+      },
+      "id": "9df72ef9-3b9d-40e4-9cb5-a5ada153c0bb",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1560,
+        360
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cloud.llamaindex.ai/api/parsing/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer LA-6c33333874e341abb6ebbc7ec24735cc60ad072a294548778cda851da15415af"
+            },
+            {
+              "name": "parsing_instruction",
+              "value": "Please extract timesheet line items: Candidate, Client, Location, Reference, Date Ending, Date, Hours, Days, Units, Summary, AUTHORISER'S JOB TITLE, AUTHORISED SIGNATURE, DATE, Sent to, Signed by, Signed at, IP Address,Document ID , Date"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "webhook_url",
+              "value": "https://n8n.lowcoding.dev/webhook/0f7f5ebb-8b66-453b-a818-20cc3647c783"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "disable_ocr",
+              "value": "true"
+            },
+            {
+              "name": "disable_image_extraction",
+              "value": "True"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e21bb906-658c-4a52-9c7b-b77d6e0e7ea5",
+      "name": "Upload File",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1800,
+        360
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1DOM397M_WsQf_2aDFf2nIfdVwh2WOj86",
+          "mode": "id"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "2a0c2331-4612-4b92-a0cc-b316bc663907",
+      "name": "Google Drive Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        1360,
+        360
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "mode": "list",
+          "value": "appndgSF4faN4jPXi",
+          "cachedResultUrl": "https://airtable.com/appndgSF4faN4jPXi",
+          "cachedResultName": "Philipp's Base"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": "tbloPc7Eay4Cvwysq",
+          "cachedResultUrl": "https://airtable.com/appndgSF4faN4jPXi/tbloPc7Eay4Cvwysq",
+          "cachedResultName": "Invoices"
+        },
+        "columns": {
+          "value": {},
+          "schema": [
+            {
+              "id": "Name",
+              "type": "string",
+              "display": true,
+              "removed": true,
+              "readOnly": false,
+              "required": false,
+              "displayName": "Name",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Line Items",
+              "type": "array",
+              "display": true,
+              "removed": true,
+              "readOnly": false,
+              "required": false,
+              "displayName": "Line Items",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "defineBelow",
+          "matchingColumns": []
+        },
+        "options": {}
+      },
+      "id": "4ad70b03-54f1-4715-9848-56fa6ba18278",
+      "name": "Create Invoice",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1840,
+        880
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": {{ JSON.stringify($('Set Fields').item.json.prompt) }}\n      },\n      {\n        \"role\": \"user\",\n        \"content\": {{ JSON.stringify( JSON.stringify($('Webhook').item.json.body.json[0].items) ) }}\n      }\n    ],\n  \"response_format\":{ \"type\": \"json_schema\", \"json_schema\":  {{ $('Set Fields').item.json.schema }}\n\n }\n  }",
+        "options": {}
+      },
+      "id": "7ee324e8-6df3-48d6-b1b8-6fdb610b1ec7",
+      "name": "OpenAI - Extract Line Items",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1620,
+        880
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dc09a5b4-ff6a-4cee-b87e-35de7336ac05",
+              "name": "prompt",
+              "type": "string",
+              "value": "Please, process parsed data and return only needed."
+            },
+            {
+              "id": "4e0f9af6-517f-42af-9ced-df0e8a7118b0",
+              "name": "schema",
+              "type": "string",
+              "value": "={\n  \"name\": \"generate_schema\",\n  \"description\": \"Generate schema for an array of objects representing items with their descriptions, quantities, unit prices, and amounts.\",\n  \"strict\": true,\n  \"schema\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"items\"\n    ],\n    \"properties\": {\n      \"items\": {\n        \"type\": \"array\",\n        \"description\": \"Array of item objects\",\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"description\",\n            \"qty\",\n            \"unit_price\",\n            \"amount\"\n          ],\n          \"properties\": {\n            \"description\": {\n              \"type\": \"string\",\n              \"description\": \"Description of the item\"\n            },\n            \"qty\": {\n              \"type\": \"string\",\n              \"description\": \"Quantity of the item\"\n            },\n            \"unit_price\": {\n              \"type\": \"string\",\n              \"description\": \"Unit price of the item formatted as a string\"\n            },\n            \"amount\": {\n              \"type\": \"string\",\n              \"description\": \"Total amount for the item formatted as a string\"\n            }\n          },\n          \"additionalProperties\": false\n        }\n      }\n    },\n    \"additionalProperties\": false\n  }\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eda31919-9091-4d45-bd73-4609b71f93a9",
+      "name": "Set Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1400,
+        880
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0f7f5ebb-8b66-453b-a818-20cc3647c783",
+        "options": {}
+      },
+      "id": "741dc44e-6d47-4a77-80c2-5e18b291da33",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        1220,
+        880
+      ],
+      "webhookId": "0f7f5ebb-8b66-453b-a818-20cc3647c783",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "content": "## Scenario 1: Pick up and Download Files\n\n",
+        "height": 400,
+        "width": 920
+      },
+      "id": "fbc196c8-7518-4deb-ac47-f37f1b8150eb",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1180,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Scenario 2: Load the data into Smartsuite\n\n",
+        "height": 460,
+        "width": 1340
+      },
+      "id": "96368d41-7886-487f-a8a7-e4dac3b01f45",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1160,
+        780
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace Google Drive connection",
+        "height": 80,
+        "width": 270,
+        "color": 3
+      },
+      "id": "6b7c94d7-c844-4246-ba1a-cea5937792db",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1380,
+        540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace API key in header",
+        "height": 80,
+        "width": 170,
+        "color": 3
+      },
+      "id": "9c8141d0-428a-44e5-b900-b07fa64db4f5",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1760,
+        540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace OpenAI connection",
+        "height": 80,
+        "width": 170,
+        "color": 3
+      },
+      "id": "48243fe4-4ed1-43dc-b508-8b3f9472bb67",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1580,
+        1080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace SmartSuite connection",
+        "height": 80,
+        "width": 330,
+        "color": 3
+      },
+      "id": "ffc6b530-69ab-4ccb-945d-94f8fdc1e3ab",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1840,
+        1080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### ... or watch set up video [7 min]\n[![Youtube Thumbnail](https://cflobdhpqwnoisuctsoc.supabase.co/storage/v1/object/public/my_storage/Video%2010%20-%20Parser%20invoices%20Blur.png)](https://youtu.be/E4I0nru-fa8)\n",
+        "height": 239.5888196628349,
+        "width": 330.5152611046425,
+        "color": 7
+      },
+      "id": "15047f43-5f7e-4c70-a754-fffb41c04611",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        720,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Set up steps\n\n1. **Google Drive Trigger**: \n   - Set up a trigger to detect new files in a specified folder dedicated to invoices.\n\n2. **File Upload to LlamaParse**: \n   - Create an HTTP request that sends the invoice file to LlamaParse for parsing, including relevant header settings and webhook URL.\n\n3. **Webhook Processing**: \n   - Establish a webhook node to handle parsed results from LlamaParse, extracting needed invoice details effectively.\n\n4. **Invoice Record Creation**: \n   - Create initial records for invoices in your database using the parsed details received from the webhook.\n\n5. **Line Item Processing**: \n   - Transform string data into structured line item arrays and create individual records for each item linked to the main invoice.",
+        "height": 626,
+        "width": 280,
+        "color": 7
+      },
+      "id": "a80e6528-cf79-4229-8c58-6856fd86b6e7",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        420,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.id }}"
+        },
+        "options": {}
+      },
+      "id": "15853629-72d5-41fe-b73c-41f1b43dbbd7",
+      "name": "Google Drive1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1560,
+        1440
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cloud.llamaindex.ai/api/parsing/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer "
+            },
+            {
+              "name": "parsing_instruction",
+              "value": "Please extract invoice line items: Name, Quantity, Unit Price, Amount "
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "webhook_url",
+              "value": "https://n8n.lowcoding.dev/webhook/0f7f5ebb-8b66-453b-a818-20cc3647c783"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "disable_ocr",
+              "value": "true"
+            },
+            {
+              "name": "disable_image_extraction",
+              "value": "True"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dfc05e41-b9b7-4cf6-9934-2c24633e0ef6",
+      "name": "Upload File1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1800,
+        1440
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "mode": "list",
+          "value": "1IC39VXU8rewBU85offxYlBd9QlYzf8S7",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1IC39VXU8rewBU85offxYlBd9QlYzf8S7",
+          "cachedResultName": "Invoices"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "32093c52-e69b-437b-bae3-dde87915e76b",
+      "name": "Google Drive Trigger1",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "position": [
+        1360,
+        1440
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kr63xedjWH78ceBj",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Scenario 3: Move Processed File\n\n",
+        "height": 400,
+        "width": 920
+      },
+      "id": "21de4eca-72b2-4597-889b-6c45137e6193",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1180,
+        1320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace Google Drive connection",
+        "height": 80,
+        "width": 270,
+        "color": 3
+      },
+      "id": "5cc4ab89-ed14-4075-a676-f4e92cc34607",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1380,
+        1620
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "### Replace API key in header",
+        "height": 80,
+        "width": 170,
+        "color": 3
+      },
+      "id": "668048b7-a2bf-4c9f-808a-3bf177369524",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1760,
+        1620
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-02-10T21:19:18.000Z",
+  "versionId": "57fbd6b2-5201-4be2-89ce-63def634de9a"
+}
