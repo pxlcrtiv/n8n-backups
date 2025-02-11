@@ -149,6 +149,11 @@
             "node": "Completed Notification",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Microsoft Teams2",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -165,6 +170,11 @@
         [
           {
             "node": "Completed Notification1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Microsoft Teams1",
             "type": "main",
             "index": 0
           }
@@ -219,7 +229,7 @@
       "main": [
         [
           {
-            "node": "GET CURRENT FOLDER",
+            "node": "Microsoft Teams",
             "type": "main",
             "index": 0
           }
@@ -295,6 +305,11 @@
             "node": "Completed Notification2",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Microsoft Teams3",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -320,6 +335,17 @@
           }
         ]
       ]
+    },
+    "Microsoft Teams": {
+      "main": [
+        [
+          {
+            "node": "GET CURRENT FOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-18T08:22:17.363Z",
@@ -332,7 +358,7 @@
     {
       "parameters": {
         "content": "MOVE CURRENT BACKUPS TO OLD FOLDER",
-        "height": 248,
+        "height": 368,
         "width": 1303,
         "color": 4
       },
@@ -340,23 +366,23 @@
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1900,
-        0
+        1920,
+        -80
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
         "content": "BACKUP ALL CURRENT WORKFLOWS limit 100 (Change)",
-        "height": 267,
-        "width": 1305
+        "height": 367,
+        "width": 1425
       },
       "id": "88fa0216-a8dc-4cba-a97e-a54595dadba5",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1900,
-        280
+        1920,
+        320
       ],
       "typeVersion": 1
     },
@@ -372,8 +398,8 @@
       "name": "Move Binary Data",
       "type": "n8n-nodes-base.moveBinaryData",
       "position": [
-        2160,
-        360
+        2400,
+        400
       ],
       "typeVersion": 1
     },
@@ -381,14 +407,14 @@
       "parameters": {
         "content": "## get Google Drive folders",
         "height": 1016,
-        "width": 1029,
+        "width": 1429,
         "color": 2
       },
       "id": "074763e2-65f5-49d4-a7bd-6547a9dd07ea",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        440,
+        40,
         0
       ],
       "typeVersion": 1
@@ -438,7 +464,7 @@
       "name": "IGNORE FILES",
       "type": "n8n-nodes-base.filter",
       "position": [
-        1640,
+        1860,
         120
       ],
       "typeVersion": 2.2
@@ -467,7 +493,7 @@
       "name": "Create n8n_backups",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        1180,
+        1240,
         420
       ],
       "typeVersion": 3,
@@ -502,7 +528,7 @@
       "name": "Create n8n_old",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        1180,
+        1240,
         580
       ],
       "typeVersion": 3,
@@ -540,8 +566,8 @@
       "name": "Sticky Note10",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1080,
-        300
+        1120,
+        320
       ],
       "typeVersion": 1
     },
@@ -559,8 +585,8 @@
       "name": "GET CURRENT FOLDER",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        500,
-        320
+        480,
+        400
       ],
       "executeOnce": true,
       "notesInFlow": true,
@@ -583,7 +609,7 @@
       "name": "Code",
       "type": "n8n-nodes-base.code",
       "position": [
-        660,
+        860,
         320
       ],
       "typeVersion": 2
@@ -616,7 +642,7 @@
       "name": "If n8n_old",
       "type": "n8n-nodes-base.if",
       "position": [
-        860,
+        1040,
         440
       ],
       "typeVersion": 2.2
@@ -649,8 +675,8 @@
       "name": "If1 n8n_backups",
       "type": "n8n-nodes-base.if",
       "position": [
-        860,
-        200
+        1040,
+        180
       ],
       "typeVersion": 2.2
     },
@@ -667,7 +693,7 @@
       "name": "GET CURRENT FOLDER CREATES",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        1340,
+        1560,
         120
       ],
       "executeOnce": true,
@@ -693,7 +719,7 @@
       "name": "Merge mensage",
       "type": "n8n-nodes-base.merge",
       "position": [
-        1120,
+        1340,
         120
       ],
       "typeVersion": 2.1
@@ -722,7 +748,7 @@
       "name": "GET CURRENT BACKUPS1",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        1980,
+        2200,
         80
       ],
       "typeVersion": 3,
@@ -747,8 +773,8 @@
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
-        460,
-        60
+        240,
+        200
       ],
       "typeVersion": 1.1
     },
@@ -779,7 +805,7 @@
       "name": "Sticky Note6",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        0,
+        -380,
         0
       ],
       "typeVersion": 1
@@ -793,7 +819,7 @@
       "name": "Item Lists",
       "type": "n8n-nodes-base.itemLists",
       "position": [
-        2180,
+        2400,
         80
       ],
       "typeVersion": 3
@@ -809,7 +835,7 @@
       "name": "Split In Batches2",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        2400,
+        2620,
         80
       ],
       "typeVersion": 2
@@ -825,8 +851,8 @@
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
-        2340,
-        360
+        2580,
+        400
       ],
       "typeVersion": 2
     },
@@ -840,8 +866,8 @@
       "name": "n8n",
       "type": "n8n-nodes-base.n8n",
       "position": [
-        1940,
-        360
+        2180,
+        400
       ],
       "typeVersion": 1,
       "credentials": {
@@ -885,8 +911,8 @@
       "name": "Starting Message",
       "type": "n8n-nodes-base.slack",
       "position": [
-        620,
-        60
+        440,
+        200
       ],
       "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
       "typeVersion": 2.2,
@@ -913,8 +939,8 @@
       "name": "Completed Notification",
       "type": "n8n-nodes-base.slack",
       "position": [
-        2760,
-        420
+        3040,
+        500
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
@@ -945,7 +971,7 @@
       "type": "n8n-nodes-base.slack",
       "position": [
         2220,
-        720
+        860
       ],
       "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
       "typeVersion": 2.2,
@@ -972,15 +998,15 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "position": [
         2000,
-        720
+        860
       ],
       "typeVersion": 1.2
     },
     {
       "parameters": {
         "content": "## Main workflow loop",
-        "height": 436,
-        "width": 1293,
+        "height": 596,
+        "width": 1413,
         "color": 7
       },
       "id": "d24dc6ad-1a8a-47ff-864a-b3a707a48bdd",
@@ -988,7 +1014,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         1920,
-        580
+        720
       ],
       "typeVersion": 1
     },
@@ -1016,7 +1042,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "position": [
         2440,
-        720
+        860
       ],
       "typeVersion": 3,
       "credentials": {
@@ -1043,7 +1069,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "position": [
         3020,
-        640
+        780
       ],
       "typeVersion": 3,
       "alwaysOutputData": true,
@@ -1065,7 +1091,7 @@
       "type": "n8n-nodes-base.itemLists",
       "position": [
         2640,
-        720
+        860
       ],
       "typeVersion": 3
     },
@@ -1081,7 +1107,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "position": [
         2840,
-        720
+        840
       ],
       "typeVersion": 2
     },
@@ -1101,8 +1127,8 @@
       "name": "Completed Notification2",
       "type": "n8n-nodes-base.slack",
       "position": [
-        3020,
-        840
+        3120,
+        980
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
@@ -1130,8 +1156,8 @@
       "name": "Completed Notification1",
       "type": "n8n-nodes-base.slack",
       "position": [
-        2820,
-        140
+        3080,
+        120
       ],
       "webhookId": "a0c6e8c8-5d71-40fa-b02b-63a7ed5726c4",
       "executeOnce": true,
@@ -1157,8 +1183,8 @@
       "name": "UPLOAD_WORKFLOWS",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        2580,
-        320
+        2820,
+        360
       ],
       "typeVersion": 1,
       "credentials": {
@@ -1192,7 +1218,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2640,
+        2840,
         40
       ],
       "id": "ad211a48-1953-49c1-ba0f-043252db6fcb",
@@ -1201,6 +1227,142 @@
         "googleDriveOAuth2Api": {
           "id": "kr63xedjWH78ceBj",
           "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=:information_source: Starting Nightly Workflow Backup to G-Drive [{{ $execution.id }}]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        620,
+        200
+      ],
+      "id": "bdb2af76-2787-44ad-860e-698e1c0fb0df",
+      "name": "Microsoft Teams",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=✅ Nightly Backup to G-Drive has completed - {{ $('MOVE INTO OLD FOLDER').all().length }} current files has been moved to the old folder.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -60
+      ],
+      "id": "69c8d015-fc30-46b6-a461-ec32ad0ac299",
+      "name": "Microsoft Teams1",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=✅ Nightly Backup to G-Drive has completed - {{ $('UPLOAD_WORKFLOWS').all().length }} workflows have been backed up.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        3040,
+        360
+      ],
+      "id": "07276163-b9e4-484a-ba7c-2c0a3df7e12a",
+      "name": "Microsoft Teams2",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=✅ PURGE BACKUPS OLDER THEN 30 DAYS COMPLETED - {{ $('n8n2').all().length }} workflows have been processed.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        1140
+      ],
+      "id": "2e8feeb4-7427-471a-a038-a27aeb2ba45c",
+      "name": "Microsoft Teams3",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
         }
       }
     }
@@ -1230,6 +1392,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2025-01-30T14:29:14.000Z",
-  "versionId": "7e51f168-3023-4710-aea0-ac5a538b04bc"
+  "updatedAt": "2025-02-11T20:29:00.000Z",
+  "versionId": "8a203202-739c-4a35-9370-ff11747040d1"
 }
