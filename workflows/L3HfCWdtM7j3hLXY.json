@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "On Error": {
       "main": [
@@ -19,15 +19,26 @@
             "node": "Slack",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Microsoft Teams",
+            "type": "main",
+            "index": 0
           }
         ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        []
       ]
     }
   },
   "createdAt": "2025-01-19T19:20:54.877Z",
   "id": "L3HfCWdtM7j3hLXY",
   "meta": {
-    "templateId": "2150"
+    "templateId": "2150",
+    "templateCredsSetupCompleted": true
   },
   "name": "🚨 Report n8n workflow errors to Slack",
   "nodes": [
@@ -36,8 +47,8 @@
         "select": "channel",
         "channelId": {
           "__rl": true,
-          "mode": "name",
-          "value": "#alerts-n8n-workflows"
+          "value": "#alerts-n8n-workflows",
+          "mode": "name"
         },
         "text": "={{ $json.message }}",
         "otherOptions": {}
@@ -46,11 +57,17 @@
       "name": "Slack",
       "type": "n8n-nodes-base.slack",
       "position": [
-        980,
-        440
+        1000,
+        520
       ],
       "typeVersion": 2.1,
-      "webhookId": "62c61dd3-05e2-41a3-b0dc-093896b3024d"
+      "webhookId": "62c61dd3-05e2-41a3-b0dc-093896b3024d",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
     },
     {
       "parameters": {},
@@ -58,7 +75,7 @@
       "name": "On Error",
       "type": "n8n-nodes-base.errorTrigger",
       "position": [
-        460,
+        580,
         440
       ],
       "typeVersion": 1
@@ -80,7 +97,7 @@
       "name": "Set message",
       "type": "n8n-nodes-base.set",
       "position": [
-        720,
+        780,
         440
       ],
       "typeVersion": 1
@@ -115,6 +132,41 @@
         620
       ],
       "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:8f2bb56cc5334804b74898c435641d55@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-workflow-errors",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A8f2bb56cc5334804b74898c435641d55%40thread.tacv2/n8n-workflow-errors?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "contentType": "html",
+        "message": "={{ $json.message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        360
+      ],
+      "id": "0eb9e296-1e7e-4e2a-a107-7df4481b6805",
+      "name": "Microsoft Teams",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -124,6 +176,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-01-19T19:20:54.877Z",
-  "versionId": "a9d09c94-db09-4006-ad21-9d356ccbc84b"
+  "updatedAt": "2025-02-11T21:24:19.000Z",
+  "versionId": "23ff44fc-29f4-4914-a4e3-7897da6cea26"
 }
