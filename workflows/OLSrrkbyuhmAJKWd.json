@@ -121,6 +121,11 @@
             "node": "Completed Notification",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Microsoft Teams",
+            "type": "main",
+            "index": 0
           }
         ],
         [
@@ -225,7 +230,7 @@
       "main": [
         [
           {
-            "node": "n8n",
+            "node": "Microsoft Teams2",
             "type": "main",
             "index": 0
           }
@@ -246,6 +251,11 @@
             "node": "Failed Flows",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Microsoft Teams1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -260,12 +270,24 @@
           }
         ]
       ]
+    },
+    "Microsoft Teams2": {
+      "main": [
+        [
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-01-18T21:22:25.342Z",
   "id": "OLSrrkbyuhmAJKWd",
   "meta": {
-    "templateId": "2652"
+    "templateId": "2652",
+    "templateCredsSetupCompleted": true
   },
   "name": "Backup your workflows to GitHub",
   "nodes": [
@@ -613,7 +635,7 @@
     {
       "parameters": {
         "content": "## Main workflow loop",
-        "height": 435,
+        "height": 575,
         "width": 1486,
         "color": 7
       },
@@ -622,7 +644,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         780,
-        400
+        260
       ],
       "typeVersion": 1
     },
@@ -730,7 +752,7 @@
       "name": "Starting Message1",
       "type": "n8n-nodes-base.slack",
       "position": [
-        1080,
+        1000,
         580
       ],
       "webhookId": "c02eb407-5547-4aa0-9ebf-46dab67b63b6",
@@ -808,7 +830,7 @@
       "type": "n8n-nodes-base.slack",
       "position": [
         1920,
-        620
+        640
       ],
       "webhookId": "2a092edb-de12-490f-931b-34d70e7d7696",
       "typeVersion": 2.2,
@@ -816,6 +838,108 @@
         "slackApi": {
           "id": "yU7RxPAK1zAlbH23",
           "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "✅ Backup [{{ $execution.id }}] has completed - {{ $('n8n').all().length }} workflows have been processed.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        1740,
+        300
+      ],
+      "id": "929e87dc-67d1-4252-8e41-29a1a71d57bf",
+      "name": "Microsoft Teams",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=:x: Failed to backup {{ $('Loop Over Items').item.json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        500
+      ],
+      "id": "a036b4d9-eb0b-4529-bbe7-22d5375c3f62",
+      "name": "Microsoft Teams1",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:926cb138c339432ca0cab3e69ac50757@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-notifications",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3A926cb138c339432ca0cab3e69ac50757%40thread.tacv2/n8n-notifications?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "=:information_source:  Starting Workflow Backup [{{ $execution.id }}]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        1160,
+        580
+      ],
+      "id": "0ce0852e-69ad-4fec-a441-d2219112be20",
+      "name": "Microsoft Teams2",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
         }
       }
     }
@@ -829,12 +953,12 @@
   "staticData": {
     "node:Schedule Trigger": {
       "recurrenceRules": [
-        12
+        0
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-01-22T06:28:02.000Z",
-  "versionId": "b914ab1f-8ce6-462e-8306-6b18cd1fe7cd"
+  "updatedAt": "2025-02-11T20:31:39.000Z",
+  "versionId": "8cb806db-12b4-4d94-9f21-38c373a6c1c2"
 }
