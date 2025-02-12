@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -34,11 +34,6 @@
         ]
       ]
     },
-    "Create Invoice": {
-      "main": [
-        []
-      ]
-    },
     "Google Drive Trigger": {
       "main": [
         [
@@ -52,31 +47,68 @@
     },
     "OpenAI - Extract Line Items": {
       "main": [
+        []
+      ]
+    },
+    "Extract data from PDF": {
+      "main": [
         [
           {
-            "node": "Create Invoice",
+            "node": "ExtractData",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Google Drive1": {
+    "ExtractData": {
       "main": [
         [
           {
-            "node": "Upload File1",
+            "node": "Limit",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Google Drive Trigger1": {
+    "Limit": {
       "main": [
         [
           {
-            "node": "Google Drive1",
+            "node": "CreateTimesheetinSM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive2": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Microsoft Teams",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack1": {
+      "main": [
+        []
+      ]
+    },
+    "CreateTimesheetinSM2": {
+      "main": [
+        [
+          {
+            "node": "Google Drive2",
             "type": "main",
             "index": 0
           }
@@ -87,7 +119,8 @@
   "createdAt": "2025-02-10T16:42:54.225Z",
   "id": "oHRlw6hYN5mVWLDw",
   "meta": {
-    "templateId": "2661"
+    "templateId": "2661",
+    "templateCredsSetupCompleted": true
   },
   "name": "Parse PDF timesheet with LlamaParse and save to SmartSuite",
   "nodes": [
@@ -129,7 +162,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer LA-6c33333874e341abb6ebbc7ec24735cc60ad072a294548778cda851da15415af"
+              "value": "Bearer llx-4zV59F88ycYB3fhRdML3021p4xB3SSBEe8iJBAAK9WVwxzHr"
             },
             {
               "name": "parsing_instruction",
@@ -143,7 +176,7 @@
           "parameters": [
             {
               "name": "webhook_url",
-              "value": "https://n8n.lowcoding.dev/webhook/0f7f5ebb-8b66-453b-a818-20cc3647c783"
+              "value": "https://n8n.jackovanwyk.com:5678/webhook-test/0f7f5ebb-8b66-453b-a818-20cc3647c783"
             },
             {
               "parameterType": "formBinaryData",
@@ -166,7 +199,7 @@
       "name": "Upload File",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1800,
+        1760,
         360
       ],
       "typeVersion": 4.2
@@ -206,63 +239,6 @@
     },
     {
       "parameters": {
-        "operation": "create",
-        "base": {
-          "__rl": true,
-          "mode": "list",
-          "value": "appndgSF4faN4jPXi",
-          "cachedResultUrl": "https://airtable.com/appndgSF4faN4jPXi",
-          "cachedResultName": "Philipp's Base"
-        },
-        "table": {
-          "__rl": true,
-          "mode": "list",
-          "value": "tbloPc7Eay4Cvwysq",
-          "cachedResultUrl": "https://airtable.com/appndgSF4faN4jPXi/tbloPc7Eay4Cvwysq",
-          "cachedResultName": "Invoices"
-        },
-        "columns": {
-          "value": {},
-          "schema": [
-            {
-              "id": "Name",
-              "type": "string",
-              "display": true,
-              "removed": true,
-              "readOnly": false,
-              "required": false,
-              "displayName": "Name",
-              "defaultMatch": false,
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Line Items",
-              "type": "array",
-              "display": true,
-              "removed": true,
-              "readOnly": false,
-              "required": false,
-              "displayName": "Line Items",
-              "defaultMatch": false,
-              "canBeUsedToMatch": true
-            }
-          ],
-          "mappingMode": "defineBelow",
-          "matchingColumns": []
-        },
-        "options": {}
-      },
-      "id": "4ad70b03-54f1-4715-9848-56fa6ba18278",
-      "name": "Create Invoice",
-      "type": "n8n-nodes-base.airtable",
-      "position": [
-        1840,
-        880
-      ],
-      "typeVersion": 2.1
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "=https://api.openai.com/v1/chat/completions",
         "authentication": "predefinedCredentialType",
@@ -276,10 +252,16 @@
       "name": "OpenAI - Extract Line Items",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        1620,
-        880
+        1700,
+        840
       ],
-      "typeVersion": 4.2
+      "typeVersion": 4.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "kmzB8kWk9HzY7IYZ",
+          "name": "OpenAi account"
+        }
+      }
     },
     {
       "parameters": {
@@ -295,7 +277,7 @@
               "id": "4e0f9af6-517f-42af-9ced-df0e8a7118b0",
               "name": "schema",
               "type": "string",
-              "value": "={\n  \"name\": \"generate_schema\",\n  \"description\": \"Generate schema for an array of objects representing items with their descriptions, quantities, unit prices, and amounts.\",\n  \"strict\": true,\n  \"schema\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"items\"\n    ],\n    \"properties\": {\n      \"items\": {\n        \"type\": \"array\",\n        \"description\": \"Array of item objects\",\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"description\",\n            \"qty\",\n            \"unit_price\",\n            \"amount\"\n          ],\n          \"properties\": {\n            \"description\": {\n              \"type\": \"string\",\n              \"description\": \"Description of the item\"\n            },\n            \"qty\": {\n              \"type\": \"string\",\n              \"description\": \"Quantity of the item\"\n            },\n            \"unit_price\": {\n              \"type\": \"string\",\n              \"description\": \"Unit price of the item formatted as a string\"\n            },\n            \"amount\": {\n              \"type\": \"string\",\n              \"description\": \"Total amount for the item formatted as a string\"\n            }\n          },\n          \"additionalProperties\": false\n        }\n      }\n    },\n    \"additionalProperties\": false\n  }\n}"
+              "value": "={\n  \"name\": \"generate_schema\",\n  \"description\": \"Generate Schema For An Array Of Objects Representing Items With Their Candidate, Client, Location, Reference, Date Ending, Date, Hours, Days, Units, Summary, Authoriser's Job Title, Authorised Signature, Date, Sent To, Signed By, Signed At, IP Address, Document ID, Date\",\n  \"strict\": true,\n  \"schema\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"candidate\",\n      \"client\",\n      \"location\",\n      \"reference\",\n      \"date_ending\",\n      \"date\",\n      \"hours\",\n      \"days\",\n      \"units\",\n      \"summary\",\n      \"authoriser_job_title\",\n      \"authorised_signature\",\n      \"sent_to\",\n      \"signed_by\",\n      \"signed_at\",\n      \"ip_address\",\n      \"document_id\",\n      \"items\"\n    ],\n    \"properties\": {\n      \"candidate\": {\n        \"type\": \"string\",\n        \"description\": \"Candidate associated with the document\"\n      },\n      \"client\": {\n        \"type\": \"string\",\n        \"description\": \"Client associated with the document\"\n      },\n      \"location\": {\n        \"type\": \"string\",\n        \"description\": \"Location relevant to the document\"\n      },\n      \"reference\": {\n        \"type\": \"string\",\n        \"description\": \"Reference number or ID\"\n      },\n      \"date_ending\": {\n        \"type\": \"string\",\n        \"format\": \"date\",\n        \"description\": \"End date in YYYY-MM-DD format\"\n      },\n      \"date\": {\n        \"type\": \"string\",\n        \"format\": \"date\",\n        \"description\": \"Document date in YYYY-MM-DD format\"\n      },\n      \"hours\": {\n        \"type\": \"number\",\n        \"description\": \"Total hours associated\"\n      },\n      \"days\": {\n        \"type\": \"number\",\n        \"description\": \"Total days associated\"\n      },\n      \"units\": {\n        \"type\": \"number\",\n        \"description\": \"Total units associated\"\n      },\n      \"summary\": {\n        \"type\": \"string\",\n        \"description\": \"Summary of the document\"\n      },\n      \"authoriser_job_title\": {\n        \"type\": \"string\",\n        \"description\": \"Job title of the authoriser\"\n      },\n      \"authorised_signature\": {\n        \"type\": \"string\",\n        \"description\": \"Authorised signature data (could be a base64 string if digital)\"\n      },\n      \"sent_to\": {\n        \"type\": \"string\",\n        \"description\": \"Recipient of the document\"\n      },\n      \"signed_by\": {\n        \"type\": \"string\",\n        \"description\": \"Name of the person who signed the document\"\n      },\n      \"signed_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"Timestamp of when the document was signed\"\n      },\n      \"ip_address\": {\n        \"type\": \"string\",\n        \"format\": \"ipv4\",\n        \"description\": \"IP address of the signer\"\n      },\n      \"document_id\": {\n        \"type\": \"string\",\n        \"description\": \"Unique identifier for the document\"\n      },\n      \"items\": {\n        \"type\": \"array\",\n        \"description\": \"Array of item objects\",\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"description\",\n            \"qty\",\n            \"unit_price\",\n            \"amount\"\n          ],\n          \"properties\": {\n            \"description\": {\n              \"type\": \"string\",\n              \"description\": \"Description of the item\"\n            },\n            \"qty\": {\n              \"type\": \"number\",\n              \"description\": \"Quantity of the item\"\n            },\n            \"unit_price\": {\n              \"type\": \"string\",\n              \"description\": \"Unit price of the item formatted as a string\"\n            },\n            \"amount\": {\n              \"type\": \"string\",\n              \"description\": \"Total amount for the item formatted as a string\"\n            }\n          },\n          \"additionalProperties\": false\n        }\n      }\n    },\n    \"additionalProperties\": false\n  }\n}\n"
             }
           ]
         },
@@ -305,8 +287,8 @@
       "name": "Set Fields",
       "type": "n8n-nodes-base.set",
       "position": [
-        1400,
-        880
+        1480,
+        840
       ],
       "typeVersion": 3.4
     },
@@ -320,8 +302,8 @@
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "position": [
-        1220,
-        880
+        1280,
+        840
       ],
       "webhookId": "0f7f5ebb-8b66-453b-a818-20cc3647c783",
       "typeVersion": 2
@@ -345,14 +327,14 @@
       "parameters": {
         "content": "## Scenario 2: Load the data into Smartsuite\n\n",
         "height": 460,
-        "width": 1340
+        "width": 1080
       },
       "id": "96368d41-7886-487f-a8a7-e4dac3b01f45",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1160,
-        780
+        1180,
+        700
       ],
       "typeVersion": 1
     },
@@ -367,7 +349,7 @@
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1380,
+        1280,
         540
       ],
       "typeVersion": 1
@@ -399,8 +381,8 @@
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1580,
-        1080
+        1660,
+        1020
       ],
       "typeVersion": 1
     },
@@ -408,15 +390,15 @@
       "parameters": {
         "content": "### Replace SmartSuite connection",
         "height": 80,
-        "width": 330,
+        "width": 210,
         "color": 3
       },
       "id": "ffc6b530-69ab-4ccb-945d-94f8fdc1e3ab",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1840,
-        1080
+        1900,
+        1020
       ],
       "typeVersion": 1
     },
@@ -454,106 +436,189 @@
     },
     {
       "parameters": {
-        "operation": "download",
-        "fileId": {
-          "__rl": true,
-          "mode": "id",
-          "value": "={{ $json.id }}"
-        },
-        "options": {}
+        "content": "## Scenario 3: Move Processed File\n\n",
+        "height": 400,
+        "width": 500,
+        "color": 3
       },
-      "id": "15853629-72d5-41fe-b73c-41f1b43dbbd7",
-      "name": "Google Drive1",
-      "type": "n8n-nodes-base.googleDrive",
+      "id": "21de4eca-72b2-4597-889b-6c45137e6193",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1560,
-        1440
+        2140,
+        1060
       ],
-      "typeVersion": 3
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {
+          "keepSource": "json"
+        }
+      },
+      "id": "2a430519-3dbe-4587-9154-6e54fcd84b87",
+      "name": "Extract data from PDF",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        1340,
+        1940
+      ],
+      "typeVersion": 1
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.cloud.llamaindex.ai/api/parsing/upload",
+        "url": "https://app.smartsuite.com/api/v1/applications/673f9850fd7f7757d7d8a304/records/",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "accept",
-              "value": "application/json"
-            },
-            {
               "name": "Authorization",
-              "value": "Bearer "
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
             },
             {
-              "name": "parsing_instruction",
-              "value": "Please extract invoice line items: Name, Quantity, Unit Price, Amount "
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
             }
           ]
         },
         "sendBody": true,
-        "contentType": "multipart-form-data",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "webhook_url",
-              "value": "https://n8n.lowcoding.dev/webhook/0f7f5ebb-8b66-453b-a818-20cc3647c783"
-            },
-            {
-              "parameterType": "formBinaryData",
-              "name": "file",
-              "inputDataFieldName": "data"
-            },
-            {
-              "name": "disable_ocr",
-              "value": "true"
-            },
-            {
-              "name": "disable_image_extraction",
-              "value": "True"
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.date }} - {{ $json.referenceNumber }}\",\n  \"s88e7dacd4\": {\n    \"value\": \"ready_for_review\"\n  },\n  \"sc6358e22b\": \"{{ $json.candidateName }}\",\n  \"s6820339ba\": \"{{ $json.referenceNumber }}\",\n  \"s62a9aa083\": \"{{ $json.clientName }}\",\n  \"sd4cb9fc1a\": \"{{ $json.dateEnding }}\",\n  \"s46840c42e\": \"{{ $json.location }}\",\n  \"s6d6c84d0e\": \"{{ $json.day }}\",\n  \"s79ec764b0\": \"{{ $json.date }}\",\n  \"s648fe3550\": \"{{ $json.hours }}\",\n  \"s6085b7d41\": \"{{ $json.days }}\",\n  \"s20922dd4d\": \"{{ $json.signedBy }}\",\n  \"sf8ceb18d9\": \"{{ $json.signedAt }}\",\n  \"s81402a07c\": \"{{ $json.documentId }}\",\n  \"sc119cf5c1\": \"{{ $json.verificationDate }}\",\n  \"sf9f6aef7a\": \"{{ $('Download PDF').item.json.webViewLink }}\"\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
             }
-          ]
-        },
-        "options": {}
+          }
+        }
       },
-      "id": "dfc05e41-b9b7-4cf6-9934-2c24633e0ef6",
-      "name": "Upload File1",
+      "id": "4c930ed9-76ef-49d5-a330-1ead7aa87634",
+      "name": "CreateTimesheetinSM",
       "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        1800,
-        1440
-      ],
-      "typeVersion": 4.2
+        2000,
+        1940
+      ]
     },
     {
       "parameters": {
-        "pollTimes": {
-          "item": [
-            {
-              "mode": "everyMinute"
-            }
-          ]
-        },
-        "triggerOn": "specificFolder",
-        "folderToWatch": {
+        "jsCode": "const text = items[0].json.text; // Assuming the text content is stored in the 'text' property of the first item\nconst lines = text.split('\\n'); // Split the text into lines for easier processing\n\n// Initialize object to store extracted data\nconst data = {\n  candidateName: '',\n  referenceNumber: '',\n  clientName: '',\n  dateEnding: '',\n  formattedDateEnding: '', // New attribute for the transformed date\n  location: '',\n  projectName: '', // Assume this is previously added or will be added\n  timeEntries: [],\n  signedBy: '',\n  signedAt: '',\n  ipAddresses: [],\n  documentId: '',\n  verificationDate: ''\n};\n\n// Improved extraction logic\ndata.candidateName = lines[6].match(/Candidate:\\s(.+?)\\sReference:/)?.[1] || \"Not available\";\ndata.referenceNumber = lines[6].match(/Reference:\\s(\\d+)/)?.[1] || \"Not available\";\n\n// Extract location and dateEnding with improved logic\nconst clientAndDateLine = lines.find(line => line.includes(\"Client:\"));\nif (clientAndDateLine) {\n    data.dateEnding = clientAndDateLine.match(/Date Ending:\\s([^]*)/)?.[1] || \"Not specified\";\n    data.clientName = clientAndDateLine.match(/Client:\\s(.+?)\\sDate Ending/)?.[1] || \"Not available\";\n}\n\nconst locationLine = lines.find(line => line.includes(\"Location:\"));\nif (locationLine) {\n    data.location = locationLine.split('Location: ')[1].trim();\n}\n\n// Convert dateEnding to DD/MM/YYYY format\nif (data.dateEnding !== \"Not specified\") {\n    const dateParts = data.dateEnding.split(' '); // Split \"21 Dec 2024\" into parts\n    const months = { Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06', Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12' };\n    const day = dateParts[0].padStart(2, '0'); // Ensure day is two digits\n    const month = months[dateParts[1]]; // Convert month name to month number\n    const year = dateParts[2];\n    data.formattedDateEnding = `${day}/${month}/${year}`; // Format to DD/MM/YYYY\n}\n\n// Extract signature and verification details\ndata.signedBy = text.match(/Signed by:\\s(.+?)\\sSigned at:/)?.[1] || \"Not available\";\ndata.signedAt = text.match(/Signed at:\\s(.+?),/)?.[1] || \"Not specified\";\ndata.ipAddresses = text.match(/IP Address:\\s([\\d.,\\s]+)/)?.[1].split(',').map(ip => ip.trim()) || [];\ndata.documentId = text.match(/Document ID:\\s([\\d\\s]+)/)?.[1].replace(/\\s+/g, '').trim() || \"Not available\";\ndata.verificationDate = text.match(/Date:\\s(\\d{2} \\w+ \\d{4})/)?.[1] || \"Not specified\";\n\n// Extract time entries and flatten them\nconst entryRegex = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\\s(\\d{1,2}\\s\\w+\\s\\d{4})\\s(\\d+\\.\\d+)\\s(\\d+\\.\\d+)$/;\nconst flattenedEntries = [];\nlines.forEach(line => {\n  const match = line.match(entryRegex);\n  if (match) {\n    flattenedEntries.push({\n      json: {\n        candidateName: data.candidateName,\n        referenceNumber: data.referenceNumber,\n        clientName: data.clientName,\n        dateEnding: data.dateEnding,\n        formattedDateEnding: data.formattedDateEnding, // Include new formatted date attribute\n        location: data.location,\n        day: match[1],\n        date: match[2],\n        hours: parseFloat(match[3]),\n        days: parseFloat(match[4]),\n        signedBy: data.signedBy,\n        signedAt: data.signedAt,\n        ipAddresses: data.ipAddresses,\n        documentId: data.documentId,\n        verificationDate: data.verificationDate\n      }\n    });\n  }\n});\n\nreturn flattenedEntries;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        1940
+      ],
+      "id": "cd288514-6ff9-49e3-8565-ed7db82ca54f",
+      "name": "ExtractData"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        1940
+      ],
+      "id": "d0014557-7d5f-4122-baac-a42c76cbe88a",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
           "__rl": true,
+          "value": "C07CD5PH1DJ",
           "mode": "list",
-          "value": "1IC39VXU8rewBU85offxYlBd9QlYzf8S7",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1IC39VXU8rewBU85offxYlBd9QlYzf8S7",
-          "cachedResultName": "Invoices"
+          "cachedResultName": "n8n-notifications"
         },
-        "event": "fileCreated",
+        "text": "=✅ New EE client time sheet - [{{ $execution.id }}] has been added to Smartsuite - workflows have been processed.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        2440,
+        1120
+      ],
+      "id": "dcc9f5c4-31ea-4a3c-9f94-95c285996622",
+      "name": "Slack1",
+      "webhookId": "ca2af7b6-d0ef-43dc-86d7-9daafd885ff9",
+      "credentials": {
+        "slackApi": {
+          "id": "yU7RxPAK1zAlbH23",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "channelMessage",
+        "teamId": {
+          "__rl": true,
+          "value": "ffe4fcdb-6aba-456e-b16c-78a24fb9a58c",
+          "mode": "list",
+          "cachedResultName": "Alerts and Incidents"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "19:ddca698179da493ab9d816b897bae335@thread.tacv2",
+          "mode": "list",
+          "cachedResultName": "n8n-timesheets-integration",
+          "cachedResultUrl": "https://teams.microsoft.com/l/channel/19%3Addca698179da493ab9d816b897bae335%40thread.tacv2/n8n-timesheets-integration?groupId=ffe4fcdb-6aba-456e-b16c-78a24fb9a58c&tenantId=dd377119-acad-4957-937d-4dc6af698a65&allowXTenantAccess=True&ngc=True"
+        },
+        "message": "✅ New EE client time sheet - [{{ $execution.id }}] has been added to Smartsuite - workflows have been processed.",
         "options": {}
       },
-      "id": "32093c52-e69b-437b-bae3-dde87915e76b",
-      "name": "Google Drive Trigger1",
-      "type": "n8n-nodes-base.googleDriveTrigger",
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
       "position": [
-        1360,
-        1440
+        2440,
+        1280
       ],
-      "typeVersion": 1,
+      "id": "4ce42ced-badd-49a1-b4c1-33d01731c5cb",
+      "name": "Microsoft Teams",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "gvOGMiIjuXJWv3fO",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "value": "0AO4pwPDytuLPUk9PVA",
+          "mode": "list",
+          "cachedResultName": "[7] JVWBSN",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/0AO4pwPDytuLPUk9PVA"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1DALw-ZOXZT5kFL3zqFqDZruGp5742o0n",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2240,
+        1180
+      ],
+      "id": "7d1fa9ac-16d7-4545-8a9b-6de9d84712d1",
+      "name": "Google Drive2",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "kr63xedjWH78ceBj",
@@ -563,59 +628,54 @@
     },
     {
       "parameters": {
-        "content": "## Scenario 3: Move Processed File\n\n",
-        "height": 400,
-        "width": 920
+        "method": "POST",
+        "url": "https://app.smartsuite.com/api/v1/applications/673f9850fd7f7757d7d8a304/records/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 1a0df485ce520ec8d8e999727c53c09ef809b097"
+            },
+            {
+              "name": "ACCOUNT-ID",
+              "value": "swexdc6g"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"{{ $json.date }} - {{ $json.referenceNumber }}\",\n  \"s88e7dacd4\": {\n    \"value\": \"ready_for_review\"\n  },\n  \"sc6358e22b\": \"{{ $json.candidateName }}\",\n  \"s6820339ba\": \"{{ $json.referenceNumber }}\",\n  \"s62a9aa083\": \"{{ $json.clientName }}\",\n  \"sd4cb9fc1a\": \"{{ $json.dateEnding }}\",\n  \"s46840c42e\": \"{{ $json.location }}\",\n  \"s6d6c84d0e\": \"{{ $json.day }}\",\n  \"s79ec764b0\": \"{{ $json.date }}\",\n  \"s648fe3550\": \"{{ $json.hours }}\",\n  \"s6085b7d41\": \"{{ $json.days }}\",\n  \"s20922dd4d\": \"{{ $json.signedBy }}\",\n  \"sf8ceb18d9\": \"{{ $json.signedAt }}\",\n  \"s81402a07c\": \"{{ $json.documentId }}\",\n  \"sc119cf5c1\": \"{{ $json.verificationDate }}\",\n  \"sf9f6aef7a\": \"{{ $('Download PDF').item.json.webViewLink }}\"\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 60000
+            }
+          }
+        }
       },
-      "id": "21de4eca-72b2-4597-889b-6c45137e6193",
-      "name": "Sticky Note8",
-      "type": "n8n-nodes-base.stickyNote",
+      "id": "03336038-4314-4100-a386-85850240c871",
+      "name": "CreateTimesheetinSM2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        1180,
-        1320
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "### Replace Google Drive connection",
-        "height": 80,
-        "width": 270,
-        "color": 3
-      },
-      "id": "5cc4ab89-ed14-4075-a676-f4e92cc34607",
-      "name": "Sticky Note10",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1380,
-        1620
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "### Replace API key in header",
-        "height": 80,
-        "width": 170,
-        "color": 3
-      },
-      "id": "668048b7-a2bf-4c9f-808a-3bf177369524",
-      "name": "Sticky Note11",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1760,
-        1620
-      ],
-      "typeVersion": 1
+        1940,
+        840
+      ]
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Google Drive Trigger": {
+      "lastTimeChecked": "2025-02-12T07:33:03Z"
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-02-10T21:19:18.000Z",
-  "versionId": "57fbd6b2-5201-4be2-89ce-63def634de9a"
+  "triggerCount": 2,
+  "updatedAt": "2025-02-12T07:33:02.000Z",
+  "versionId": "29e83061-6c46-4d66-af8f-346c2ed8748f"
 }
